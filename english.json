@@ -1,0 +1,146 @@
+{
+  "title": "اختبار تجريبي",
+  "description": "",
+  "settings": {
+    "shuffleQuestions": true,
+    "shuffleChoices": true
+  },
+  "passages": [
+    {
+      "id": "reading-motion",
+      "title": "قطعة قراءة: الحركة",
+      "content": "في الفيزياء نصف الحركة باستخدام كميات مثل الإزاحة والسرعة والتسارع. عندما تكون السرعة ثابتة يكون التسارع صفرًا، أما إذا تغيرت السرعة مقدارًا أو اتجاهًا فهناك تسارع. يساعد الرسم البياني للموقع والزمن على فهم نوع الحركة؛ فالميل يمثل السرعة المتجهة."
+    }
+  ],
+  "questions": [
+    {
+      "id": "q-single-1",
+      "type": "single",
+      "prompt": "ما وحدة قياس القوة في النظام الدولي؟",
+      "choices": [
+        { "id": "a", "text": "نيوتن" },
+        { "id": "b", "text": "جول" },
+        { "id": "c", "text": "واط" },
+        { "id": "d", "text": "باسكال" },
+        { "id": "e", "text": "كلفن" }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "q-multiple-1",
+      "type": "multiple",
+      "prompt": "اختر الكميات المتجهة من القائمة:",
+      "choices": [
+        { "id": "a", "text": "الكتلة" },
+        { "id": "b", "text": "الإزاحة" },
+        { "id": "c", "text": "القوة" },
+        { "id": "d", "text": "درجة الحرارة" },
+        { "id": "e", "text": "السرعة المتجهة" }
+      ],
+      "answer": ["b", "c", "e"]
+    },
+    {
+      "id": "q-true-false-1",
+      "type": "true_false",
+      "prompt": "إذا كانت السرعة ثابتة مقدارًا واتجاهًا فإن التسارع يساوي صفرًا.",
+      "answer": true
+    },
+    {
+      "id": "q-short-1",
+      "type": "short_answer",
+      "prompt": "اكتب اسم القانون الذي تمثله العلاقة \\(F = ma\\).",
+      "acceptedAnswers": ["قانون نيوتن الثاني", "نيوتن الثاني"]
+    },
+    {
+      "id": "q-numeric-1",
+      "type": "numeric",
+      "prompt": "إذا كانت الكتلة \\(m = 2\\,kg\\) والتسارع \\(a = 3\\,m/s^2\\)، احسب القوة \\(F\\).",
+      "answer": 6,
+      "tolerance": 0.1,
+      "unit": "N"
+    },
+    {
+      "id": "q-fill-1",
+      "type": "fill_blank",
+      "prompt": "أكمل العلاقة: السرعة المتوسطة = ______ ÷ ______.",
+      "blanks": [
+        {
+          "id": "b1",
+          "label": "البسط",
+          "acceptedAnswers": ["الإزاحة", "المسافة"]
+        },
+        {
+          "id": "b2",
+          "label": "المقام",
+          "acceptedAnswers": ["الزمن", "الوقت"]
+        }
+      ]
+    },
+    {
+      "id": "q-matching-1",
+      "type": "matching",
+      "prompt": "طابق الكمية الفيزيائية بوحدتها:",
+      "pairs": [
+        { "leftId": "force", "left": "القوة", "rightId": "newton", "right": "نيوتن" },
+        { "leftId": "energy", "left": "الطاقة", "rightId": "joule", "right": "جول" },
+        { "leftId": "power", "left": "القدرة", "rightId": "watt", "right": "واط" }
+      ]
+    },
+    {
+      "id": "q-ordering-1",
+      "type": "ordering",
+      "prompt": "رتب خطوات حل مسألة فيزيائية بسيطة:",
+      "items": [
+        { "id": "read", "text": "قراءة المعطيات والمطلوب" },
+        { "id": "law", "text": "اختيار القانون المناسب" },
+        { "id": "substitute", "text": "التعويض بالقيم" },
+        { "id": "unit", "text": "كتابة الناتج مع الوحدة" }
+      ],
+      "correctOrder": ["read", "law", "substitute", "unit"]
+    },
+    {
+      "id": "q-reading-1",
+      "type": "single",
+      "passageId": "reading-motion",
+      "prompt": "حسب القطعة: ماذا يمثل ميل منحنى الموقع والزمن؟",
+      "choices": [
+        { "id": "a", "text": "القوة" },
+        { "id": "b", "text": "السرعة المتجهة" },
+        { "id": "c", "text": "الكتلة" },
+        { "id": "d", "text": "الطاقة" }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "q-reading-2",
+      "type": "multiple",
+      "passageId": "reading-motion",
+      "prompt": "حسب القطعة: متى يوجد تسارع؟",
+      "choices": [
+        { "id": "a", "text": "عند تغير مقدار السرعة" },
+        { "id": "b", "text": "عند تغير اتجاه السرعة" },
+        { "id": "c", "text": "عند ثبات السرعة مقدارًا واتجاهًا" },
+        { "id": "d", "text": "عند غياب الحركة تمامًا" }
+      ],
+      "answer": ["a", "b"]
+    },
+    {
+      "id": "q-essay-1",
+      "type": "essay",
+      "prompt": "اشرح باختصار لماذا نهتم بكتابة الوحدة بعد الناتج النهائي.",
+      "points": 0
+    },
+    {
+      "id": "q-english-1",
+      "type": "single",
+      "prompt": "Which SI unit is used to measure electric current?",
+      "choices": [
+        { "id": "a", "text": "Ampere" },
+        { "id": "b", "text": "Volt" },
+        { "id": "c", "text": "Ohm" },
+        { "id": "d", "text": "Joule" }
+      ],
+      "answer": "a"
+    }
+  ]
+}

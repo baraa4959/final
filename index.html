@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>مراجعات النهائي</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f7f8fa;
+        --surface: #ffffff;
+        --surface-soft: #eef3f2;
+        --text: #111827;
+        --muted: #617080;
+        --border: #d8dee6;
+        --accent: #117865;
+        --accent-strong: #0b5c4d;
+        --accent-soft: #dff3ef;
+        --danger: #b42318;
+        --danger-soft: #fee4e2;
+        --warning: #b54708;
+        --warning-soft: #fff1d6;
+        --info: #175cd3;
+        --info-soft: #e0edff;
+        --shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
+      }
+
+      :root[data-theme="dark"] {
+        color-scheme: dark;
+        --bg: #101214;
+        --surface: #171a1d;
+        --surface-soft: #20262a;
+        --text: #eef2f6;
+        --muted: #a7b0ba;
+        --border: #343a40;
+        --accent: #5bd6bd;
+        --accent-strong: #81ead4;
+        --accent-soft: #163d36;
+        --danger: #ff9188;
+        --danger-soft: #3d1d1b;
+        --warning: #ffca73;
+        --warning-soft: #3d2d16;
+        --info: #8cb7ff;
+        --info-soft: #1a2d4f;
+        --shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root[data-theme="auto"] {
+          color-scheme: dark;
+          --bg: #101214;
+          --surface: #171a1d;
+          --surface-soft: #20262a;
+          --text: #eef2f6;
+          --muted: #a7b0ba;
+          --border: #343a40;
+          --accent: #5bd6bd;
+          --accent-strong: #81ead4;
+          --accent-soft: #163d36;
+          --danger: #ff9188;
+          --danger-soft: #3d1d1b;
+          --warning: #ffca73;
+          --warning-soft: #3d2d16;
+          --info: #8cb7ff;
+          --info-soft: #1a2d4f;
+          --shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          linear-gradient(180deg, rgba(17, 120, 101, 0.08), transparent 260px),
+          var(--bg);
+        color: var(--text);
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        letter-spacing: 0;
+      }
+
+      button,
+      select {
+        font: inherit;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      button:disabled,
+      a[aria-disabled="true"] {
+        cursor: not-allowed;
+        opacity: 0.62;
+      }
+
+      .app {
+        width: min(980px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 24px 0 42px;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 20px;
+      }
+
+      .eyebrow {
+        margin: 0 0 6px;
+        color: var(--accent);
+        font-size: 0.9rem;
+        font-weight: 750;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        margin-bottom: 0;
+        font-size: clamp(1.65rem, 4vw, 2.5rem);
+        line-height: 1.15;
+      }
+
+      h2 {
+        font-size: 1.08rem;
+        margin-bottom: 14px;
+      }
+
+      h3 {
+        font-size: 1rem;
+        line-height: 1.55;
+        margin-bottom: 8px;
+      }
+
+      .subtitle {
+        color: var(--muted);
+        margin: 8px 0 0;
+        max-width: 70ch;
+        line-height: 1.7;
+      }
+
+      .theme-control {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--muted);
+        font-size: 0.85rem;
+        white-space: nowrap;
+      }
+
+      .theme-select {
+        min-height: 34px;
+        min-width: 96px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface);
+        color: var(--text);
+        padding: 6px 8px;
+        outline: none;
+      }
+
+      .theme-select:focus,
+      .subject-button:focus,
+      .resource-button:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 24%, transparent);
+        outline: none;
+      }
+
+      .section {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        padding: 18px;
+      }
+
+      .stack {
+        display: grid;
+        gap: 16px;
+      }
+
+      .schedule-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .exam-card {
+        min-height: 122px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface-soft);
+        padding: 12px;
+        display: grid;
+        align-content: space-between;
+        gap: 10px;
+      }
+
+      .date-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      .date-main {
+        font-size: 1.8rem;
+        font-weight: 900;
+        line-height: 1;
+        visibility: hidden;
+      }
+
+      .date-sub {
+        display: grid;
+        gap: 3px;
+        text-align: end;
+        color: var(--muted);
+        font-weight: 800;
+        font-size: 0.78rem;
+        line-height: 1.45;
+      }
+
+      .countdown {
+        width: fit-content;
+        border-radius: 999px;
+        background: var(--info-soft);
+        color: var(--info);
+        padding: 4px 9px;
+        font-size: 0.78rem;
+        font-weight: 850;
+      }
+
+      .exam-name {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0;
+        color: var(--text);
+        font-weight: 850;
+        line-height: 1.6;
+      }
+
+      .exam-name::before {
+        content: "";
+        width: 7px;
+        height: 24px;
+        border-radius: 999px;
+        background: var(--info);
+        flex: 0 0 auto;
+      }
+
+      .holiday {
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+      }
+
+      .holiday .exam-name::before {
+        background: var(--accent);
+      }
+
+      .subjects-layout {
+        display: grid;
+        grid-template-columns: minmax(220px, 0.42fr) minmax(0, 1fr);
+        gap: 14px;
+      }
+
+      .subject-list {
+        display: grid;
+        gap: 10px;
+      }
+
+      .subject-button {
+        width: 100%;
+        min-height: 54px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface-soft);
+        color: var(--text);
+        padding: 12px;
+        text-align: start;
+        font-weight: 850;
+      }
+
+      .subject-button.active {
+        border-color: var(--accent);
+        background: var(--accent-soft);
+        color: var(--accent-strong);
+      }
+
+      .subject-panel {
+        min-height: 280px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface-soft);
+        padding: 16px;
+      }
+
+      .resource-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .resource-button {
+        min-height: 76px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface);
+        color: var(--text);
+        padding: 12px;
+        display: grid;
+        align-content: center;
+        justify-items: center;
+        gap: 5px;
+        text-align: center;
+        text-decoration: none;
+        font-weight: 850;
+      }
+
+      .resource-button.available:hover {
+        border-color: var(--accent);
+        background: var(--accent-soft);
+        color: var(--accent-strong);
+      }
+
+      .resource-button.soon {
+        color: var(--warning);
+        background: var(--warning-soft);
+      }
+
+      .resource-status {
+        color: var(--muted);
+        font-size: 0.86rem;
+        font-weight: 750;
+        text-align: center;
+      }
+
+      .quote-card {
+        border: 1px solid color-mix(in srgb, var(--accent) 42%, var(--border));
+        border-radius: 8px;
+        background: var(--accent-soft);
+        padding: 18px;
+      }
+
+      .quote-text {
+        margin: 0;
+        color: var(--text);
+        font-size: 1.05rem;
+        font-weight: 800;
+        line-height: 1.9;
+        text-align: center;
+        white-space: pre-line;
+      }
+
+      .notice {
+        border: 1px solid color-mix(in srgb, var(--warning) 45%, var(--border));
+        border-radius: 8px;
+        background: var(--warning-soft);
+        color: var(--text);
+        padding: 12px 14px;
+        line-height: 1.7;
+      }
+
+      @media (max-width: 820px) {
+        .app {
+          width: min(100% - 24px, 980px);
+          padding-top: 16px;
+        }
+
+        .topbar {
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+
+        .theme-control,
+        .theme-select {
+          width: 100%;
+        }
+
+        .schedule-grid,
+        .subjects-layout,
+        .resource-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .subject-panel {
+          min-height: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">ثالث ثانوي - الفصل الدراسي الثاني</p>
+          <h1 id="page-title">مراجعات النهائي</h1>
+          <p class="subtitle" id="page-description"></p>
+        </div>
+        <label class="theme-control" for="theme-mode">
+          <span>وضع العرض</span>
+          <select id="theme-mode" class="theme-select" aria-label="وضع العرض">
+            <option value="auto">تلقائي</option>
+            <option value="light">نهاري</option>
+            <option value="dark">ليلي</option>
+          </select>
+        </label>
+      </header>
+
+      <div id="load-error" class="notice" hidden></div>
+
+      <div class="stack">
+        <section class="section" aria-labelledby="schedule-title">
+          <h2 id="schedule-title">جدول الاختبارات</h2>
+          <div id="schedule-grid" class="schedule-grid"></div>
+        </section>
+
+        <section class="section" aria-labelledby="materials-title">
+          <h2 id="materials-title">المواد</h2>
+          <div class="subjects-layout">
+            <nav
+              id="subject-list"
+              class="subject-list"
+              aria-label="قائمة المواد"
+            ></nav>
+            <article id="subject-panel" class="subject-panel"></article>
+          </div>
+        </section>
+
+        <section class="quote-card" aria-label="فضل العلم">
+          <p id="quote-text" class="quote-text"></p>
+        </section>
+      </div>
+    </main>
+
+    <script>
+      const THEME_KEY = "materials-theme";
+
+      const els = {
+        html: document.documentElement,
+        pageTitle: document.getElementById("page-title"),
+        pageDescription: document.getElementById("page-description"),
+        themeMode: document.getElementById("theme-mode"),
+        loadError: document.getElementById("load-error"),
+        scheduleGrid: document.getElementById("schedule-grid"),
+        subjectList: document.getElementById("subject-list"),
+        subjectPanel: document.getElementById("subject-panel"),
+        quoteText: document.getElementById("quote-text"),
+      };
+
+      let pageData = null;
+      let activeSubjectId = "";
+
+      init();
+
+      function init() {
+        applyTheme(localStorage.getItem(THEME_KEY) || "auto");
+        els.themeMode.addEventListener("change", () =>
+          applyTheme(els.themeMode.value),
+        );
+        loadMaterials();
+      }
+
+      function applyTheme(mode) {
+        const theme = ["auto", "light", "dark"].includes(mode) ? mode : "auto";
+        els.html.dataset.theme = theme;
+        els.themeMode.value = theme;
+        localStorage.setItem(THEME_KEY, theme);
+      }
+
+      async function loadMaterials() {
+        try {
+          const response = await fetch("materials.json", { cache: "no-store" });
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          pageData = await response.json();
+          renderPage();
+        } catch (error) {
+          els.loadError.hidden = false;
+          els.loadError.textContent =
+            "تعذر تحميل materials.json. تأكد أن الملف موجود وأن الصفحة تعمل عبر السيرفر المحلي.";
+        }
+      }
+
+      function renderPage() {
+        els.pageTitle.textContent = pageData.title || "مراجعات النهائي";
+        document.title = pageData.title || "مراجعات النهائي";
+        const description = pageData.description || "";
+        els.pageDescription.textContent = description;
+        els.pageDescription.hidden = !description;
+        const subjects = sortedSubjects();
+        activeSubjectId = subjects[0]?.id || "";
+        renderSchedule();
+        renderSubjects(subjects);
+        renderQuote();
+      }
+
+      function renderSchedule() {
+        const cards = sortedExams().map(exam => {
+          const card = document.createElement("article");
+          card.className =
+            exam.type === "holiday" ? "exam-card holiday" : "exam-card";
+
+          const dateRow = document.createElement("div");
+          dateRow.className = "date-row";
+          const day = document.createElement("span");
+          day.className = "date-main";
+          day.textContent = examDay(exam.date) || exam.day || "";
+          const labels = document.createElement("span");
+          labels.className = "date-sub";
+          const gregorian = document.createElement("span");
+          gregorian.textContent = exam.gregorian || "";
+          const hijri = document.createElement("span");
+          hijri.textContent = exam.hijri || "";
+          labels.append(gregorian, hijri);
+          dateRow.append(day, labels);
+
+          const title = document.createElement("p");
+          title.className = "exam-name";
+          title.textContent = exam.title || "";
+
+          const remaining = daysUntil(exam.date);
+          const countdown = document.createElement("span");
+          countdown.className = "countdown";
+          countdown.textContent = formatCountdown(remaining);
+
+          card.append(dateRow, title);
+          if (remaining > 0) card.append(countdown);
+          return card;
+        });
+        els.scheduleGrid.replaceChildren(...cards);
+      }
+
+      function renderSubjects(subjectList = sortedSubjects()) {
+        const subjects = subjectList;
+        const buttons = subjects.map(subject => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "subject-button";
+          button.classList.toggle("active", subject.id === activeSubjectId);
+          button.textContent = subject.name;
+          button.addEventListener("click", () => {
+            activeSubjectId = subject.id;
+            renderSubjects(subjects);
+          });
+          return button;
+        });
+        els.subjectList.replaceChildren(...buttons);
+
+        const active =
+          subjects.find(subject => subject.id === activeSubjectId) ||
+          subjects[0];
+        renderSubjectPanel(active);
+      }
+
+      function renderSubjectPanel(subject) {
+        if (!subject) {
+          els.subjectPanel.textContent = "";
+          return;
+        }
+
+        const title = document.createElement("h3");
+        title.textContent = subject.name;
+        const grid = document.createElement("div");
+        grid.className = "resource-grid";
+        const resources = resourceOrder()
+          .map(key => resourceNode(subject.resources?.[key], key))
+          .filter(Boolean);
+        grid.replaceChildren(...resources);
+
+        els.subjectPanel.replaceChildren(title, grid);
+      }
+
+      function resourceOrder() {
+        return ["reviewUnsolved", "reviewSolved", "quiz", "lesson"];
+      }
+
+      function resourceNode(resource, key) {
+        const fallbackLabels = {
+          reviewUnsolved: "ملف مراجعة غير محلول",
+          reviewSolved: "ملف مراجعة محلول",
+          quiz: "اختبار إلكتروني للملف",
+          lesson: "شرح للملف",
+        };
+        const status = resource?.status || "soon";
+        if (status === "disabled") return null;
+        const label = resource?.label || fallbackLabels[key] || "رابط";
+        const url = resource?.url || "";
+        const isAvailable = status === "available" && url;
+        const node = document.createElement(isAvailable ? "a" : "button");
+        node.className = `resource-button ${isAvailable ? "available" : status}`;
+        node.textContent = label;
+
+        if (!isAvailable) {
+          const statusLine = document.createElement("span");
+          statusLine.className = "resource-status";
+          statusLine.textContent = "قريبًا";
+          node.append(statusLine);
+        }
+
+        if (isAvailable) {
+          node.href = url;
+          node.target = "_blank";
+          node.rel = "noopener";
+        } else {
+          node.type = "button";
+          node.disabled = true;
+          node.setAttribute("aria-disabled", "true");
+        }
+        return node;
+      }
+
+      function sortedExams() {
+        return [...(pageData.exams || [])].sort(
+          (a, b) => examDateValue(a.date) - examDateValue(b.date),
+        );
+      }
+
+      function sortedSubjects() {
+        return [...(pageData.subjects || [])].sort(
+          (a, b) => subjectDateValue(a.id) - subjectDateValue(b.id),
+        );
+      }
+
+      function subjectDateValue(subjectId) {
+        const exam = (pageData.exams || []).find(
+          item => item.subjectId === subjectId,
+        );
+        return examDateValue(exam?.date);
+      }
+
+      function examDateValue(date) {
+        if (!date) return Number.MAX_SAFE_INTEGER;
+        const parsed = parseIsoDate(date);
+        return parsed ? parsed.getTime() : Number.MAX_SAFE_INTEGER;
+      }
+
+      function examDay(date) {
+        const parsed = parseIsoDate(date);
+        return parsed ? String(parsed.getDate()) : "";
+      }
+
+      function parseIsoDate(date) {
+        const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(date || "");
+        if (!match) return null;
+        return new Date(
+          Number(match[1]),
+          Number(match[2]) - 1,
+          Number(match[3]),
+        );
+      }
+
+      function daysUntil(date) {
+        const examDate = parseIsoDate(date);
+        if (!examDate) return 0;
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        return Math.round((examDate.getTime() - today.getTime()) / 86400000);
+      }
+
+      function formatCountdown(days) {
+        if (days === 1) return "باقي يوم واحد";
+        if (days === 2) return "باقي يومان";
+        return `باقي ${days} أيام`;
+      }
+
+      function renderQuote() {
+        const quotes = pageData.quotes || [];
+        const quote = quotes[Math.floor(Math.random() * quotes.length)];
+        if (!quote) return;
+        els.quoteText.textContent = quote.text || "";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,162 @@
+{
+  "title": "مراجعات النهائي",
+  "description": "",
+  "exams": [
+    {
+      "date": "2026-06-21",
+      "gregorian": "21 يونيو 2026",
+      "hijri": "5 محرم 1448 هـ",
+      "title": "اختبار: الرياضيات",
+      "type": "exam",
+      "subjectId": "math"
+    },
+    {
+      "date": "2026-06-22",
+      "gregorian": "22 يونيو 2026",
+      "hijri": "6 محرم 1448 هـ",
+      "title": "اختبار: اللغة الإنجليزية",
+      "type": "exam",
+      "subjectId": "english"
+    },
+    {
+      "date": "2026-06-23",
+      "gregorian": "23 يونيو 2026",
+      "hijri": "7 محرم 1448 هـ",
+      "title": "اختبار: علم الأرض",
+      "type": "exam",
+      "subjectId": "earth-science"
+    },
+    {
+      "date": "2026-06-24",
+      "gregorian": "24 يونيو 2026",
+      "hijri": "8 محرم 1448 هـ",
+      "title": "اختبار: الفيزياء",
+      "type": "exam",
+      "subjectId": "physics"
+    }
+  ],
+  "subjects": [
+    {
+      "id": "math",
+      "name": "الرياضيات",
+      "resources": {
+        "reviewUnsolved": {
+          "label": "ملف مراجعة غير محلول",
+          "status": "soon",
+          "url": ""
+        },
+        "reviewSolved": {
+          "label": "ملف مراجعة محلول",
+          "status": "soon",
+          "url": ""
+        },
+        "quiz": {
+          "label": "اختبار إلكتروني للملف",
+          "status": "soon",
+          "url": "math.html"
+        },
+        "lesson": {
+          "label": "شرح للملف",
+          "status": "disabled",
+          "url": ""
+        }
+      }
+    },
+    {
+      "id": "english",
+      "name": "اللغة الإنجليزية",
+      "resources": {
+        "reviewUnsolved": {
+          "label": "ملف مراجعة غير محلول",
+          "status": "soon",
+          "url": ""
+        },
+        "reviewSolved": {
+          "label": "ملف مراجعة محلول",
+          "status": "soon",
+          "url": ""
+        },
+        "quiz": {
+          "label": "اختبار إلكتروني للملف",
+          "status": "soon",
+          "url": "english.html"
+        },
+        "lesson": {
+          "label": "شرح للملف",
+          "status": "disabled",
+          "url": ""
+        }
+      }
+    },
+    {
+      "id": "earth-science",
+      "name": "علم الأرض",
+      "resources": {
+        "reviewUnsolved": {
+          "label": "ملف مراجعة غير محلول",
+          "status": "soon",
+          "url": ""
+        },
+        "reviewSolved": {
+          "label": "ملف مراجعة محلول",
+          "status": "soon",
+          "url": ""
+        },
+        "quiz": {
+          "label": "اختبار إلكتروني للملف",
+          "status": "soon",
+          "url": "earth.html"
+        },
+        "lesson": {
+          "label": "شرح للملف",
+          "status": "disabled",
+          "url": ""
+        }
+      }
+    },
+    {
+      "id": "physics",
+      "name": "الفيزياء",
+      "resources": {
+        "reviewUnsolved": {
+          "label": "ملف مراجعة غير محلول",
+          "status": "soon",
+          "url": ""
+        },
+        "reviewSolved": {
+          "label": "ملف مراجعة محلول",
+          "status": "available",
+          "url": "https://drive.google.com/file/d/1t64jFzeXPsmEAHxlSmoLKkO629zEywwI/view?usp=sharing"
+        },
+        "quiz": {
+          "label": "اختبار إلكتروني للملف",
+          "status": "available",
+          "url": "physics.html"
+        },
+        "lesson": {
+          "label": "شرح للملف",
+          "status": "disabled",
+          "url": ""
+        }
+      }
+    }
+  ],
+  "quotes": [
+    {
+      "type": "ayah",
+      "text": "يرفع الله الذين آمنوا منكم والذين أوتوا العلم درجات"
+    },
+    {
+      "type": "ayah",
+      "text": "وقل رب زدني علمًا"
+    },
+    {
+      "type": "hadith",
+      "text": "من سلك طريقًا يلتمس فيه علمًا سهل الله له به طريقًا إلى الجنة"
+    },
+    {
+      "type": "poetry",
+      "text": "العلم يرفع بيتًا لا عماد له\nوالجهل يهدم بيت العز والشرف"
+    }
+  ]
+}

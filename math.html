@@ -1,0 +1,2863 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>اختبار إلكتروني</title>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [
+            ["\\(", "\\)"],
+            ["$", "$"],
+          ],
+          displayMath: [
+            ["\\[", "\\]"],
+            ["$$", "$$"],
+          ],
+        },
+        options: {
+          skipHtmlTags: [
+            "script",
+            "noscript",
+            "style",
+            "textarea",
+            "pre",
+            "code",
+          ],
+        },
+      };
+    </script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
+    ></script>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f7f8fa;
+        --surface: #ffffff;
+        --surface-soft: #eef3f2;
+        --text: #111827;
+        --muted: #617080;
+        --border: #d8dee6;
+        --accent: #117865;
+        --accent-strong: #0b5c4d;
+        --accent-soft: #dff3ef;
+        --danger: #b42318;
+        --danger-soft: #fee4e2;
+        --warning: #b54708;
+        --warning-soft: #fff1d6;
+        --info: #175cd3;
+        --info-soft: #e0edff;
+        --shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
+      }
+
+      :root[data-theme="dark"] {
+        color-scheme: dark;
+        --bg: #101214;
+        --surface: #171a1d;
+        --surface-soft: #20262a;
+        --text: #eef2f6;
+        --muted: #a7b0ba;
+        --border: #343a40;
+        --accent: #5bd6bd;
+        --accent-strong: #81ead4;
+        --accent-soft: #163d36;
+        --danger: #ff9188;
+        --danger-soft: #3d1d1b;
+        --warning: #ffca73;
+        --warning-soft: #3d2d16;
+        --info: #8cb7ff;
+        --info-soft: #1a2d4f;
+        --shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root[data-theme="auto"] {
+          color-scheme: dark;
+          --bg: #101214;
+          --surface: #171a1d;
+          --surface-soft: #20262a;
+          --text: #eef2f6;
+          --muted: #a7b0ba;
+          --border: #343a40;
+          --accent: #5bd6bd;
+          --accent-strong: #81ead4;
+          --accent-soft: #163d36;
+          --danger: #ff9188;
+          --danger-soft: #3d1d1b;
+          --warning: #ffca73;
+          --warning-soft: #3d2d16;
+          --info: #8cb7ff;
+          --info-soft: #1a2d4f;
+          --shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          linear-gradient(180deg, rgba(17, 120, 101, 0.08), transparent 260px),
+          var(--bg);
+        color: var(--text);
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        letter-spacing: 0;
+      }
+
+      button,
+      input,
+      select,
+      textarea {
+        font: inherit;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      button:disabled {
+        cursor: not-allowed;
+        opacity: 0.55;
+      }
+
+      .app {
+        width: min(980px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 24px 0 42px;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 20px;
+      }
+
+      .eyebrow {
+        margin: 0 0 6px;
+        color: var(--accent);
+        font-size: 0.9rem;
+        font-weight: 750;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        margin-bottom: 0;
+        font-size: clamp(1.65rem, 4vw, 2.5rem);
+        line-height: 1.15;
+      }
+
+      h2 {
+        font-size: 1.08rem;
+        margin-bottom: 14px;
+      }
+
+      h3 {
+        font-size: 1rem;
+        line-height: 1.55;
+        margin-bottom: 10px;
+      }
+
+      .subtitle {
+        color: var(--muted);
+        margin: 8px 0 0;
+        max-width: 70ch;
+        line-height: 1.7;
+      }
+
+      .theme-control {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--muted);
+        font-size: 0.85rem;
+        white-space: nowrap;
+      }
+
+      .theme-select {
+        min-height: 34px;
+        min-width: 96px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface);
+        color: var(--text);
+        padding: 6px 8px;
+        outline: none;
+      }
+
+      .select,
+      .input,
+      .textarea {
+        width: 100%;
+        min-height: 44px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface);
+        color: var(--text);
+        padding: 10px 12px;
+        outline: none;
+      }
+
+      .textarea {
+        min-height: 104px;
+        resize: vertical;
+        line-height: 1.7;
+      }
+
+      .select:focus,
+      .input:focus,
+      .textarea:focus,
+      .theme-select:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 24%, transparent);
+      }
+
+      .button {
+        min-height: 44px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 10px 14px;
+        background: var(--surface);
+        color: var(--text);
+        font-weight: 750;
+      }
+
+      .button.primary {
+        border-color: var(--accent);
+        background: var(--accent);
+        color: #ffffff;
+      }
+
+      :root[data-theme="dark"] .button.primary {
+        color: #10201c;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root[data-theme="auto"] .button.primary {
+          color: #10201c;
+        }
+      }
+
+      .button.danger {
+        border-color: color-mix(in srgb, var(--danger) 42%, var(--border));
+        color: var(--danger);
+      }
+
+      .button.small {
+        min-height: 36px;
+        padding: 7px 10px;
+        font-size: 0.88rem;
+      }
+
+      .button.active,
+      .preset.active {
+        border-color: var(--accent);
+        background: var(--accent-soft);
+        color: var(--accent-strong);
+      }
+
+      .view[hidden],
+      [hidden] {
+        display: none !important;
+      }
+
+      .section {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        padding: 18px;
+      }
+
+      .setup-grid {
+        display: grid;
+        gap: 16px;
+      }
+
+      .controls-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        margin-bottom: 14px;
+      }
+
+      .field {
+        display: grid;
+        gap: 7px;
+        min-width: 0;
+      }
+
+      .field label,
+      .check span,
+      .field-title {
+        color: var(--muted);
+        font-size: 0.92rem;
+        font-weight: 700;
+      }
+
+      .preset-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .preset {
+        min-height: 38px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 7px 11px;
+        background: var(--surface);
+        color: var(--text);
+        font-weight: 750;
+      }
+
+      .custom-panel {
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface-soft);
+        padding: 12px;
+        margin-top: 12px;
+      }
+
+      .checks {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        margin: 14px 0;
+      }
+
+      .check {
+        min-height: 46px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 10px 12px;
+        background: var(--surface-soft);
+      }
+
+      .check input {
+        width: 18px;
+        height: 18px;
+        accent-color: var(--accent);
+      }
+
+      .action-row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-top: 14px;
+      }
+
+      .load-status {
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.6;
+        margin: 10px 0 0;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .metric {
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 12px;
+        background: var(--surface-soft);
+        min-height: 76px;
+      }
+
+      .metric .value {
+        display: block;
+        font-size: 1.35rem;
+        font-weight: 850;
+        line-height: 1.1;
+        margin-bottom: 4px;
+      }
+
+      .metric .label {
+        color: var(--muted);
+        font-size: 0.88rem;
+        line-height: 1.5;
+      }
+
+      .history {
+        margin-top: 16px;
+      }
+
+      .history-list {
+        display: grid;
+        gap: 0;
+      }
+
+      .history-item {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 12px;
+        align-items: center;
+        padding: 14px 0;
+        border-top: 1px solid var(--border);
+      }
+
+      .history-item:first-child {
+        border-top: 0;
+        padding-top: 0;
+      }
+
+      .history-title {
+        font-weight: 850;
+        margin-bottom: 4px;
+      }
+
+      .history-meta {
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+
+      .history-actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .notice {
+        border: 1px solid color-mix(in srgb, var(--warning) 45%, var(--border));
+        border-radius: 8px;
+        background: var(--warning-soft);
+        color: var(--text);
+        padding: 12px 14px;
+        line-height: 1.7;
+        margin-bottom: 16px;
+      }
+
+      .notice-actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+      }
+
+      .quiz-shell {
+        display: grid;
+        gap: 14px;
+      }
+
+      .quiz-status {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 14px;
+        align-items: center;
+      }
+
+      .progress-wrap {
+        display: grid;
+        gap: 8px;
+      }
+
+      .progress-meta {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        flex-wrap: wrap;
+        color: var(--muted);
+        font-size: 0.93rem;
+        font-weight: 750;
+      }
+
+      progress {
+        width: 100%;
+        height: 10px;
+        border: 0;
+        border-radius: 999px;
+        overflow: hidden;
+        background: var(--surface-soft);
+      }
+
+      progress::-webkit-progress-bar {
+        background: var(--surface-soft);
+      }
+
+      progress::-webkit-progress-value {
+        background: var(--accent);
+      }
+
+      progress::-moz-progress-bar {
+        background: var(--accent);
+      }
+
+      .timer {
+        min-width: 126px;
+        text-align: center;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 10px 12px;
+        background: var(--surface);
+        font-weight: 900;
+        direction: ltr;
+      }
+
+      .timer.low {
+        color: var(--danger);
+        background: var(--danger-soft);
+        border-color: color-mix(in srgb, var(--danger) 42%, var(--border));
+      }
+
+      .question-panel {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        padding: 20px;
+      }
+
+      .passage {
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface-soft);
+        padding: 14px;
+        margin-bottom: 16px;
+      }
+
+      .passage h2 {
+        margin-bottom: 8px;
+      }
+
+      .passage-content,
+      .question-prompt,
+      .review-text {
+        white-space: pre-line;
+        line-height: 1.85;
+      }
+
+      .question-prompt {
+        font-size: 1.08rem;
+        font-weight: 800;
+        margin-bottom: 16px;
+      }
+
+      .answer-area {
+        display: grid;
+        gap: 10px;
+      }
+
+      .option {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 10px;
+        align-items: start;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 12px;
+        background: var(--surface);
+        min-height: 50px;
+      }
+
+      .option:hover,
+      .option:has(input:checked) {
+        border-color: var(--accent);
+        background: var(--accent-soft);
+      }
+
+      .option.locked {
+        cursor: default;
+      }
+
+      .option input {
+        margin-top: 4px;
+        accent-color: var(--accent);
+      }
+
+      .answer-text {
+        line-height: 1.7;
+        min-width: 0;
+        overflow-wrap: anywhere;
+      }
+
+      .matching-row,
+      .blank-row,
+      .order-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(190px, 0.9fr);
+        gap: 10px;
+        align-items: center;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 10px;
+        background: var(--surface);
+      }
+
+      .order-row {
+        grid-template-columns: auto minmax(0, 1fr) auto;
+      }
+
+      .order-index {
+        width: 32px;
+        height: 32px;
+        display: grid;
+        place-items: center;
+        border-radius: 8px;
+        background: var(--surface-soft);
+        color: var(--muted);
+        font-weight: 850;
+      }
+
+      .order-actions {
+        display: flex;
+        gap: 6px;
+      }
+
+      .icon-button {
+        width: 36px;
+        height: 36px;
+        display: grid;
+        place-items: center;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface-soft);
+        color: var(--text);
+        font-weight: 900;
+      }
+
+      .answer-feedback {
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 12px;
+        margin-top: 14px;
+        line-height: 1.7;
+        background: var(--surface-soft);
+        font-weight: 750;
+      }
+
+      .answer-feedback.correct {
+        border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+        background: var(--accent-soft);
+        color: var(--accent-strong);
+      }
+
+      .answer-feedback.incorrect,
+      .answer-feedback.unanswered {
+        border-color: color-mix(in srgb, var(--danger) 45%, var(--border));
+        background: var(--danger-soft);
+        color: var(--danger);
+      }
+
+      .answer-feedback.partial {
+        border-color: color-mix(in srgb, var(--warning) 45%, var(--border));
+        background: var(--warning-soft);
+        color: var(--warning);
+      }
+
+      .answer-feedback.ungraded {
+        border-color: color-mix(in srgb, var(--info) 45%, var(--border));
+        background: var(--info-soft);
+        color: var(--info);
+      }
+
+      .nav-row {
+        display: grid;
+        grid-template-columns: auto auto minmax(0, 1fr) auto;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .question-dots {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 8px 0;
+      }
+
+      .dot {
+        width: 38px;
+        height: 38px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface);
+        color: var(--text);
+        font-weight: 800;
+      }
+
+      .dot.current {
+        border-color: var(--accent);
+        box-shadow: inset 0 0 0 2px var(--accent);
+      }
+
+      .dot.answered {
+        background: var(--accent-soft);
+        border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+      }
+
+      .dot.locked {
+        color: var(--accent-strong);
+        font-weight: 950;
+      }
+
+      .result-head {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 16px;
+        align-items: start;
+        margin-bottom: 16px;
+      }
+
+      .score {
+        font-size: clamp(2.4rem, 8vw, 4.8rem);
+        line-height: 1;
+        margin: 0;
+        font-weight: 950;
+        color: var(--accent);
+        direction: ltr;
+        text-align: left;
+      }
+
+      .result-actions,
+      .review-toolbar {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        align-items: center;
+      }
+
+      .review-toolbar {
+        justify-content: space-between;
+        margin-bottom: 14px;
+      }
+
+      .filter-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .review-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .review-item {
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 14px;
+        background: var(--surface);
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        border-radius: 999px;
+        padding: 4px 10px;
+        font-size: 0.82rem;
+        font-weight: 850;
+        background: var(--surface-soft);
+        color: var(--muted);
+        margin: 0 0 10px 6px;
+      }
+
+      .badge.correct {
+        color: var(--accent-strong);
+        background: var(--accent-soft);
+      }
+
+      .badge.incorrect,
+      .badge.unanswered {
+        color: var(--danger);
+        background: var(--danger-soft);
+      }
+
+      .badge.partial {
+        color: var(--warning);
+        background: var(--warning-soft);
+      }
+
+      .badge.ungraded {
+        color: var(--info);
+        background: var(--info-soft);
+      }
+
+      .review-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .review-box {
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 10px;
+        background: var(--surface-soft);
+        min-width: 0;
+      }
+
+      .review-label {
+        display: block;
+        color: var(--muted);
+        font-size: 0.84rem;
+        font-weight: 800;
+        margin-bottom: 5px;
+      }
+
+      .choice-review {
+        display: grid;
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      .choice-review-item {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 8px;
+        align-items: center;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 10px;
+        background: var(--surface-soft);
+      }
+
+      .choice-review-item.selected {
+        border-color: color-mix(in srgb, var(--info) 45%, var(--border));
+        background: var(--info-soft);
+      }
+
+      .choice-review-item.correct {
+        border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+        background: var(--accent-soft);
+      }
+
+      .choice-review-item.wrong-selected {
+        border-color: color-mix(in srgb, var(--danger) 45%, var(--border));
+        background: var(--danger-soft);
+      }
+
+      .choice-mark {
+        color: var(--muted);
+        font-size: 0.82rem;
+        font-weight: 850;
+        white-space: nowrap;
+      }
+
+      .empty {
+        color: var(--muted);
+        line-height: 1.7;
+        margin: 0;
+      }
+
+      #print-area {
+        height: auto;
+        inset-block-start: 0;
+        inset-inline-start: -10000px;
+        overflow: visible;
+        pointer-events: none;
+        position: fixed;
+        visibility: hidden;
+        width: 800px;
+      }
+
+      @media (max-width: 820px) {
+        .app {
+          width: min(100% - 24px, 980px);
+          padding-top: 16px;
+        }
+
+        .topbar,
+        .quiz-status,
+        .result-head,
+        .review-toolbar {
+          grid-template-columns: 1fr;
+          display: grid;
+        }
+
+        .theme-control,
+        .result-actions,
+        .action-row {
+          justify-content: stretch;
+        }
+
+        .theme-select,
+        .result-actions > *,
+        .action-row > *,
+        .review-toolbar > * {
+          width: 100%;
+        }
+
+        .controls-grid,
+        .checks,
+        .stats-grid,
+        .review-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .matching-row,
+        .blank-row {
+          grid-template-columns: 1fr;
+        }
+
+        .nav-row {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .nav-row .spacer {
+          display: none;
+        }
+
+        .timer {
+          width: 100%;
+        }
+      }
+
+      @media print {
+        body {
+          background: #ffffff;
+          color: #111827;
+        }
+
+        .app {
+          display: none !important;
+        }
+
+        #print-area {
+          display: block !important;
+          height: auto;
+          overflow: visible;
+          padding: 24px;
+          pointer-events: auto;
+          position: static;
+          visibility: visible;
+          width: auto;
+          direction: rtl;
+          font-family:
+            system-ui,
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            sans-serif;
+        }
+
+        #print-area h1 {
+          font-size: 24px;
+          margin-bottom: 16px;
+        }
+
+        #print-area article {
+          break-inside: avoid;
+          border: 1px solid #d8dee6;
+          border-radius: 8px;
+          padding: 12px;
+          margin-bottom: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">اختبار إلكتروني</p>
+          <h1 id="quiz-title">اختبار إلكتروني</h1>
+          <p class="subtitle" id="quiz-description" hidden></p>
+        </div>
+        <label class="theme-control" for="theme-mode">
+          <span>وضع العرض</span>
+          <select id="theme-mode" class="theme-select" aria-label="وضع العرض">
+            <option value="auto">تلقائي</option>
+            <option value="light">نهاري</option>
+            <option value="dark">ليلي</option>
+          </select>
+        </label>
+      </header>
+
+      <div id="load-error" class="notice" hidden></div>
+
+      <section id="setup-view" class="view">
+        <div id="resume-banner" class="notice" hidden>
+          <div>يوجد اختبار غير مكتمل. يمكنك إكماله.</div>
+          <div class="notice-actions">
+            <button id="resume-btn" class="button primary small" type="button">
+              تكملة الاختبار
+            </button>
+            <button id="discard-draft-btn" class="button small" type="button">
+              حذف الاختبار غير المكتمل
+            </button>
+          </div>
+        </div>
+
+        <section class="section setup-grid" aria-labelledby="setup-title">
+          <div>
+            <h2 id="setup-title">خيارات الاختبار</h2>
+            <p id="load-status" class="load-status"></p>
+          </div>
+
+          <div class="field">
+            <span class="field-title">الوقت</span>
+            <div
+              id="time-presets"
+              class="preset-row"
+              aria-label="اختيارات الوقت"
+            >
+              <button class="preset" type="button" data-time-preset="none">
+                بدون وقت
+              </button>
+              <button class="preset" type="button" data-time-preset="5">
+                5 دقائق
+              </button>
+              <button class="preset" type="button" data-time-preset="10">
+                10 دقائق
+              </button>
+              <button class="preset" type="button" data-time-preset="15">
+                15 دقيقة
+              </button>
+              <button class="preset" type="button" data-time-preset="30">
+                30 دقيقة
+              </button>
+              <button class="preset" type="button" data-time-preset="custom">
+                وقت مخصص
+              </button>
+            </div>
+            <div id="custom-time-field" class="custom-panel" hidden>
+              <label class="field" for="duration-minutes">
+                <span>الوقت بالدقائق</span>
+                <input
+                  id="duration-minutes"
+                  class="input"
+                  type="number"
+                  min="1"
+                  step="1"
+                  value="15"
+                />
+              </label>
+            </div>
+          </div>
+
+          <div class="field">
+            <span class="field-title">الأسئلة</span>
+            <div class="preset-row">
+              <button id="custom-count-toggle" class="button" type="button">
+                عدد أسئلة محدد
+              </button>
+            </div>
+            <div id="question-custom-panel" class="custom-panel" hidden>
+              <div
+                class="preset-row"
+                id="question-presets"
+                aria-label="اختيارات عدد الأسئلة"
+              >
+                <button class="preset" type="button" data-question-preset="all">
+                  كل النطاق
+                </button>
+                <button class="preset" type="button" data-question-preset="5">
+                  5 أسئلة
+                </button>
+                <button class="preset" type="button" data-question-preset="10">
+                  10 أسئلة
+                </button>
+                <button class="preset" type="button" data-question-preset="20">
+                  20 سؤال
+                </button>
+              </div>
+              <div class="controls-grid">
+                <label class="field" for="range-start">
+                  <span>من سؤال رقم</span>
+                  <input
+                    id="range-start"
+                    class="input"
+                    type="number"
+                    min="1"
+                    step="1"
+                    value="1"
+                  />
+                </label>
+                <label class="field" for="range-end">
+                  <span>إلى سؤال رقم</span>
+                  <input
+                    id="range-end"
+                    class="input"
+                    type="number"
+                    min="1"
+                    step="1"
+                    value="1"
+                  />
+                </label>
+                <label class="field" for="question-count">
+                  <span>عدد الأسئلة من النطاق</span>
+                  <input
+                    id="question-count"
+                    class="input"
+                    type="number"
+                    min="1"
+                    step="1"
+                    value="1"
+                  />
+                </label>
+              </div>
+              <p id="question-scope-text" class="load-status"></p>
+            </div>
+          </div>
+
+          <div class="checks">
+            <label class="check">
+              <input id="shuffle-questions" type="checkbox" checked />
+              <span>خلط الأسئلة</span>
+            </label>
+            <label class="check">
+              <input id="shuffle-choices" type="checkbox" checked />
+              <span>خلط الخيارات</span>
+            </label>
+            <label class="check">
+              <input id="instant-feedback" type="checkbox" />
+              <span>إظهار التصحيح بعد اختيار الإجابة</span>
+            </label>
+          </div>
+
+          <div class="action-row">
+            <button
+              id="start-btn"
+              class="button primary"
+              type="button"
+              disabled
+            >
+              ابدأ الاختبار
+            </button>
+            <button id="clear-history-btn" class="button danger" type="button">
+              مسح السجل
+            </button>
+          </div>
+        </section>
+
+        <section class="section history" aria-labelledby="history-title">
+          <h2 id="history-title">سجل المحاولات</h2>
+          <div id="history-list" class="history-list"></div>
+        </section>
+      </section>
+
+      <section id="quiz-view" class="view quiz-shell" hidden>
+        <div class="quiz-status">
+          <div class="progress-wrap">
+            <div class="progress-meta">
+              <span id="question-position">السؤال 1 من 1</span>
+              <span id="question-type">اختيار واحد</span>
+              <span id="answered-count">0 مجاب</span>
+            </div>
+            <progress id="quiz-progress" max="1" value="1"></progress>
+          </div>
+          <div id="timer" class="timer">00:00</div>
+        </div>
+
+        <article id="question-panel" class="question-panel">
+          <section id="passage-box" class="passage" hidden>
+            <h2 id="passage-title"></h2>
+            <div id="passage-content" class="passage-content"></div>
+          </section>
+          <div id="question-prompt" class="question-prompt"></div>
+          <div id="answer-area" class="answer-area"></div>
+          <div id="answer-feedback" class="answer-feedback" hidden></div>
+        </article>
+
+        <div class="nav-row">
+          <button id="prev-btn" class="button" type="button">السابق</button>
+          <button id="next-btn" class="button" type="button">التالي</button>
+          <span class="spacer"></span>
+          <button id="submit-btn" class="button primary" type="button">
+            تسليم الاختبار
+          </button>
+        </div>
+
+        <nav
+          id="question-dots"
+          class="question-dots"
+          aria-label="الأسئلة"
+        ></nav>
+      </section>
+
+      <section id="result-view" class="view" hidden>
+        <section class="section">
+          <div class="result-head">
+            <div>
+              <h2 id="result-title">النتيجة</h2>
+              <p id="score-number" class="score">0%</p>
+              <p id="result-summary" class="subtitle"></p>
+            </div>
+            <div class="result-actions">
+              <button id="new-attempt-btn" class="button primary" type="button">
+                محاولة جديدة
+              </button>
+            </div>
+          </div>
+
+          <div id="result-metrics" class="stats-grid"></div>
+        </section>
+
+        <section class="section history" aria-labelledby="review-title">
+          <div class="review-toolbar">
+            <h2 id="review-title">المراجعة</h2>
+            <div class="filter-row" aria-label="فلترة المراجعة">
+              <button
+                class="button small active"
+                type="button"
+                data-review-filter="all"
+              >
+                كل الأسئلة
+              </button>
+              <button
+                class="button small"
+                type="button"
+                data-review-filter="incorrect"
+              >
+                الخطأ
+              </button>
+              <button
+                class="button small"
+                type="button"
+                data-review-filter="correct"
+              >
+                الصح
+              </button>
+              <button
+                class="button small"
+                type="button"
+                data-review-filter="unanswered"
+              >
+                غير مجاب
+              </button>
+            </div>
+            <button id="export-mistakes-btn" class="button small" type="button">
+              تصدير الأخطاء PDF
+            </button>
+          </div>
+          <div id="review-list" class="review-list"></div>
+        </section>
+      </section>
+    </main>
+
+    <div id="print-area" aria-hidden="true"></div>
+
+    <script>
+      const STORAGE_KEY = "electronic-quiz-attempts-v2";
+      const LEGACY_STORAGE_KEY = "electronic-quiz-attempts-v1";
+      const DRAFT_KEY = "electronic-quiz-draft-v1";
+      const THEME_KEY = "electronic-quiz-theme";
+
+      const els = {
+        html: document.documentElement,
+        title: document.getElementById("quiz-title"),
+        description: document.getElementById("quiz-description"),
+        themeMode: document.getElementById("theme-mode"),
+        loadError: document.getElementById("load-error"),
+        setupView: document.getElementById("setup-view"),
+        quizView: document.getElementById("quiz-view"),
+        resultView: document.getElementById("result-view"),
+        resumeBanner: document.getElementById("resume-banner"),
+        resumeBtn: document.getElementById("resume-btn"),
+        discardDraftBtn: document.getElementById("discard-draft-btn"),
+        duration: document.getElementById("duration-minutes"),
+        customTimeField: document.getElementById("custom-time-field"),
+        questionCustomPanel: document.getElementById("question-custom-panel"),
+        customCountToggle: document.getElementById("custom-count-toggle"),
+        questionCount: document.getElementById("question-count"),
+        rangeStart: document.getElementById("range-start"),
+        rangeEnd: document.getElementById("range-end"),
+        questionScopeText: document.getElementById("question-scope-text"),
+        shuffleQuestions: document.getElementById("shuffle-questions"),
+        shuffleChoices: document.getElementById("shuffle-choices"),
+        instantFeedback: document.getElementById("instant-feedback"),
+        loadStatus: document.getElementById("load-status"),
+        startBtn: document.getElementById("start-btn"),
+        clearHistoryBtn: document.getElementById("clear-history-btn"),
+        historyList: document.getElementById("history-list"),
+        questionPosition: document.getElementById("question-position"),
+        questionType: document.getElementById("question-type"),
+        answeredCount: document.getElementById("answered-count"),
+        quizProgress: document.getElementById("quiz-progress"),
+        timer: document.getElementById("timer"),
+        questionPanel: document.getElementById("question-panel"),
+        passageBox: document.getElementById("passage-box"),
+        passageTitle: document.getElementById("passage-title"),
+        passageContent: document.getElementById("passage-content"),
+        questionPrompt: document.getElementById("question-prompt"),
+        answerArea: document.getElementById("answer-area"),
+        answerFeedback: document.getElementById("answer-feedback"),
+        prevBtn: document.getElementById("prev-btn"),
+        nextBtn: document.getElementById("next-btn"),
+        submitBtn: document.getElementById("submit-btn"),
+        questionDots: document.getElementById("question-dots"),
+        resultTitle: document.getElementById("result-title"),
+        scoreNumber: document.getElementById("score-number"),
+        resultSummary: document.getElementById("result-summary"),
+        resultMetrics: document.getElementById("result-metrics"),
+        reviewList: document.getElementById("review-list"),
+        newAttemptBtn: document.getElementById("new-attempt-btn"),
+        exportMistakesBtn: document.getElementById("export-mistakes-btn"),
+        printArea: document.getElementById("print-area"),
+      };
+
+      let quizData = null;
+      let passageMap = new Map();
+      let quizState = null;
+      let selectedTimePreset = "none";
+      let useCustomQuestions = false;
+      let selectedQuestionPreset = "all";
+      let currentAttempt = null;
+      let currentReviewFilter = "all";
+
+      function init() {
+        migrateAttempts();
+        applyTheme(localStorage.getItem(THEME_KEY) || "auto");
+        bindEvents();
+        renderHistory();
+        loadQuestions();
+      }
+
+      function bindEvents() {
+        els.themeMode.addEventListener("change", () =>
+          applyTheme(els.themeMode.value),
+        );
+        els.startBtn.addEventListener("click", startQuiz);
+        els.clearHistoryBtn.addEventListener("click", clearHistory);
+        els.resumeBtn.addEventListener("click", resumeDraft);
+        els.discardDraftBtn.addEventListener("click", discardDraft);
+        els.prevBtn.addEventListener("click", () =>
+          goToQuestion(quizState.currentIndex - 1),
+        );
+        els.nextBtn.addEventListener("click", () =>
+          goToQuestion(quizState.currentIndex + 1),
+        );
+        els.submitBtn.addEventListener("click", confirmSubmitQuiz);
+        els.newAttemptBtn.addEventListener("click", resetToSetup);
+        els.exportMistakesBtn.addEventListener("click", exportMistakesPdf);
+        els.customCountToggle.addEventListener("click", () =>
+          setQuestionMode(!useCustomQuestions),
+        );
+        [els.rangeStart, els.rangeEnd, els.questionCount].forEach(input => {
+          input.addEventListener("input", updateQuestionScope);
+        });
+
+        document.querySelectorAll("[data-time-preset]").forEach(button => {
+          button.addEventListener("click", () =>
+            setTimePreset(button.dataset.timePreset),
+          );
+        });
+
+        document.querySelectorAll("[data-question-preset]").forEach(button => {
+          button.addEventListener("click", () =>
+            setQuestionPreset(button.dataset.questionPreset),
+          );
+        });
+
+        document.querySelectorAll("[data-review-filter]").forEach(button => {
+          button.addEventListener("click", () => {
+            currentReviewFilter = button.dataset.reviewFilter;
+            renderReviewFilters();
+            renderReviewList();
+          });
+        });
+      }
+
+      function applyTheme(mode) {
+        const theme = ["auto", "light", "dark"].includes(mode) ? mode : "auto";
+        els.html.dataset.theme = theme;
+        els.themeMode.value = theme;
+        localStorage.setItem(THEME_KEY, theme);
+      }
+
+      async function loadQuestions() {
+        try {
+          const response = await fetch("math.json", { cache: "no-store" });
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          const data = await response.json();
+          setQuizData(data);
+        } catch (error) {
+          els.loadError.hidden = false;
+          els.loadError.textContent =
+            "تعذر تحميل math.json. شغل الصفحة عبر سيرفر محلي.";
+          els.loadStatus.textContent = "تعذر تحميل الأسئلة.";
+          els.startBtn.disabled = true;
+        }
+      }
+
+      function setQuizData(data) {
+        quizData = normalizeQuizData(data);
+        passageMap = new Map(
+          quizData.passages.map(passage => [passage.id, passage]),
+        );
+        els.title.textContent = quizData.title || "اختبار إلكتروني";
+        document.title = quizData.title || "اختبار إلكتروني";
+        els.description.textContent = quizData.description || "";
+        els.description.hidden = !quizData.description;
+        els.loadStatus.textContent = "";
+        els.loadStatus.hidden = true;
+        els.startBtn.disabled = quizData.questions.length === 0;
+        applyDefaults();
+        updateDraftBanner();
+      }
+
+      function normalizeQuizData(data) {
+        const questions = Array.isArray(data.questions) ? data.questions : [];
+        const passages = Array.isArray(data.passages) ? data.passages : [];
+        return {
+          title: data.title || "اختبار إلكتروني",
+          description: data.description || "",
+          settings: data.settings || {},
+          passages: passages.map(passage => ({
+            id: String(passage.id),
+            title: passage.title || "قطعة قراءة",
+            content: passage.content || "",
+          })),
+          questions: questions.map((question, index) => ({
+            ...question,
+            id: question.id ? String(question.id) : `q-${index + 1}`,
+            type: String(question.type || "essay").trim(),
+            _jsonIndex: index + 1,
+          })),
+        };
+      }
+
+      function applyDefaults() {
+        const defaults = quizData.settings || {};
+        const total = Math.max(quizData.questions.length, 1);
+        selectedTimePreset = "none";
+        if (
+          defaults.durationMinutes &&
+          !["5", "10", "15", "30"].includes(String(defaults.durationMinutes))
+        ) {
+          els.duration.value = clampNumber(defaults.durationMinutes, 1, 999);
+        }
+
+        els.rangeStart.max = total;
+        els.rangeEnd.max = total;
+        els.questionCount.max = total;
+        els.rangeStart.value = 1;
+        els.rangeEnd.value = total;
+        els.questionCount.value = total;
+        els.shuffleQuestions.checked = defaults.shuffleQuestions !== false;
+        els.shuffleChoices.checked = defaults.shuffleChoices !== false;
+        els.instantFeedback.checked = defaults.instantFeedback === true;
+        setTimePreset(selectedTimePreset);
+        setQuestionMode(false);
+        updateQuestionScope();
+      }
+
+      function setTimePreset(value) {
+        selectedTimePreset = value || "none";
+        document.querySelectorAll("[data-time-preset]").forEach(button => {
+          button.classList.toggle(
+            "active",
+            button.dataset.timePreset === selectedTimePreset,
+          );
+        });
+        els.customTimeField.hidden = selectedTimePreset !== "custom";
+      }
+
+      function setQuestionMode(enabled) {
+        useCustomQuestions = enabled;
+        els.questionCustomPanel.hidden = !useCustomQuestions;
+        els.customCountToggle.classList.toggle("active", useCustomQuestions);
+        updateQuestionScope();
+      }
+
+      function setQuestionPreset(value) {
+        selectedQuestionPreset = value || "all";
+        const rangeSize = currentRangeSize();
+        if (selectedQuestionPreset === "all") {
+          els.questionCount.value = rangeSize;
+        } else {
+          els.questionCount.value = Math.min(
+            Number(selectedQuestionPreset),
+            rangeSize,
+          );
+        }
+        updateQuestionScope();
+      }
+
+      function updateQuestionScope() {
+        if (!quizData) return;
+        const total = Math.max(quizData.questions.length, 1);
+        let start = clampNumber(els.rangeStart.value, 1, total);
+        let end = clampNumber(els.rangeEnd.value, 1, total);
+        if (end < start) end = start;
+        els.rangeStart.value = start;
+        els.rangeEnd.value = end;
+        els.rangeStart.max = total;
+        els.rangeEnd.max = total;
+
+        const rangeSize = end - start + 1;
+        els.questionCount.max = rangeSize;
+        els.questionCount.value = clampNumber(
+          els.questionCount.value,
+          1,
+          rangeSize,
+        );
+        if (Number(els.questionCount.value) === rangeSize)
+          selectedQuestionPreset = "all";
+
+        document.querySelectorAll("[data-question-preset]").forEach(button => {
+          button.classList.toggle(
+            "active",
+            button.dataset.questionPreset === selectedQuestionPreset,
+          );
+        });
+
+        const selected = useCustomQuestions
+          ? Number(els.questionCount.value)
+          : quizData.questions.length;
+        els.questionScopeText.textContent = `النطاق حسب ترتيب math.json: من ${start} إلى ${end}. المختار: ${selected} سؤال.`;
+      }
+
+      function currentRangeSize() {
+        const start = Number(els.rangeStart.value) || 1;
+        const end = Number(els.rangeEnd.value) || start;
+        return Math.max(1, end - start + 1);
+      }
+
+      function readSettings() {
+        const total = quizData.questions.length;
+        const timed = selectedTimePreset !== "none";
+        const durationMinutes =
+          selectedTimePreset === "custom"
+            ? clampNumber(els.duration.value, 1, 999)
+            : timed
+              ? Number(selectedTimePreset)
+              : 0;
+
+        const start = useCustomQuestions
+          ? clampNumber(els.rangeStart.value, 1, total)
+          : 1;
+        const end = useCustomQuestions
+          ? clampNumber(els.rangeEnd.value, start, total)
+          : total;
+        const rangeSize = end - start + 1;
+        const questionCount = useCustomQuestions
+          ? clampNumber(els.questionCount.value, 1, rangeSize)
+          : total;
+
+        return {
+          timed,
+          durationMinutes,
+          questionCount,
+          rangeStart: start,
+          rangeEnd: end,
+          customQuestions: useCustomQuestions,
+          shuffleQuestions: els.shuffleQuestions.checked,
+          shuffleChoices: els.shuffleChoices.checked,
+          instantFeedback: els.instantFeedback.checked,
+        };
+      }
+
+      function startQuiz() {
+        if (!quizData || quizData.questions.length === 0) return;
+        clearTimer();
+        const settings = readSettings();
+        const rangeQuestions = quizData.questions.slice(
+          settings.rangeStart - 1,
+          settings.rangeEnd,
+        );
+        const sourceQuestions = settings.shuffleQuestions
+          ? shuffle(rangeQuestions)
+          : [...rangeQuestions];
+        const selected = sourceQuestions.slice(0, settings.questionCount);
+        const preparedQuestions = selected.map((question, index) =>
+          prepareQuestion(question, index, settings),
+        );
+        const now = new Date();
+
+        quizState = {
+          settings,
+          questions: preparedQuestions,
+          answers: Object.fromEntries(
+            preparedQuestions.map(question => [
+              question._key,
+              defaultAnswer(question),
+            ]),
+          ),
+          locked: {},
+          currentIndex: 0,
+          startedAt: now,
+          endsAt: settings.timed
+            ? now.getTime() + settings.durationMinutes * 60 * 1000
+            : null,
+          timerId: null,
+          finished: false,
+        };
+
+        saveDraft();
+        showView("quiz");
+        renderQuestion();
+        startClock();
+      }
+
+      function prepareQuestion(question, index, settings) {
+        const prepared = deepClone(question);
+        prepared._key = `${prepared.id}-${index}`;
+        prepared._points = Number.isFinite(Number(prepared.points))
+          ? Number(prepared.points)
+          : 1;
+
+        if (prepared.type === "true_false") {
+          prepared._choices = [
+            { id: "true", text: "صواب" },
+            { id: "false", text: "خطأ" },
+          ];
+        } else if (Array.isArray(prepared.choices)) {
+          prepared._choices = settings.shuffleChoices
+            ? shuffle(
+                prepared.choices.map(choice => ({
+                  ...choice,
+                  id: String(choice.id),
+                })),
+              )
+            : prepared.choices.map(choice => ({
+                ...choice,
+                id: String(choice.id),
+              }));
+        }
+
+        if (prepared.type === "matching" && Array.isArray(prepared.pairs)) {
+          const rightOptions = prepared.pairs.map(pair => ({
+            id: String(pair.rightId),
+            text: pair.right,
+          }));
+          prepared._rightOptions = settings.shuffleChoices
+            ? shuffle(rightOptions)
+            : rightOptions;
+        }
+
+        if (prepared.type === "ordering" && Array.isArray(prepared.items)) {
+          prepared._presentedItems = settings.shuffleChoices
+            ? shuffle(prepared.items)
+            : [...prepared.items];
+        }
+
+        return prepared;
+      }
+
+      function defaultAnswer(question) {
+        if (question.type === "multiple") return [];
+        if (question.type === "fill_blank") {
+          return Object.fromEntries(
+            (question.blanks || []).map(blank => [String(blank.id), ""]),
+          );
+        }
+        if (question.type === "matching") {
+          return Object.fromEntries(
+            (question.pairs || []).map(pair => [String(pair.leftId), ""]),
+          );
+        }
+        if (question.type === "ordering") {
+          return (question._presentedItems || question.items || []).map(item =>
+            String(item.id),
+          );
+        }
+        return "";
+      }
+
+      function renderQuestion() {
+        const question = quizState.questions[quizState.currentIndex];
+        const total = quizState.questions.length;
+        els.questionPosition.textContent = `السؤال ${quizState.currentIndex + 1} من ${total}`;
+        els.questionType.textContent = typeLabel(question.type);
+        els.quizProgress.max = total;
+        els.quizProgress.value = quizState.currentIndex + 1;
+        els.prevBtn.disabled = quizState.currentIndex === 0;
+        els.nextBtn.disabled = quizState.currentIndex === total - 1;
+
+        renderPassage(question);
+        setAutoText(
+          els.questionPrompt,
+          question.prompt || question.question || "",
+        );
+        els.answerArea.replaceChildren(renderAnswerControl(question));
+        appendFinalizeButton(question);
+        renderAnswerFeedback(question);
+        renderQuestionDots();
+        updateAnsweredCount();
+        saveDraft();
+        typesetMath(els.questionPanel);
+      }
+
+      function renderPassage(question) {
+        const passage = question.passageId
+          ? passageMap.get(String(question.passageId))
+          : null;
+        els.passageBox.hidden = !passage;
+        if (!passage) return;
+        setAutoText(els.passageTitle, passage.title);
+        setAutoText(els.passageContent, passage.content);
+      }
+
+      function renderAnswerControl(question) {
+        const answer = quizState.answers[question._key];
+        if (question.type === "single" || question.type === "true_false")
+          return renderSingleChoice(question, answer);
+        if (question.type === "multiple")
+          return renderMultipleChoice(question, answer);
+        if (question.type === "short_answer")
+          return renderTextAnswer(question, answer, false);
+        if (question.type === "numeric")
+          return renderNumericAnswer(question, answer);
+        if (question.type === "fill_blank")
+          return renderFillBlank(question, answer);
+        if (question.type === "matching")
+          return renderMatching(question, answer);
+        if (question.type === "ordering")
+          return renderOrdering(question, answer);
+        return renderTextAnswer(question, answer, true);
+      }
+
+      function renderSingleChoice(question, answer) {
+        const wrap = document.createElement("div");
+        wrap.className = "answer-area";
+        const locked = isLocked(question);
+        (question._choices || []).forEach(choice => {
+          const label = document.createElement("label");
+          label.className = locked ? "option locked" : "option";
+          const input = document.createElement("input");
+          input.type = "radio";
+          input.name = `answer-${question._key}`;
+          input.value = String(choice.id);
+          input.checked = String(answer) === String(choice.id);
+          input.disabled = locked;
+          input.addEventListener("change", () => {
+            setAnswer(question, input.value);
+            if (quizState.settings.instantFeedback) lockAnswer(question);
+          });
+          const text = document.createElement("span");
+          text.className = "answer-text";
+          setAutoText(text, choice.text);
+          label.append(input, text);
+          wrap.append(label);
+        });
+        return wrap;
+      }
+
+      function renderMultipleChoice(question, answer) {
+        const selected = new Set(asArray(answer).map(String));
+        const locked = isLocked(question);
+        const wrap = document.createElement("div");
+        wrap.className = "answer-area";
+        (question._choices || []).forEach(choice => {
+          const label = document.createElement("label");
+          label.className = locked ? "option locked" : "option";
+          const input = document.createElement("input");
+          input.type = "checkbox";
+          input.value = String(choice.id);
+          input.checked = selected.has(String(choice.id));
+          input.disabled = locked;
+          input.addEventListener("change", () => {
+            const next = new Set(
+              asArray(quizState.answers[question._key]).map(String),
+            );
+            input.checked ? next.add(input.value) : next.delete(input.value);
+            setAnswer(question, [...next]);
+          });
+          const text = document.createElement("span");
+          text.className = "answer-text";
+          setAutoText(text, choice.text);
+          label.append(input, text);
+          wrap.append(label);
+        });
+        return wrap;
+      }
+
+      function renderTextAnswer(question, answer, multiline) {
+        const input = document.createElement(multiline ? "textarea" : "input");
+        input.className = multiline ? "textarea" : "input";
+        if (!multiline) input.type = "text";
+        input.value = answer || "";
+        input.dir = "auto";
+        input.disabled = isLocked(question);
+        input.addEventListener("input", () =>
+          setAnswer(question, input.value, false),
+        );
+        return input;
+      }
+
+      function renderNumericAnswer(question, answer) {
+        const input = document.createElement("input");
+        input.className = "input";
+        input.type = "text";
+        input.inputMode = "decimal";
+        input.value = answer || "";
+        input.dir = "ltr";
+        input.disabled = isLocked(question);
+        input.addEventListener("input", () =>
+          setAnswer(question, input.value, false),
+        );
+        return input;
+      }
+
+      function renderFillBlank(question, answer) {
+        const wrap = document.createElement("div");
+        wrap.className = "answer-area";
+        const locked = isLocked(question);
+        (question.blanks || []).forEach((blank, index) => {
+          const row = document.createElement("div");
+          row.className = "blank-row";
+          const label = document.createElement("label");
+          label.textContent = blank.label || `الفراغ ${index + 1}`;
+          label.setAttribute("for", `${question._key}-${blank.id}`);
+          const input = document.createElement("input");
+          input.id = `${question._key}-${blank.id}`;
+          input.className = "input";
+          input.type = "text";
+          input.value = answer?.[blank.id] || "";
+          input.disabled = locked;
+          input.addEventListener("input", () => {
+            const next = { ...(quizState.answers[question._key] || {}) };
+            next[String(blank.id)] = input.value;
+            setAnswer(question, next, false);
+          });
+          row.append(label, input);
+          wrap.append(row);
+        });
+        return wrap;
+      }
+
+      function renderMatching(question, answer) {
+        const wrap = document.createElement("div");
+        wrap.className = "answer-area";
+        const locked = isLocked(question);
+        (question.pairs || []).forEach(pair => {
+          const row = document.createElement("div");
+          row.className = "matching-row";
+          const left = document.createElement("div");
+          left.className = "answer-text";
+          setAutoText(left, pair.left);
+          const select = document.createElement("select");
+          select.className = "select";
+          select.disabled = locked;
+          select.append(new Option("اختر", ""));
+          (question._rightOptions || []).forEach(option => {
+            select.append(new Option(option.text, String(option.id)));
+          });
+          select.value = answer?.[pair.leftId] || "";
+          select.addEventListener("change", () => {
+            const next = { ...(quizState.answers[question._key] || {}) };
+            next[String(pair.leftId)] = select.value;
+            setAnswer(question, next);
+          });
+          row.append(left, select);
+          wrap.append(row);
+        });
+        return wrap;
+      }
+
+      function renderOrdering(question, answer) {
+        const wrap = document.createElement("div");
+        wrap.className = "answer-area";
+        const locked = isLocked(question);
+        const order = asArray(answer).map(String);
+        const itemsById = new Map(
+          (question.items || []).map(item => [String(item.id), item]),
+        );
+        order.forEach((id, index) => {
+          const item = itemsById.get(id);
+          if (!item) return;
+          const row = document.createElement("div");
+          row.className = "order-row";
+          const number = document.createElement("span");
+          number.className = "order-index";
+          number.textContent = index + 1;
+          const text = document.createElement("div");
+          text.className = "answer-text";
+          setAutoText(text, item.text);
+          const actions = document.createElement("div");
+          actions.className = "order-actions";
+          const up = document.createElement("button");
+          up.className = "icon-button";
+          up.type = "button";
+          up.textContent = "↑";
+          up.ariaLabel = "رفع";
+          up.disabled = locked || index === 0;
+          up.addEventListener("click", () =>
+            moveOrderItem(question, index, -1),
+          );
+          const down = document.createElement("button");
+          down.className = "icon-button";
+          down.type = "button";
+          down.textContent = "↓";
+          down.ariaLabel = "خفض";
+          down.disabled = locked || index === order.length - 1;
+          down.addEventListener("click", () =>
+            moveOrderItem(question, index, 1),
+          );
+          actions.append(up, down);
+          row.append(number, text, actions);
+          wrap.append(row);
+        });
+        return wrap;
+      }
+
+      function appendFinalizeButton(question) {
+        if (!quizState.settings.instantFeedback || isLocked(question)) return;
+        if (question.type === "single" || question.type === "true_false")
+          return;
+        const button = document.createElement("button");
+        button.id = "finalize-answer-btn";
+        button.className = "button primary";
+        button.type = "button";
+        button.textContent = "اعتماد الإجابة";
+        button.disabled = !hasAnswer(
+          question,
+          quizState.answers[question._key],
+        );
+        button.addEventListener("click", () => lockAnswer(question));
+        els.answerArea.append(button);
+      }
+
+      function updateFinalizeButton(question) {
+        const button = document.getElementById("finalize-answer-btn");
+        if (!button) return;
+        button.disabled = !hasAnswer(
+          question,
+          quizState.answers[question._key],
+        );
+      }
+
+      function renderAnswerFeedback(question) {
+        if (!quizState.settings.instantFeedback || !isLocked(question)) {
+          els.answerFeedback.hidden = true;
+          els.answerFeedback.textContent = "";
+          els.answerFeedback.className = "answer-feedback";
+          return;
+        }
+
+        const grade = gradeQuestion(question, quizState.answers[question._key]);
+        els.answerFeedback.hidden = false;
+        els.answerFeedback.className = `answer-feedback ${grade.status}`;
+        const base = statusLabel(grade.status);
+        const correct = formatCorrectAnswer(question);
+        els.answerFeedback.textContent =
+          grade.status === "correct"
+            ? `${base}.`
+            : `${base}. الإجابة الصحيحة: ${correct}`;
+      }
+
+      function moveOrderItem(question, index, direction) {
+        if (isLocked(question)) return;
+        const order = [...asArray(quizState.answers[question._key])];
+        const target = index + direction;
+        if (target < 0 || target >= order.length) return;
+        [order[index], order[target]] = [order[target], order[index]];
+        setAnswer(question, order);
+        renderQuestion();
+      }
+
+      function setAnswer(question, value, refreshDots = true) {
+        if (isLocked(question)) return;
+        quizState.answers[question._key] = value;
+        if (refreshDots) renderQuestionDots();
+        updateAnsweredCount();
+        updateFinalizeButton(question);
+        saveDraft();
+      }
+
+      function lockAnswer(question) {
+        if (!hasAnswer(question, quizState.answers[question._key])) return;
+        quizState.locked[question._key] = true;
+        saveDraft();
+        renderQuestion();
+      }
+
+      function isLocked(question) {
+        return Boolean(quizState?.locked?.[question._key]);
+      }
+
+      function renderQuestionDots() {
+        const buttons = quizState.questions.map((question, index) => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "dot";
+          if (index === quizState.currentIndex) button.classList.add("current");
+          if (hasAnswer(question, quizState.answers[question._key]))
+            button.classList.add("answered");
+          if (isLocked(question)) button.classList.add("locked");
+          button.textContent = index + 1;
+          button.addEventListener("click", () => goToQuestion(index));
+          return button;
+        });
+        els.questionDots.replaceChildren(...buttons);
+      }
+
+      function updateAnsweredCount() {
+        if (!quizState) return;
+        const answered = quizState.questions.filter(question =>
+          hasAnswer(question, quizState.answers[question._key]),
+        ).length;
+        els.answeredCount.textContent = `${answered} مجاب`;
+      }
+
+      function hasAnswer(question, answer) {
+        if (question.type === "multiple") return asArray(answer).length > 0;
+        if (question.type === "ordering") return asArray(answer).length > 0;
+        if (question.type === "fill_blank" || question.type === "matching") {
+          return Object.values(answer || {}).some(
+            value => String(value || "").trim() !== "",
+          );
+        }
+        return String(answer || "").trim() !== "";
+      }
+
+      function goToQuestion(index) {
+        if (!quizState || index < 0 || index >= quizState.questions.length)
+          return;
+        quizState.currentIndex = index;
+        renderQuestion();
+      }
+
+      function startClock() {
+        clearTimer();
+        updateTimer();
+        quizState.timerId = window.setInterval(updateTimer, 250);
+      }
+
+      function updateTimer() {
+        if (!quizState || quizState.finished) return;
+        const elapsed = Math.max(
+          0,
+          Math.round(
+            (Date.now() - new Date(quizState.startedAt).getTime()) / 1000,
+          ),
+        );
+        if (!quizState.settings.timed) {
+          els.timer.textContent = formatDuration(elapsed);
+          els.timer.classList.remove("low");
+          return;
+        }
+
+        const remaining = Math.max(
+          0,
+          Math.ceil((quizState.endsAt - Date.now()) / 1000),
+        );
+        els.timer.textContent = formatDuration(remaining);
+        els.timer.classList.toggle("low", remaining <= 60);
+        if (remaining <= 0) finishQuiz("timeout");
+      }
+
+      function clearTimer() {
+        if (quizState?.timerId) window.clearInterval(quizState.timerId);
+      }
+
+      function confirmSubmitQuiz() {
+        if (!quizState || quizState.finished) return;
+        const incompleteCount = countIncompleteQuestions();
+        const message =
+          incompleteCount > 0
+            ? `باقي ${incompleteCount} من الأسئلة غير مكتمل. إن قمت بتسليم الاختبار لن تستطيع تعديل الحل.`
+            : "إن قمت بتسليم الاختبار لن تستطيع تعديل الحل. هل تريد المتابعة؟";
+        if (!window.confirm(message)) return;
+        finishQuiz("submitted");
+      }
+
+      function countIncompleteQuestions() {
+        if (!quizState) return 0;
+        return quizState.questions.filter(
+          question => !hasAnswer(question, quizState.answers[question._key]),
+        ).length;
+      }
+
+      function finishQuiz(reason) {
+        if (!quizState || quizState.finished) return;
+        quizState.finished = true;
+        clearTimer();
+        const attempt = buildAttempt(reason);
+        saveAttempt(attempt);
+        clearDraft();
+        renderResults(attempt, false);
+        renderHistory();
+        showView("result");
+      }
+
+      function buildAttempt(reason) {
+        const reviews = quizState.questions.map((question, index) => {
+          const answer = quizState.answers[question._key];
+          const grade = gradeQuestion(question, answer);
+          const passage = question.passageId
+            ? passageMap.get(String(question.passageId))
+            : null;
+          return {
+            id: question.id,
+            number: index + 1,
+            jsonIndex: question._jsonIndex || index + 1,
+            type: question.type,
+            typeLabel: typeLabel(question.type),
+            prompt: question.prompt || question.question || "",
+            passageTitle: passage?.title || "",
+            status: grade.status,
+            earned: roundScore(grade.earned),
+            max: roundScore(grade.max),
+            userAnswer: formatAnswer(question, answer, true),
+            correctAnswer: formatCorrectAnswer(question),
+            options: buildReviewOptions(question, answer),
+          };
+        });
+
+        const earned = roundScore(
+          reviews.reduce((sum, item) => sum + item.earned, 0),
+        );
+        const max = roundScore(
+          reviews.reduce((sum, item) => sum + item.max, 0),
+        );
+        const counts = {
+          correct: reviews.filter(item => item.status === "correct").length,
+          partial: reviews.filter(item => item.status === "partial").length,
+          incorrect: reviews.filter(item => item.status === "incorrect").length,
+          unanswered: reviews.filter(item => item.status === "unanswered")
+            .length,
+          ungraded: reviews.filter(item => item.status === "ungraded").length,
+          total: reviews.length,
+        };
+
+        return {
+          id: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
+          title: quizData.title,
+          date: new Date().toISOString(),
+          reason,
+          settings: quizState.settings,
+          durationUsed: Math.max(
+            0,
+            Math.round(
+              (Date.now() - new Date(quizState.startedAt).getTime()) / 1000,
+            ),
+          ),
+          earned,
+          max,
+          percent: max > 0 ? Math.round((earned / max) * 100) : 0,
+          counts,
+          reviews,
+        };
+      }
+
+      function gradeQuestion(question, answer) {
+        const points = Math.max(0, Number(question._points || 1));
+        if (!hasAnswer(question, answer))
+          return { status: "unanswered", earned: 0, max: points };
+
+        if (question.type === "single") {
+          return exactGrade(String(answer), String(question.answer), points);
+        }
+        if (question.type === "true_false") {
+          return exactGrade(
+            String(answer),
+            String(Boolean(question.answer)),
+            points,
+          );
+        }
+        if (question.type === "multiple") {
+          const selected = new Set(asArray(answer).map(String));
+          const correct = new Set(asArray(question.answer).map(String));
+          const hits = [...selected].filter(id => correct.has(id)).length;
+          const wrong = [...selected].filter(id => !correct.has(id)).length;
+          if (selected.size === correct.size && hits === correct.size)
+            return { status: "correct", earned: points, max: points };
+          const ratio = correct.size
+            ? Math.max(0, (hits - wrong) / correct.size)
+            : 0;
+          return {
+            status: ratio > 0 ? "partial" : "incorrect",
+            earned: points * ratio,
+            max: points,
+          };
+        }
+        if (question.type === "short_answer") {
+          const accepted = asArray(question.acceptedAnswers || question.answer);
+          const actual = normalizeText(answer);
+          const isCorrect = accepted.some(
+            item => normalizeText(item) === actual,
+          );
+          return {
+            status: isCorrect ? "correct" : "incorrect",
+            earned: isCorrect ? points : 0,
+            max: points,
+          };
+        }
+        if (question.type === "numeric") {
+          const actual = parseNumber(answer);
+          const expected = Number(question.answer);
+          const tolerance = Number(question.tolerance ?? 0);
+          const isCorrect =
+            Number.isFinite(actual) && Math.abs(actual - expected) <= tolerance;
+          return {
+            status: isCorrect ? "correct" : "incorrect",
+            earned: isCorrect ? points : 0,
+            max: points,
+          };
+        }
+        if (question.type === "fill_blank") {
+          const blanks = question.blanks || [];
+          const correctCount = blanks.filter(blank => {
+            const accepted = asArray(blank.acceptedAnswers || blank.answer);
+            const actual = normalizeText(answer?.[blank.id]);
+            return accepted.some(item => normalizeText(item) === actual);
+          }).length;
+          return partialGrade(correctCount, blanks.length, points);
+        }
+        if (question.type === "matching") {
+          const pairs = question.pairs || [];
+          const correctCount = pairs.filter(
+            pair =>
+              String(answer?.[pair.leftId] || "") === String(pair.rightId),
+          ).length;
+          return partialGrade(correctCount, pairs.length, points);
+        }
+        if (question.type === "ordering") {
+          const actual = asArray(answer).map(String);
+          const expected = asArray(
+            question.correctOrder || question.answer,
+          ).map(String);
+          const correctCount = expected.filter(
+            (id, index) => actual[index] === id,
+          ).length;
+          return partialGrade(correctCount, expected.length, points);
+        }
+        return { status: "ungraded", earned: 0, max: 0 };
+      }
+
+      function exactGrade(actual, expected, points) {
+        const correct = actual === expected;
+        return {
+          status: correct ? "correct" : "incorrect",
+          earned: correct ? points : 0,
+          max: points,
+        };
+      }
+
+      function partialGrade(correctCount, totalCount, points) {
+        if (!totalCount) return { status: "ungraded", earned: 0, max: 0 };
+        if (correctCount === totalCount)
+          return { status: "correct", earned: points, max: points };
+        if (correctCount > 0)
+          return {
+            status: "partial",
+            earned: points * (correctCount / totalCount),
+            max: points,
+          };
+        return { status: "incorrect", earned: 0, max: points };
+      }
+
+      function renderResults(attempt, fromHistory) {
+        currentAttempt = normalizeAttempt(attempt);
+        currentReviewFilter = "all";
+        els.resultTitle.textContent = fromHistory
+          ? "محاولة محفوظة"
+          : currentAttempt.reason === "timeout"
+            ? "انتهى الوقت"
+            : "النتيجة";
+        els.scoreNumber.textContent = `${currentAttempt.percent}%`;
+        els.resultSummary.textContent = `${currentAttempt.earned} من ${currentAttempt.max} درجة • الوقت ${formatDuration(currentAttempt.durationUsed)} • ${formatDate(currentAttempt.date)}`;
+
+        const metrics = [
+          ["صحيح", currentAttempt.counts.correct],
+          [
+            "خطأ",
+            currentAttempt.counts.incorrect + currentAttempt.counts.partial,
+          ],
+          ["غير مجاب", currentAttempt.counts.unanswered],
+          ["الوقت", formatDuration(currentAttempt.durationUsed)],
+        ];
+        els.resultMetrics.replaceChildren(
+          ...metrics.map(([label, value]) => metricNode(label, value)),
+        );
+        renderReviewFilters();
+        renderReviewList();
+        typesetMath(els.resultView);
+      }
+
+      function normalizeAttempt(attempt) {
+        const counts = {
+          correct: 0,
+          partial: 0,
+          incorrect: 0,
+          unanswered: 0,
+          ungraded: 0,
+          total: attempt.reviews?.length || attempt.counts?.total || 0,
+          ...(attempt.counts || {}),
+        };
+        return {
+          ...attempt,
+          counts,
+          reviews: Array.isArray(attempt.reviews) ? attempt.reviews : [],
+        };
+      }
+
+      function renderReviewFilters() {
+        document.querySelectorAll("[data-review-filter]").forEach(button => {
+          button.classList.toggle(
+            "active",
+            button.dataset.reviewFilter === currentReviewFilter,
+          );
+        });
+      }
+
+      function renderReviewList() {
+        if (!currentAttempt) return;
+        const items = currentAttempt.reviews.filter(reviewMatchesFilter);
+        if (items.length === 0) {
+          const empty = document.createElement("p");
+          empty.className = "empty";
+          empty.textContent = "لا توجد أسئلة في هذا الفلتر.";
+          els.reviewList.replaceChildren(empty);
+          return;
+        }
+
+        els.reviewList.replaceChildren(
+          ...items.map(item => {
+            const article = document.createElement("article");
+            article.className = "review-item";
+            const status = document.createElement("span");
+            status.className = `badge ${item.status}`;
+            status.textContent = statusLabel(item.status);
+            const type = document.createElement("span");
+            type.className = "badge";
+            type.textContent = item.typeLabel || typeLabel(item.type);
+            const number = document.createElement("span");
+            number.className = "badge";
+            number.textContent = `سؤال ${item.number || item.jsonIndex || ""}`;
+            const title = document.createElement("h3");
+            title.className = "review-text";
+            setAutoText(
+              title,
+              item.passageTitle
+                ? `${item.passageTitle}\n${item.prompt}`
+                : item.prompt,
+            );
+            article.append(status, type, number, title);
+
+            const hasOptionReview =
+              Array.isArray(item.options) && item.options.length > 0;
+            if (hasOptionReview) {
+              article.append(renderChoiceReview(item.options));
+            }
+
+            if (!hasOptionReview) {
+              const boxes = document.createElement("div");
+              boxes.className = "review-grid";
+              boxes.append(reviewBox("إجابتك", item.userAnswer || "غير مجاب"));
+              if (item.status !== "correct")
+                boxes.append(reviewBox("الإجابة الصحيحة", item.correctAnswer));
+              article.append(boxes);
+            }
+            return article;
+          }),
+        );
+        typesetMath(els.reviewList);
+      }
+
+      function reviewMatchesFilter(item) {
+        if (currentReviewFilter === "all") return true;
+        if (currentReviewFilter === "correct") return item.status === "correct";
+        if (currentReviewFilter === "unanswered")
+          return item.status === "unanswered";
+        if (currentReviewFilter === "incorrect")
+          return ["incorrect", "partial"].includes(item.status);
+        return true;
+      }
+
+      function renderChoiceReview(options) {
+        const wrap = document.createElement("div");
+        wrap.className = "choice-review";
+        options.forEach(option => {
+          const row = document.createElement("div");
+          row.className = "choice-review-item";
+          if (option.selected) row.classList.add("selected");
+          if (option.correct) row.classList.add("correct");
+          if (option.selected && !option.correct)
+            row.classList.add("wrong-selected");
+          const text = document.createElement("div");
+          text.className = "answer-text";
+          setAutoText(text, option.text);
+          const mark = document.createElement("span");
+          mark.className = "choice-mark";
+          mark.textContent =
+            option.selected && option.correct
+              ? "اختيارك صحيح"
+              : option.selected
+                ? "اختيارك"
+                : option.correct
+                  ? "الإجابة الصحيحة"
+                  : "";
+          row.append(text, mark);
+          wrap.append(row);
+        });
+        return wrap;
+      }
+
+      function reviewBox(label, text) {
+        const box = document.createElement("div");
+        box.className = "review-box";
+        const labelNode = document.createElement("span");
+        labelNode.className = "review-label";
+        labelNode.textContent = label;
+        const textNode = document.createElement("div");
+        textNode.className = "review-text";
+        setAutoText(textNode, text || "—");
+        box.append(labelNode, textNode);
+        return box;
+      }
+
+      function renderHistory() {
+        const attempts = loadAttempts();
+        if (attempts.length === 0) {
+          const empty = document.createElement("p");
+          empty.className = "empty";
+          empty.textContent = "لا يوجد سجل بعد.";
+          els.historyList.replaceChildren(empty);
+          return;
+        }
+
+        els.historyList.replaceChildren(
+          ...attempts.map(attempt => {
+            const safeAttempt = normalizeAttempt(attempt);
+            const item = document.createElement("article");
+            item.className = "history-item";
+            const body = document.createElement("div");
+            const title = document.createElement("div");
+            title.className = "history-title";
+            title.textContent = `${safeAttempt.percent}% • ${safeAttempt.earned}/${safeAttempt.max} درجة`;
+            const meta = document.createElement("div");
+            meta.className = "history-meta";
+            meta.textContent = `${formatDate(safeAttempt.date)} • ${safeAttempt.counts.total} أسئلة • ${formatDuration(safeAttempt.durationUsed)}`;
+            body.append(title, meta);
+            const actions = document.createElement("div");
+            actions.className = "history-actions";
+            const view = document.createElement("button");
+            view.type = "button";
+            view.className = "button small";
+            view.textContent = "عرض";
+            view.addEventListener("click", () => {
+              renderResults(safeAttempt, true);
+              showView("result");
+            });
+            const remove = document.createElement("button");
+            remove.type = "button";
+            remove.className = "button danger small";
+            remove.textContent = "حذف";
+            remove.addEventListener("click", () =>
+              deleteAttempt(safeAttempt.id),
+            );
+            actions.append(view, remove);
+            item.append(body, actions);
+            return item;
+          }),
+        );
+      }
+
+      function saveAttempt(attempt) {
+        const attempts = loadAttempts();
+        attempts.unshift(attempt);
+        localStorage.setItem(
+          STORAGE_KEY,
+          JSON.stringify(attempts.slice(0, 30)),
+        );
+      }
+
+      function loadAttempts() {
+        try {
+          return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+        } catch (error) {
+          return [];
+        }
+      }
+
+      function migrateAttempts() {
+        if (localStorage.getItem(STORAGE_KEY)) return;
+        const legacy = localStorage.getItem(LEGACY_STORAGE_KEY);
+        if (legacy) localStorage.setItem(STORAGE_KEY, legacy);
+      }
+
+      function deleteAttempt(id) {
+        const attempts = loadAttempts().filter(attempt => attempt.id !== id);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(attempts));
+        renderHistory();
+      }
+
+      function clearHistory() {
+        if (!confirm("مسح كل سجل المحاولات؟")) return;
+        localStorage.removeItem(STORAGE_KEY);
+        renderHistory();
+      }
+
+      function saveDraft() {
+        if (!quizState || quizState.finished) return;
+        const draft = {
+          ...quizState,
+          timerId: null,
+          startedAt: new Date(quizState.startedAt).toISOString(),
+        };
+        localStorage.setItem(DRAFT_KEY, JSON.stringify(draft));
+        updateDraftBanner();
+      }
+
+      function loadDraft() {
+        try {
+          const draft = JSON.parse(localStorage.getItem(DRAFT_KEY) || "null");
+          if (!draft || draft.finished || !Array.isArray(draft.questions))
+            return null;
+          return draft;
+        } catch (error) {
+          return null;
+        }
+      }
+
+      function updateDraftBanner() {
+        const draft = loadDraft();
+        els.resumeBanner.hidden = !draft || !quizData;
+      }
+
+      function resumeDraft() {
+        const draft = loadDraft();
+        if (!draft) {
+          updateDraftBanner();
+          return;
+        }
+        quizState = {
+          ...draft,
+          startedAt: new Date(draft.startedAt),
+          timerId: null,
+          finished: false,
+          locked: draft.locked || {},
+        };
+        showView("quiz");
+        renderQuestion();
+        startClock();
+      }
+
+      function discardDraft() {
+        clearDraft();
+        updateDraftBanner();
+      }
+
+      function clearDraft() {
+        localStorage.removeItem(DRAFT_KEY);
+        els.resumeBanner.hidden = true;
+      }
+
+      function resetToSetup() {
+        clearTimer();
+        quizState = null;
+        showView("setup");
+        renderHistory();
+        updateDraftBanner();
+      }
+
+      async function exportMistakesPdf() {
+        if (!currentAttempt) return;
+        const mistakes = currentAttempt.reviews.filter(item =>
+          ["incorrect", "partial", "unanswered"].includes(item.status),
+        );
+        const items = mistakes.length
+          ? mistakes
+          : currentAttempt.reviews.filter(item => item.status !== "correct");
+        els.printArea.replaceChildren(buildPrintContent(items));
+        await typesetMath(els.printArea);
+        window.print();
+      }
+
+      function buildPrintContent(items) {
+        const wrapper = document.createElement("section");
+        const title = document.createElement("h1");
+        title.textContent = "أخطاء الاختبار";
+        wrapper.append(title);
+
+        if (items.length === 0) {
+          const empty = document.createElement("p");
+          empty.textContent = "لا توجد أخطاء في هذه المحاولة.";
+          wrapper.append(empty);
+          return wrapper;
+        }
+
+        items.forEach(item => {
+          const article = document.createElement("article");
+          const heading = document.createElement("h2");
+          heading.textContent = `سؤال ${item.number || ""}: ${statusLabel(item.status)}`;
+          const prompt = document.createElement("p");
+          setAutoText(
+            prompt,
+            item.passageTitle
+              ? `${item.passageTitle}\n${item.prompt}`
+              : item.prompt,
+          );
+          article.append(heading, prompt);
+
+          if (Array.isArray(item.options) && item.options.length > 0) {
+            article.append(renderChoiceReview(item.options));
+          } else {
+            const user = document.createElement("p");
+            setAutoText(user, `إجابتك: ${item.userAnswer || "غير مجاب"}`);
+            const correct = document.createElement("p");
+            setAutoText(
+              correct,
+              `الإجابة الصحيحة: ${item.correctAnswer || "—"}`,
+            );
+            article.append(user, correct);
+          }
+          wrapper.append(article);
+        });
+        return wrapper;
+      }
+
+      function buildReviewOptions(question, answer) {
+        if (!["single", "multiple", "true_false"].includes(question.type))
+          return [];
+        const selected = new Set(asArray(answer).map(String));
+        const correct =
+          question.type === "true_false"
+            ? new Set([String(Boolean(question.answer))])
+            : new Set(asArray(question.answer).map(String));
+        return (question._choices || question.choices || []).map(choice => ({
+          text: choice.text,
+          selected: selected.has(String(choice.id)),
+          correct: correct.has(String(choice.id)),
+        }));
+      }
+
+      function formatAnswer(question, answer, emptyAsUnanswered = false) {
+        if (!hasAnswer(question, answer))
+          return emptyAsUnanswered ? "غير مجاب" : "";
+        if (question.type === "single") return choiceText(question, answer);
+        if (question.type === "true_false")
+          return String(answer) === "true"
+            ? "صواب"
+            : String(answer) === "false"
+              ? "خطأ"
+              : "";
+        if (question.type === "multiple")
+          return asArray(answer)
+            .map(id => choiceText(question, id))
+            .join("، ");
+        if (question.type === "fill_blank") {
+          return (question.blanks || [])
+            .map(
+              blank =>
+                `${blank.label || blank.id}: ${answer?.[blank.id] || ""}`,
+            )
+            .join("\n");
+        }
+        if (question.type === "matching") {
+          const rightMap = new Map(
+            (question.pairs || []).map(pair => [
+              String(pair.rightId),
+              pair.right,
+            ]),
+          );
+          return (question.pairs || [])
+            .map(
+              pair =>
+                `${pair.left}: ${rightMap.get(String(answer?.[pair.leftId])) || ""}`,
+            )
+            .join("\n");
+        }
+        if (question.type === "ordering") {
+          const itemMap = new Map(
+            (question.items || []).map(item => [String(item.id), item.text]),
+          );
+          return asArray(answer)
+            .map(
+              (id, index) => `${index + 1}. ${itemMap.get(String(id)) || id}`,
+            )
+            .join("\n");
+        }
+        return String(answer || "");
+      }
+
+      function formatCorrectAnswer(question) {
+        if (question.type === "single")
+          return choiceText(question, question.answer);
+        if (question.type === "true_false")
+          return question.answer ? "صواب" : "خطأ";
+        if (question.type === "multiple")
+          return asArray(question.answer)
+            .map(id => choiceText(question, id))
+            .join("، ");
+        if (question.type === "short_answer")
+          return asArray(question.acceptedAnswers || question.answer).join(
+            "، ",
+          );
+        if (question.type === "numeric") {
+          const tolerance = Number(question.tolerance || 0);
+          const unit = question.unit ? ` ${question.unit}` : "";
+          return tolerance
+            ? `${question.answer}${unit} ± ${tolerance}`
+            : `${question.answer}${unit}`;
+        }
+        if (question.type === "fill_blank") {
+          return (question.blanks || [])
+            .map(
+              blank =>
+                `${blank.label || blank.id}: ${asArray(blank.acceptedAnswers || blank.answer).join(" / ")}`,
+            )
+            .join("\n");
+        }
+        if (question.type === "matching") {
+          return (question.pairs || [])
+            .map(pair => `${pair.left}: ${pair.right}`)
+            .join("\n");
+        }
+        if (question.type === "ordering") {
+          const itemMap = new Map(
+            (question.items || []).map(item => [String(item.id), item.text]),
+          );
+          return asArray(question.correctOrder || question.answer)
+            .map(
+              (id, index) => `${index + 1}. ${itemMap.get(String(id)) || id}`,
+            )
+            .join("\n");
+        }
+        return "يحتاج مراجعة يدوية";
+      }
+
+      function choiceText(question, id) {
+        const choice = (question.choices || question._choices || []).find(
+          item => String(item.id) === String(id),
+        );
+        return choice ? choice.text : "";
+      }
+
+      function typeLabel(type) {
+        const labels = {
+          single: "اختيار واحد",
+          multiple: "اختيار من متعدد",
+          true_false: "صح أو خطأ",
+          short_answer: "إجابة قصيرة",
+          numeric: "رقمي",
+          fill_blank: "إكمال فراغ",
+          matching: "مطابقة",
+          ordering: "ترتيب",
+          essay: "مقالي",
+        };
+        return labels[type] || type || "غير محدد";
+      }
+
+      function statusLabel(status) {
+        const labels = {
+          correct: "صحيح",
+          partial: "جزئي",
+          incorrect: "خطأ",
+          unanswered: "غير مجاب",
+          ungraded: "مراجعة يدوية",
+        };
+        return labels[status] || status;
+      }
+
+      function showView(name) {
+        els.setupView.hidden = name !== "setup";
+        els.quizView.hidden = name !== "quiz";
+        els.resultView.hidden = name !== "result";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function metricNode(label, value) {
+        const node = document.createElement("div");
+        node.className = "metric";
+        const valueNode = document.createElement("span");
+        valueNode.className = "value";
+        valueNode.textContent = value;
+        const labelNode = document.createElement("span");
+        labelNode.className = "label";
+        labelNode.textContent = label;
+        node.append(valueNode, labelNode);
+        return node;
+      }
+
+      function setAutoText(node, value) {
+        node.dir = "auto";
+        node.textContent = value || "";
+        return node;
+      }
+
+      function normalizeText(value) {
+        return String(value ?? "")
+          .replace(/[٠-٩]/g, digit => "٠١٢٣٤٥٦٧٨٩".indexOf(digit))
+          .replace(/[۰-۹]/g, digit => "۰۱۲۳۴۵۶۷۸۹".indexOf(digit))
+          .trim()
+          .replace(/\s+/g, " ")
+          .toLocaleLowerCase("ar");
+      }
+
+      function parseNumber(value) {
+        const normalized = normalizeText(value)
+          .replace(",", ".")
+          .replace(/[^\d.+\-eE]/g, "");
+        if (!normalized || ["+", "-", "."].includes(normalized))
+          return Number.NaN;
+        return Number(normalized);
+      }
+
+      function formatDuration(totalSeconds) {
+        const minutes = Math.floor(totalSeconds / 60);
+        const seconds = Math.max(0, totalSeconds % 60);
+        return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+      }
+
+      function formatDate(date) {
+        return new Intl.DateTimeFormat("ar-SA", {
+          dateStyle: "medium",
+          timeStyle: "short",
+        }).format(new Date(date));
+      }
+
+      function clampNumber(value, min, max) {
+        const number = Number(value);
+        if (!Number.isFinite(number)) return min;
+        return Math.min(max, Math.max(min, Math.round(number)));
+      }
+
+      function asArray(value) {
+        if (Array.isArray(value)) return value;
+        if (value === undefined || value === null || value === "") return [];
+        return [value];
+      }
+
+      function shuffle(items) {
+        const copy = [...items];
+        for (let index = copy.length - 1; index > 0; index -= 1) {
+          const randomIndex = Math.floor(Math.random() * (index + 1));
+          [copy[index], copy[randomIndex]] = [copy[randomIndex], copy[index]];
+        }
+        return copy;
+      }
+
+      function deepClone(value) {
+        return JSON.parse(JSON.stringify(value));
+      }
+
+      function roundScore(value) {
+        return Math.round((Number(value) + Number.EPSILON) * 100) / 100;
+      }
+
+      function typesetMath(root) {
+        if (window.MathJax?.typesetPromise) {
+          return window.MathJax.typesetPromise([root]).catch(() => {});
+        }
+        return Promise.resolve();
+      }
+
+      init();
+    </script>
+  </body>
+</html>
