@@ -120,8 +120,8 @@
       "resources": {
         "reviewUnsolved": {
           "label": "ملف مراجعة غير محلول",
-          "status": "soon",
-          "url": ""
+          "status": "available",
+          "url": "https://drive.google.com/file/d/1wb_0gH1BnI0R70r-HumHbW5y6sujnbOf/view?usp=sharing"
         },
         "reviewSolved": {
           "label": "ملف مراجعة محلول",
