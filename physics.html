@@ -2784,10 +2784,76 @@
         return node;
       }
 
+      const LATEX_COMMAND_RE =
+        /\\(?:frac|sqrt|lambda|pi|times|gamma|alpha|beta|theta|mu|Delta|delta|omega|Omega|cdot|pm|leq?|geq?|neq|approx|sin|cos|tan|log|ln|sum|int|lim|vec|bar|hat|overline|underline)\b/;
+      const LATEX_FRAGMENT_RE =
+        /[A-Za-z0-9_{}^+\-*/=().,:\s]*\\(?:frac|sqrt|lambda|pi|times|gamma|alpha|beta|theta|mu|Delta|delta|omega|Omega|cdot|pm|leq?|geq?|neq|approx|sin|cos|tan|log|ln|sum|int|lim|vec|bar|hat|overline|underline)\b[A-Za-z0-9_{}^+\-*/=().,:\s\\]*/g;
+      const NUCLEAR_FRAGMENT_RE =
+        /\(\s*\{_[^{}\n]+?\^[^{}\n]+?\}\s*\\?[A-Za-z]+\s*\)|\{_[^{}\n]+?\^[^{}\n]+?\}\s*\\?[A-Za-z]+/g;
+      const NUCLEAR_STANDALONE_RE =
+        /\(\s*\{_[^{}\n]+?\^[^{}\n]+?\}\s*\\?[A-Za-z]+\s*\)|\{_[^{}\n]+?\^[^{}\n]+?\}\s*\\?[A-Za-z]+/;
+      const SCIENTIFIC_NOTATION_RE =
+        /\b(?:[A-Za-z](?:_[A-Za-z0-9]+)?\s*=\s*)?\d+(?:\.\d+)?\s*[xX]\s*\{?10\}?\^\{?-?\d+\}?\s*[A-Za-z/]*\b/g;
+      const SCIENTIFIC_NOTATION_STANDALONE_RE =
+        /\b(?:[A-Za-z](?:_[A-Za-z0-9]+)?\s*=\s*)?\d+(?:\.\d+)?\s*[xX]\s*\{?10\}?\^\{?-?\d+\}?\s*[A-Za-z/]*\b/;
+      const EXISTING_MATH_RE = /(?:\$[^$]+\$|\\\(|\\\[)/;
+      const ARABIC_RE = /[\u0600-\u06ff]/;
+      const MATH_ONLY_RE = /^[A-Za-z0-9_{}^+\-*/=().,:\s\\]+$/;
+
       function setAutoText(node, value) {
         node.dir = "auto";
-        node.textContent = value || "";
+        node.textContent = autoDelimitMath(value);
         return node;
+      }
+
+      function autoDelimitMath(value) {
+        const text = String(value ?? "");
+        if (!text || EXISTING_MATH_RE.test(text)) return text;
+        return text.split("\n").map(delimitMathLine).join("\n");
+      }
+
+      function delimitMathLine(line) {
+        const leading = line.match(/^\s*/)?.[0] || "";
+        const trailing = line.match(/\s*$/)?.[0] || "";
+        const body = line.slice(leading.length, line.length - trailing.length);
+        if (!body) return line;
+
+        if (isStandaloneMath(body)) return `${leading}$${body}$${trailing}`;
+
+        let rendered = line;
+        rendered = wrapMathFragments(rendered, LATEX_FRAGMENT_RE);
+        rendered = wrapMathFragments(rendered, NUCLEAR_FRAGMENT_RE);
+        rendered = wrapMathFragments(rendered, SCIENTIFIC_NOTATION_RE);
+        return rendered;
+      }
+
+      function isStandaloneMath(text) {
+        if (ARABIC_RE.test(text) || !MATH_ONLY_RE.test(text)) return false;
+        if (/^_+$/.test(text.replace(/\s/g, ""))) return false;
+        return (
+          LATEX_COMMAND_RE.test(text) ||
+          NUCLEAR_STANDALONE_RE.test(text) ||
+          SCIENTIFIC_NOTATION_STANDALONE_RE.test(text) ||
+          /[=^_]|[+\-*/]/.test(text)
+        );
+      }
+
+      function wrapMathFragments(text, pattern) {
+        return text
+          .split(/(\$[^$]*\$)/g)
+          .map(part =>
+            part.startsWith("$") && part.endsWith("$")
+              ? part
+              : part.replace(pattern, wrapInlineMath),
+          )
+          .join("");
+      }
+
+      function wrapInlineMath(match) {
+        const leading = match.match(/^\s*/)?.[0] || "";
+        const trailing = match.match(/\s*$/)?.[0] || "";
+        const body = match.slice(leading.length, match.length - trailing.length);
+        return body ? `${leading}$${body}$${trailing}` : match;
       }
 
       function normalizeText(value) {
@@ -2850,9 +2916,22 @@
         return Math.round((Number(value) + Number.EPSILON) * 100) / 100;
       }
 
-      function typesetMath(root) {
+      function typesetMath(root, attempts = 0) {
         if (window.MathJax?.typesetPromise) {
           return window.MathJax.typesetPromise([root]).catch(() => {});
+        }
+        if (window.MathJax?.startup?.promise) {
+          return window.MathJax.startup.promise
+            .then(() => window.MathJax.typesetPromise?.([root]))
+            .catch(() => {});
+        }
+        if (attempts < 30) {
+          return new Promise(resolve => {
+            window.setTimeout(
+              () => resolve(typesetMath(root, attempts + 1)),
+              100,
+            );
+          });
         }
         return Promise.resolve();
       }
