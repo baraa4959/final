@@ -68,13 +68,13 @@
       "resources": {
         "reviewUnsolved": {
           "label": "ملف مراجعة غير محلول",
-          "status": "soon",
-          "url": ""
+          "status": "available",
+          "url": "https://drive.google.com/file/d/14v2stqdChOPc7zAoMPdI48XmSL-RWsZ2/view?usp=sharing"
         },
         "reviewSolved": {
           "label": "ملف مراجعة محلول",
-          "status": "soon",
-          "url": ""
+          "status": "available",
+          "url": "https://drive.google.com/file/d/1ZyYwNu5SdZRm9GFXDicaLMOrY7gK8XjO/view?usp=sharing"
         },
         "quiz": {
           "label": "اختبار إلكتروني للملف",
