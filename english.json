@@ -1,146 +1,1754 @@
 {
-  "title": "اختبار تجريبي",
+  "title": "مراجعة الانجليزي",
   "description": "",
   "settings": {
-    "shuffleQuestions": true,
-    "shuffleChoices": true
+    "shuffleQuestions": false,
+    "shuffleChoices": false
   },
   "passages": [
     {
-      "id": "reading-motion",
-      "title": "قطعة قراءة: الحركة",
-      "content": "في الفيزياء نصف الحركة باستخدام كميات مثل الإزاحة والسرعة والتسارع. عندما تكون السرعة ثابتة يكون التسارع صفرًا، أما إذا تغيرت السرعة مقدارًا أو اتجاهًا فهناك تسارع. يساعد الرسم البياني للموقع والزمن على فهم نوع الحركة؛ فالميل يمثل السرعة المتجهة."
+      "id": "reading-1",
+      "title": "Reading 1",
+      "content": "Many language learners believe that having a native accent is important. However, English has many different regional varieties, even within the same country. Therefore, learners should first think about their main goal for learning the language.\n\nInstead of trying to imitate a specific native accent, it is much more useful to practice understanding different speakers. Today, English is used worldwide as a global medium of communication. Because of this, even native speakers now take courses to learn how to understand international varieties of English.\n\nUltimately, English no longer belongs only to native speaking countries; it belongs to the whole world. Being a good English user today means being an effective communicator who can understand different cultures, rather than just having a perfect native accent."
+    },
+    {
+      "id": "reading-2",
+      "title": "Reading 2",
+      "content": "Many people claim that money is not everything, but wealth provides essential benefits that make life easier. People who are well off do not have to stress over daily expenses, bills, or medical costs.\n\nA family’s struggle shows how money creates a predicament. When a parent cannot afford education or medical treatment for their children, it causes constant worry and tension. Without sufficient funds, a happy family is forced to make difficult sacrifices and hard choices.\n\nUltimately, while money cannot buy happiness, it is crucial for sustaining well-being and health. It provides the means to cater for a family's needs and solve problems that would otherwise destroy their peace of mind."
     }
   ],
   "questions": [
     {
-      "id": "q-single-1",
+      "id": "q-u7-grammar-1",
       "type": "single",
-      "prompt": "ما وحدة قياس القوة في النظام الدولي؟",
+      "prompt": "I lost my cell phone. I …………… it at school.",
       "choices": [
-        { "id": "a", "text": "نيوتن" },
-        { "id": "b", "text": "جول" },
-        { "id": "c", "text": "واط" },
-        { "id": "d", "text": "باسكال" },
-        { "id": "e", "text": "كلفن" }
-      ],
-      "answer": "a"
-    },
-    {
-      "id": "q-multiple-1",
-      "type": "multiple",
-      "prompt": "اختر الكميات المتجهة من القائمة:",
-      "choices": [
-        { "id": "a", "text": "الكتلة" },
-        { "id": "b", "text": "الإزاحة" },
-        { "id": "c", "text": "القوة" },
-        { "id": "d", "text": "درجة الحرارة" },
-        { "id": "e", "text": "السرعة المتجهة" }
-      ],
-      "answer": ["b", "c", "e"]
-    },
-    {
-      "id": "q-true-false-1",
-      "type": "true_false",
-      "prompt": "إذا كانت السرعة ثابتة مقدارًا واتجاهًا فإن التسارع يساوي صفرًا.",
-      "answer": true
-    },
-    {
-      "id": "q-short-1",
-      "type": "short_answer",
-      "prompt": "اكتب اسم القانون الذي تمثله العلاقة \\(F = ma\\).",
-      "acceptedAnswers": ["قانون نيوتن الثاني", "نيوتن الثاني"]
-    },
-    {
-      "id": "q-numeric-1",
-      "type": "numeric",
-      "prompt": "إذا كانت الكتلة \\(m = 2\\,kg\\) والتسارع \\(a = 3\\,m/s^2\\)، احسب القوة \\(F\\).",
-      "answer": 6,
-      "tolerance": 0.1,
-      "unit": "N"
-    },
-    {
-      "id": "q-fill-1",
-      "type": "fill_blank",
-      "prompt": "أكمل العلاقة: السرعة المتوسطة = ______ ÷ ______.",
-      "blanks": [
         {
-          "id": "b1",
-          "label": "البسط",
-          "acceptedAnswers": ["الإزاحة", "المسافة"]
+          "id": "a",
+          "text": "should leave"
         },
         {
-          "id": "b2",
-          "label": "المقام",
-          "acceptedAnswers": ["الزمن", "الوقت"]
+          "id": "b",
+          "text": "may have left"
+        },
+        {
+          "id": "c",
+          "text": "must leaving"
+        },
+        {
+          "id": "d",
+          "text": "will leave"
         }
-      ]
-    },
-    {
-      "id": "q-matching-1",
-      "type": "matching",
-      "prompt": "طابق الكمية الفيزيائية بوحدتها:",
-      "pairs": [
-        { "leftId": "force", "left": "القوة", "rightId": "newton", "right": "نيوتن" },
-        { "leftId": "energy", "left": "الطاقة", "rightId": "joule", "right": "جول" },
-        { "leftId": "power", "left": "القدرة", "rightId": "watt", "right": "واط" }
-      ]
-    },
-    {
-      "id": "q-ordering-1",
-      "type": "ordering",
-      "prompt": "رتب خطوات حل مسألة فيزيائية بسيطة:",
-      "items": [
-        { "id": "read", "text": "قراءة المعطيات والمطلوب" },
-        { "id": "law", "text": "اختيار القانون المناسب" },
-        { "id": "substitute", "text": "التعويض بالقيم" },
-        { "id": "unit", "text": "كتابة الناتج مع الوحدة" }
-      ],
-      "correctOrder": ["read", "law", "substitute", "unit"]
-    },
-    {
-      "id": "q-reading-1",
-      "type": "single",
-      "passageId": "reading-motion",
-      "prompt": "حسب القطعة: ماذا يمثل ميل منحنى الموقع والزمن؟",
-      "choices": [
-        { "id": "a", "text": "القوة" },
-        { "id": "b", "text": "السرعة المتجهة" },
-        { "id": "c", "text": "الكتلة" },
-        { "id": "d", "text": "الطاقة" }
       ],
       "answer": "b"
     },
     {
-      "id": "q-reading-2",
-      "type": "multiple",
-      "passageId": "reading-motion",
-      "prompt": "حسب القطعة: متى يوجد تسارع؟",
-      "choices": [
-        { "id": "a", "text": "عند تغير مقدار السرعة" },
-        { "id": "b", "text": "عند تغير اتجاه السرعة" },
-        { "id": "c", "text": "عند ثبات السرعة مقدارًا واتجاهًا" },
-        { "id": "d", "text": "عند غياب الحركة تمامًا" }
-      ],
-      "answer": ["a", "b"]
-    },
-    {
-      "id": "q-essay-1",
-      "type": "essay",
-      "prompt": "اشرح باختصار لماذا نهتم بكتابة الوحدة بعد الناتج النهائي.",
-      "points": 0
-    },
-    {
-      "id": "q-english-1",
+      "id": "q-u7-grammar-2",
       "type": "single",
-      "prompt": "Which SI unit is used to measure electric current?",
+      "prompt": "The football game …………… at 1:00, but it was postponed because of the rain.",
       "choices": [
-        { "id": "a", "text": "Ampere" },
-        { "id": "b", "text": "Volt" },
-        { "id": "c", "text": "Ohm" },
-        { "id": "d", "text": "Joule" }
+        {
+          "id": "a",
+          "text": "starts"
+        },
+        {
+          "id": "b",
+          "text": "is starting"
+        },
+        {
+          "id": "c",
+          "text": "should start"
+        },
+        {
+          "id": "d",
+          "text": "was supposed to start"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "q-u7-grammar-3",
+      "type": "single",
+      "prompt": "The money …………… to the poor.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "could have been given"
+        },
+        {
+          "id": "b",
+          "text": "could give"
+        },
+        {
+          "id": "c",
+          "text": "gave"
+        },
+        {
+          "id": "d",
+          "text": "is giving"
+        }
       ],
       "answer": "a"
+    },
+    {
+      "id": "q-u7-grammar-4",
+      "type": "single",
+      "prompt": "You …………… for your mistake.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "apologizing"
+        },
+        {
+          "id": "b",
+          "text": "should have apologized"
+        },
+        {
+          "id": "c",
+          "text": "should apologize"
+        },
+        {
+          "id": "d",
+          "text": "apologized"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "q-u7-form-meaning-and-function-1",
+      "type": "single",
+      "prompt": "In 1876, …………… most important communications technology was the telegraph.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "a"
+        },
+        {
+          "id": "b",
+          "text": "an"
+        },
+        {
+          "id": "c",
+          "text": "the"
+        },
+        {
+          "id": "d",
+          "text": "some"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "q-u7-form-meaning-and-function-2",
+      "type": "single",
+      "prompt": "He’s in …………… on vacation.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Dubai"
+        },
+        {
+          "id": "b",
+          "text": "The Dubai"
+        },
+        {
+          "id": "c",
+          "text": "dubai"
+        },
+        {
+          "id": "d",
+          "text": "The dubai"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "q-u7-form-meaning-and-function-3",
+      "type": "single",
+      "prompt": "There are …………… newspapers.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "any"
+        },
+        {
+          "id": "b",
+          "text": "some"
+        },
+        {
+          "id": "c",
+          "text": "much"
+        },
+        {
+          "id": "d",
+          "text": "a"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "q-u7-form-meaning-and-function-4",
+      "type": "single",
+      "prompt": "…………… jobs have you had?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "How many"
+        },
+        {
+          "id": "b",
+          "text": "How much"
+        },
+        {
+          "id": "c",
+          "text": "How long"
+        },
+        {
+          "id": "d",
+          "text": "How often"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "q-u7-vocabulary-building-1",
+      "type": "single",
+      "prompt": "thrown away =",
+      "choices": [
+        {
+          "id": "a",
+          "text": "discarded"
+        },
+        {
+          "id": "b",
+          "text": "damage"
+        },
+        {
+          "id": "c",
+          "text": "automatically"
+        },
+        {
+          "id": "d",
+          "text": "adhesive"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "q-u7-vocabulary-building-2",
+      "type": "single",
+      "prompt": "something done without thought, as is done by a machine =",
+      "choices": [
+        {
+          "id": "a",
+          "text": "discarded"
+        },
+        {
+          "id": "b",
+          "text": "damage"
+        },
+        {
+          "id": "c",
+          "text": "automatically"
+        },
+        {
+          "id": "d",
+          "text": "adhesive"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "q-u7-real-talk",
+      "type": "matching",
+      "prompt": "Unit 7 Real Talk: Match each expression with its meaning.",
+      "pairs": [
+        {
+          "leftId": "a",
+          "left": "exaggerate the importance of something",
+          "rightId": "r-a",
+          "right": "make too much of (something)"
+        },
+        {
+          "leftId": "b",
+          "left": "Don’t worry about it",
+          "rightId": "r-b",
+          "right": "Don’t sweat it"
+        },
+        {
+          "leftId": "c",
+          "left": "(not) something of great importance",
+          "rightId": "r-c",
+          "right": "(no) big deal"
+        },
+        {
+          "leftId": "d",
+          "left": "irresponsible person",
+          "rightId": "r-d",
+          "right": "flake"
+        },
+        {
+          "leftId": "e",
+          "left": "forget about something",
+          "rightId": "r-e",
+          "right": "slip (one’s) mind"
+        }
+      ]
+    },
+    {
+      "id": "q-u8-grammar-1",
+      "type": "single",
+      "prompt": "It was …………… a strange experience to see my old friend again that I was speechless",
+      "choices": [
+        {
+          "id": "a",
+          "text": "such"
+        },
+        {
+          "id": "b",
+          "text": "so"
+        },
+        {
+          "id": "c",
+          "text": "very"
+        },
+        {
+          "id": "d",
+          "text": "too"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "q-u8-grammar-2",
+      "type": "single",
+      "prompt": "He ran …………… quickly that he won the race.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "such"
+        },
+        {
+          "id": "b",
+          "text": "too"
+        },
+        {
+          "id": "c",
+          "text": "so"
+        },
+        {
+          "id": "d",
+          "text": "very"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "q-u8-grammar-3",
+      "type": "single",
+      "prompt": "I have …………… homework that I won’t be able to go out tonight.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "so many"
+        },
+        {
+          "id": "b",
+          "text": "so much"
+        },
+        {
+          "id": "c",
+          "text": "such"
+        },
+        {
+          "id": "d",
+          "text": "very"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "q-u8-grammar-4",
+      "type": "single",
+      "prompt": "I ran into him on the street while …………… him on my cell phone.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "call"
+        },
+        {
+          "id": "b",
+          "text": "calling"
+        },
+        {
+          "id": "c",
+          "text": "calls"
+        },
+        {
+          "id": "d",
+          "text": "called"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "q-u8-form-meaning-and-function-1",
+      "type": "single",
+      "prompt": "I …………… home from work.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "drive"
+        },
+        {
+          "id": "b",
+          "text": "was driving"
+        },
+        {
+          "id": "c",
+          "text": "driven"
+        },
+        {
+          "id": "d",
+          "text": "drives"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "q-u8-form-meaning-and-function-2",
+      "type": "single",
+      "prompt": "My old car …………… down so I bought a new one.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "was always breaking"
+        },
+        {
+          "id": "b",
+          "text": "always breaks"
+        },
+        {
+          "id": "c",
+          "text": "break"
+        },
+        {
+          "id": "d",
+          "text": "is breaking"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "q-u8-form-meaning-and-function-3",
+      "type": "single",
+      "prompt": "King Umberto of Italy …………… into his carriage when he was assassinated.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "climb"
+        },
+        {
+          "id": "b",
+          "text": "climbs"
+        },
+        {
+          "id": "c",
+          "text": "had been climbing"
+        },
+        {
+          "id": "d",
+          "text": "is climbing"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "q-u8-form-meaning-and-function-4",
+      "type": "single",
+      "prompt": "They were just …………… when the phone rang.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "about to leave"
+        },
+        {
+          "id": "b",
+          "text": "left"
+        },
+        {
+          "id": "c",
+          "text": "leave"
+        },
+        {
+          "id": "d",
+          "text": "leaves"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "q-u8-vocabulary-building-1",
+      "type": "single",
+      "prompt": "able to be found =",
+      "choices": [
+        {
+          "id": "a",
+          "text": "startling"
+        },
+        {
+          "id": "b",
+          "text": "detectable"
+        },
+        {
+          "id": "c",
+          "text": "haggard"
+        },
+        {
+          "id": "d",
+          "text": "intact"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "q-u8-vocabulary-building-2",
+      "type": "single",
+      "prompt": "very thin and tired =",
+      "choices": [
+        {
+          "id": "a",
+          "text": "startling"
+        },
+        {
+          "id": "b",
+          "text": "detectable"
+        },
+        {
+          "id": "c",
+          "text": "haggard"
+        },
+        {
+          "id": "d",
+          "text": "intact"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "q-u8-real-talk",
+      "type": "matching",
+      "prompt": "Unit 8 Real Talk: Match each expression with its meaning.",
+      "pairs": [
+        {
+          "leftId": "a",
+          "left": "significant opportunity",
+          "rightId": "r-a",
+          "right": "break"
+        },
+        {
+          "leftId": "b",
+          "left": "to shock or disorient someone",
+          "rightId": "r-b",
+          "right": "freak (someone) out"
+        },
+        {
+          "leftId": "c",
+          "left": "uncertain",
+          "rightId": "r-c",
+          "right": "iffy"
+        },
+        {
+          "leftId": "d",
+          "left": "confused",
+          "rightId": "r-d",
+          "right": "disoriented"
+        },
+        {
+          "leftId": "e",
+          "left": "extremely happy",
+          "rightId": "r-e",
+          "right": "on cloud nine"
+        }
+      ]
+    },
+    {
+      "id": "q-u9-grammar-1",
+      "type": "single",
+      "prompt": "I noticed …………… she didn’t put any make-up on today.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "that"
+        },
+        {
+          "id": "b",
+          "text": "what"
+        },
+        {
+          "id": "c",
+          "text": "which"
+        },
+        {
+          "id": "d",
+          "text": "because"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "q-u9-grammar-2",
+      "type": "single",
+      "prompt": "Do you think …………… beauty products make some people look better?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "when"
+        },
+        {
+          "id": "b",
+          "text": "where"
+        },
+        {
+          "id": "c",
+          "text": "that"
+        },
+        {
+          "id": "d",
+          "text": "if"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "q-u9-grammar-3",
+      "type": "single",
+      "prompt": "She doesn’t seem to be aware …………… her dress is no longer in style.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "why"
+        },
+        {
+          "id": "b",
+          "text": "that"
+        },
+        {
+          "id": "c",
+          "text": "who"
+        },
+        {
+          "id": "d",
+          "text": "than"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "q-u9-grammar-4",
+      "type": "single",
+      "prompt": "Are you sure …………… these products are not tested on animals?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "but"
+        },
+        {
+          "id": "b",
+          "text": "that"
+        },
+        {
+          "id": "c",
+          "text": "which"
+        },
+        {
+          "id": "d",
+          "text": "because"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "q-u9-form-meaning-and-function-1",
+      "type": "single",
+      "prompt": "The zipper was …………… .",
+      "choices": [
+        {
+          "id": "a",
+          "text": "broken"
+        },
+        {
+          "id": "b",
+          "text": "broke"
+        },
+        {
+          "id": "c",
+          "text": "breaking"
+        },
+        {
+          "id": "d",
+          "text": "break"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "q-u9-form-meaning-and-function-2",
+      "type": "single",
+      "prompt": "…………… out at the gym, he saw an old school friend.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "While he work"
+        },
+        {
+          "id": "b",
+          "text": "Worked"
+        },
+        {
+          "id": "c",
+          "text": "While working"
+        },
+        {
+          "id": "d",
+          "text": "As work"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "q-u9-form-meaning-and-function-3",
+      "type": "single",
+      "prompt": "Mariam and Mona were …………… about visiting the new store.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "excitement"
+        },
+        {
+          "id": "b",
+          "text": "excited"
+        },
+        {
+          "id": "c",
+          "text": "exciting"
+        },
+        {
+          "id": "d",
+          "text": "excite"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "q-u9-form-meaning-and-function-4",
+      "type": "single",
+      "prompt": "The jewelry …………… last week has been found.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "stole"
+        },
+        {
+          "id": "b",
+          "text": "stolen"
+        },
+        {
+          "id": "c",
+          "text": "stealing"
+        },
+        {
+          "id": "d",
+          "text": "steal"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "q-u9-vocabulary-building-1",
+      "type": "single",
+      "prompt": "idea of perfection =",
+      "choices": [
+        {
+          "id": "a",
+          "text": "plump"
+        },
+        {
+          "id": "b",
+          "text": "famine"
+        },
+        {
+          "id": "c",
+          "text": "standards"
+        },
+        {
+          "id": "d",
+          "text": "ideal"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "q-u9-vocabulary-building-2",
+      "type": "single",
+      "prompt": "slightly overweight =",
+      "choices": [
+        {
+          "id": "a",
+          "text": "plump"
+        },
+        {
+          "id": "b",
+          "text": "famine"
+        },
+        {
+          "id": "c",
+          "text": "standards"
+        },
+        {
+          "id": "d",
+          "text": "ideal"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "q-u9-real-talk",
+      "type": "matching",
+      "prompt": "Unit 9 Real Talk: Match each expression with its meaning.",
+      "pairs": [
+        {
+          "leftId": "a",
+          "left": "by very much; obviously",
+          "rightId": "r-a",
+          "right": "by far"
+        },
+        {
+          "leftId": "b",
+          "left": "very angry",
+          "rightId": "r-b",
+          "right": "fit to be tied"
+        },
+        {
+          "leftId": "c",
+          "left": "speak indirectly",
+          "rightId": "r-c",
+          "right": "beat around the bush"
+        },
+        {
+          "leftId": "d",
+          "left": "really impress them",
+          "rightId": "r-d",
+          "right": "blow them away"
+        },
+        {
+          "leftId": "e",
+          "left": "looked again in surprise at someone or something",
+          "rightId": "r-e",
+          "right": "did a double take"
+        }
+      ]
+    },
+    {
+      "id": "q-u10-grammar-1",
+      "type": "single",
+      "prompt": "My mother said (that) gossiping …………… a bad habit.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "is being"
+        },
+        {
+          "id": "b",
+          "text": "was"
+        },
+        {
+          "id": "c",
+          "text": "been"
+        },
+        {
+          "id": "d",
+          "text": "are"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "q-u10-grammar-2",
+      "type": "single",
+      "prompt": "He said (that) Mark …………… on the test.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "cheat"
+        },
+        {
+          "id": "b",
+          "text": "cheating"
+        },
+        {
+          "id": "c",
+          "text": "had cheated"
+        },
+        {
+          "id": "d",
+          "text": "has cheat"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "q-u10-grammar-3",
+      "type": "single",
+      "prompt": "They said (that) he …………… gossip.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "liked"
+        },
+        {
+          "id": "b",
+          "text": "likes"
+        },
+        {
+          "id": "c",
+          "text": "liking"
+        },
+        {
+          "id": "d",
+          "text": "like"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "q-u10-grammar-4",
+      "type": "single",
+      "prompt": "He asked …………… they were spreading rumors.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "that"
+        },
+        {
+          "id": "b",
+          "text": "which"
+        },
+        {
+          "id": "c",
+          "text": "whether"
+        },
+        {
+          "id": "d",
+          "text": "who"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "q-u10-form-meaning-and-function-1",
+      "type": "single",
+      "prompt": "We …………… for him!",
+      "choices": [
+        {
+          "id": "a",
+          "text": "should vote"
+        },
+        {
+          "id": "b",
+          "text": "voted"
+        },
+        {
+          "id": "c",
+          "text": "can vote"
+        },
+        {
+          "id": "d",
+          "text": "can’t vote"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "q-u10-form-meaning-and-function-2",
+      "type": "single",
+      "prompt": "Can you keep a secret? Yes, I …………… .",
+      "choices": [
+        {
+          "id": "a",
+          "text": "will"
+        },
+        {
+          "id": "b",
+          "text": "could"
+        },
+        {
+          "id": "c",
+          "text": "can"
+        },
+        {
+          "id": "d",
+          "text": "can't"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "q-u10-form-meaning-and-function-3",
+      "type": "single",
+      "prompt": "You …………… stop gossiping.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "could"
+        },
+        {
+          "id": "b",
+          "text": "can"
+        },
+        {
+          "id": "c",
+          "text": "should"
+        },
+        {
+          "id": "d",
+          "text": "must"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "q-u10-form-meaning-and-function-4",
+      "type": "single",
+      "prompt": "You shouldn’t tell anyone what you know.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "can"
+        },
+        {
+          "id": "b",
+          "text": "must"
+        },
+        {
+          "id": "c",
+          "text": "should"
+        },
+        {
+          "id": "d",
+          "text": "shouldn’t"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "q-u10-vocabulary-building-1",
+      "type": "single",
+      "prompt": "done or communicated in secret =",
+      "choices": [
+        {
+          "id": "a",
+          "text": "confidential"
+        },
+        {
+          "id": "b",
+          "text": "derogatory"
+        },
+        {
+          "id": "c",
+          "text": "divulge"
+        },
+        {
+          "id": "d",
+          "text": "malicious"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "q-u10-vocabulary-building-2",
+      "type": "single",
+      "prompt": "deliberately harmful =",
+      "choices": [
+        {
+          "id": "a",
+          "text": "confidential"
+        },
+        {
+          "id": "b",
+          "text": "derogatory"
+        },
+        {
+          "id": "c",
+          "text": "divulge"
+        },
+        {
+          "id": "d",
+          "text": "malicious"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "q-u10-real-talk",
+      "type": "matching",
+      "prompt": "Unit 10 Real Talk: Match each expression with its meaning.",
+      "pairs": [
+        {
+          "leftId": "a",
+          "left": "permanently",
+          "rightId": "r-a",
+          "right": "for good"
+        },
+        {
+          "leftId": "b",
+          "left": "to criticize someone to other people",
+          "rightId": "r-b",
+          "right": "bad-mouth"
+        },
+        {
+          "leftId": "c",
+          "left": "something that is not stable",
+          "rightId": "r-c",
+          "right": "on again, off again"
+        },
+        {
+          "leftId": "d",
+          "left": "stopped being friends",
+          "rightId": "r-d",
+          "right": "split up"
+        },
+        {
+          "leftId": "e",
+          "left": "without (someone) knowing",
+          "rightId": "r-e",
+          "right": "behind (someone’s) back"
+        }
+      ]
+    },
+    {
+      "id": "q-u11-grammar-1",
+      "type": "single",
+      "prompt": "The teacher …………… I like best is my language professor.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "whom"
+        },
+        {
+          "id": "b",
+          "text": "who is"
+        },
+        {
+          "id": "c",
+          "text": "whom is"
+        },
+        {
+          "id": "d",
+          "text": "which"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "q-u11-grammar-2",
+      "type": "single",
+      "prompt": "She is the kind of person …………… is always there for her friends.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "whom"
+        },
+        {
+          "id": "b",
+          "text": "which"
+        },
+        {
+          "id": "c",
+          "text": "that"
+        },
+        {
+          "id": "d",
+          "text": "who"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "q-u11-grammar-3",
+      "type": "single",
+      "prompt": "I am someone …………… loves doing crossword puzzles.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "who"
+        },
+        {
+          "id": "b",
+          "text": "whom"
+        },
+        {
+          "id": "c",
+          "text": "which"
+        },
+        {
+          "id": "d",
+          "text": "that"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "q-u11-grammar-4",
+      "type": "single",
+      "prompt": "Words …………… have many meanings can be confusing.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "which"
+        },
+        {
+          "id": "b",
+          "text": "that"
+        },
+        {
+          "id": "c",
+          "text": "whom"
+        },
+        {
+          "id": "d",
+          "text": "who"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "q-u11-form-meaning-and-function-1",
+      "type": "single",
+      "prompt": "Are we …………… Chinese at school?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "going learn"
+        },
+        {
+          "id": "b",
+          "text": "going to learn"
+        },
+        {
+          "id": "c",
+          "text": "learned"
+        },
+        {
+          "id": "d",
+          "text": "learn"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "q-u11-form-meaning-and-function-2",
+      "type": "single",
+      "prompt": "Will people …………… Arabic?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "spoken"
+        },
+        {
+          "id": "b",
+          "text": "spoke"
+        },
+        {
+          "id": "c",
+          "text": "speaking"
+        },
+        {
+          "id": "d",
+          "text": "speak"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "q-u11-form-meaning-and-function-3",
+      "type": "single",
+      "prompt": "I If only my parents …………… me go.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "had let"
+        },
+        {
+          "id": "b",
+          "text": "let"
+        },
+        {
+          "id": "c",
+          "text": "would let"
+        },
+        {
+          "id": "d",
+          "text": "will let"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "q-u11-form-meaning-and-function-4",
+      "type": "single",
+      "prompt": "Will you be working on the weekend? Yes, I …………… .",
+      "choices": [
+        {
+          "id": "a",
+          "text": "will"
+        },
+        {
+          "id": "b",
+          "text": "am"
+        },
+        {
+          "id": "c",
+          "text": "do"
+        },
+        {
+          "id": "d",
+          "text": "won't"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "q-u11-vocabulary-building-1",
+      "type": "single",
+      "prompt": "lack of ability =",
+      "choices": [
+        {
+          "id": "a",
+          "text": "neutral"
+        },
+        {
+          "id": "b",
+          "text": "limitations"
+        },
+        {
+          "id": "c",
+          "text": "trademarked"
+        },
+        {
+          "id": "d",
+          "text": "evolve"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "q-u11-vocabulary-building-2",
+      "type": "single",
+      "prompt": "shown to have exclusive legal ownership =",
+      "choices": [
+        {
+          "id": "a",
+          "text": "neutral"
+        },
+        {
+          "id": "b",
+          "text": "limitations"
+        },
+        {
+          "id": "c",
+          "text": "trademarked"
+        },
+        {
+          "id": "d",
+          "text": "evolve"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "q-u11-real-talk",
+      "type": "matching",
+      "prompt": "Unit 11 Real Talk: Match each expression with its meaning.",
+      "pairs": [
+        {
+          "leftId": "a",
+          "left": "put up with",
+          "rightId": "r-a",
+          "right": "deal with"
+        },
+        {
+          "leftId": "b",
+          "left": "snack",
+          "rightId": "r-b",
+          "right": "bite"
+        },
+        {
+          "leftId": "c",
+          "left": "make one’s way through a crowd using some physical force",
+          "rightId": "r-c",
+          "right": "elbow (one’s) way"
+        },
+        {
+          "leftId": "d",
+          "left": "crunchy junk foods",
+          "rightId": "r-d",
+          "right": "munchies"
+        },
+        {
+          "leftId": "e",
+          "left": "very crowded",
+          "rightId": "r-e",
+          "right": "jam packed"
+        }
+      ]
+    },
+    {
+      "id": "q-u12-grammar-1",
+      "type": "single",
+      "prompt": "Last year I visited the city …………… Moctezuma’s treasure is said to be buried.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "which"
+        },
+        {
+          "id": "b",
+          "text": "who"
+        },
+        {
+          "id": "c",
+          "text": "where"
+        },
+        {
+          "id": "d",
+          "text": "whose"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "q-u12-grammar-2",
+      "type": "single",
+      "prompt": "There are people …………… lives are spent looking for ancient objects.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "who"
+        },
+        {
+          "id": "b",
+          "text": "whose"
+        },
+        {
+          "id": "c",
+          "text": "whom"
+        },
+        {
+          "id": "d",
+          "text": "which"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "q-u12-grammar-3",
+      "type": "single",
+      "prompt": "Tutankhamun was a pharaoh. …………… is the most interesting to me.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "His story"
+        },
+        {
+          "id": "b",
+          "text": "Himself"
+        },
+        {
+          "id": "c",
+          "text": "Him"
+        },
+        {
+          "id": "d",
+          "text": "He"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "q-u12-grammar-4",
+      "type": "single",
+      "prompt": "The woman …………… coming over tonight lost her watch.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "whom"
+        },
+        {
+          "id": "b",
+          "text": "who"
+        },
+        {
+          "id": "c",
+          "text": "who’s"
+        },
+        {
+          "id": "d",
+          "text": "whose"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "q-u12-form-meaning-and-function-1",
+      "type": "single",
+      "prompt": "He talks as if he …………… an expert in the field.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "is"
+        },
+        {
+          "id": "b",
+          "text": "were"
+        },
+        {
+          "id": "c",
+          "text": "being"
+        },
+        {
+          "id": "d",
+          "text": "am"
+        }
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "q-u12-form-meaning-and-function-2",
+      "type": "single",
+      "prompt": "It’s high time you …………… a job and earned a wage.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "found"
+        },
+        {
+          "id": "b",
+          "text": "find"
+        },
+        {
+          "id": "c",
+          "text": "finding"
+        },
+        {
+          "id": "d",
+          "text": "look for"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "q-u12-form-meaning-and-function-3",
+      "type": "single",
+      "prompt": "It’s about time you …………… about the future.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "had thought"
+        },
+        {
+          "id": "b",
+          "text": "thinking"
+        },
+        {
+          "id": "c",
+          "text": "think"
+        },
+        {
+          "id": "d",
+          "text": "thought"
+        }
+      ],
+      "answer": "d"
+    },
+    {
+      "id": "q-u12-form-meaning-and-function-4",
+      "type": "single",
+      "prompt": "They act as though they …………… on the test.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "had not cheated"
+        },
+        {
+          "id": "b",
+          "text": "were not cheating"
+        },
+        {
+          "id": "c",
+          "text": "did not cheat"
+        },
+        {
+          "id": "d",
+          "text": "not cheated"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "q-u12-vocabulary-building-1",
+      "type": "single",
+      "prompt": "find something by chance =",
+      "choices": [
+        {
+          "id": "a",
+          "text": "stumble upon"
+        },
+        {
+          "id": "b",
+          "text": "appraiser"
+        },
+        {
+          "id": "c",
+          "text": "wedged"
+        },
+        {
+          "id": "d",
+          "text": "astronomer"
+        }
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "q-u12-vocabulary-building-2",
+      "type": "single",
+      "prompt": "stuck between two things =",
+      "choices": [
+        {
+          "id": "a",
+          "text": "stumble upon"
+        },
+        {
+          "id": "b",
+          "text": "appraiser"
+        },
+        {
+          "id": "c",
+          "text": "wedged"
+        },
+        {
+          "id": "d",
+          "text": "astronomer"
+        }
+      ],
+      "answer": "c"
+    },
+    {
+      "id": "q-u12-real-talk",
+      "type": "matching",
+      "prompt": "Unit 12 Real Talk: Match each expression with its meaning.",
+      "pairs": [
+        {
+          "leftId": "a",
+          "left": "be very angry",
+          "rightId": "r-a",
+          "right": "hit the roof"
+        },
+        {
+          "leftId": "b",
+          "left": "disappeared without a trace",
+          "rightId": "r-b",
+          "right": "vanished into thin air"
+        },
+        {
+          "leftId": "c",
+          "left": "upset, agitated",
+          "rightId": "r-c",
+          "right": "bent out of shape"
+        },
+        {
+          "leftId": "d",
+          "left": "bothering",
+          "rightId": "r-d",
+          "right": "eating"
+        },
+        {
+          "leftId": "e",
+          "left": "feeling sad and disappointed",
+          "rightId": "r-e",
+          "right": "down in the dumps"
+        }
+      ]
+    },
+    {
+      "id": "q-reading-1-1",
+      "type": "true_false",
+      "passageId": "reading-1",
+      "prompt": "English has many different regional varieties.",
+      "answer": true
+    },
+    {
+      "id": "q-reading-1-2",
+      "type": "true_false",
+      "passageId": "reading-1",
+      "prompt": "It is important for a learner to imitate native varieties.",
+      "answer": false
+    },
+    {
+      "id": "q-reading-1-3",
+      "type": "true_false",
+      "passageId": "reading-1",
+      "prompt": "English belongs to the whole world.",
+      "answer": true
+    },
+    {
+      "id": "q-reading-1-4",
+      "type": "true_false",
+      "passageId": "reading-1",
+      "prompt": "Native speakers never have to attend courses.",
+      "answer": false
+    },
+    {
+      "id": "q-reading-1-5",
+      "type": "true_false",
+      "passageId": "reading-1",
+      "prompt": "English is only the property of the English-speaking countries.",
+      "answer": false
+    },
+    {
+      "id": "q-reading-2-1",
+      "type": "true_false",
+      "passageId": "reading-2",
+      "prompt": "Wealth provides essential benefits that make life easier.",
+      "answer": true
+    },
+    {
+      "id": "q-reading-2-2",
+      "type": "true_false",
+      "passageId": "reading-2",
+      "prompt": "Money is crucial for sustaining well-being and health.",
+      "answer": true
+    },
+    {
+      "id": "q-reading-2-3",
+      "type": "true_false",
+      "passageId": "reading-2",
+      "prompt": "Money can buy happiness.",
+      "answer": false
+    },
+    {
+      "id": "q-reading-2-4",
+      "type": "true_false",
+      "passageId": "reading-2",
+      "prompt": "Without sufficient funds, a happy family is forced to make difficult sacrifices.",
+      "answer": true
+    },
+    {
+      "id": "q-reading-2-5",
+      "type": "true_false",
+      "passageId": "reading-2",
+      "prompt": "People who are well off have to stress over daily expenses.",
+      "answer": false
     }
   ]
 }
