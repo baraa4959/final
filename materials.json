@@ -42,8 +42,8 @@
       "resources": {
         "reviewUnsolved": {
           "label": "ملف مراجعة غير محلول",
-          "status": "soon",
-          "url": ""
+          "status": "available",
+          "url": "https://drive.google.com/file/d/1Vm3H5ZWBaIf-fce8WIhg_5sZwPnR7eyK/view?usp=sharing"
         },
         "reviewSolved": {
           "label": "ملف مراجعة محلول",
@@ -52,12 +52,12 @@
         },
         "quiz": {
           "label": "اختبار إلكتروني للملف",
-          "status": "soon",
+          "status": "disabled",
           "url": "math.html"
         },
         "lesson": {
           "label": "شرح للملف",
-          "status": "disabled",
+          "status": "soon",
           "url": ""
         }
       }
