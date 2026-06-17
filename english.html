@@ -2221,7 +2221,8 @@
           const pairs = question.pairs || [];
           const correctCount = pairs.filter(
             pair =>
-              String(answer?.[pair.leftId] || "") === String(pair.rightId),
+              String(answer?.[pair.leftId] || "") ===
+              matchingSolveId(pair),
           ).length;
           return partialGrade(correctCount, pairs.length, points);
         }
@@ -2659,12 +2660,7 @@
             .join("\n");
         }
         if (question.type === "matching") {
-          const rightMap = new Map(
-            (question.pairs || []).map(pair => [
-              String(pair.rightId),
-              pair.right,
-            ]),
-          );
+          const rightMap = matchingRightMap(question);
           return (question.pairs || [])
             .map(
               pair =>
@@ -2714,8 +2710,12 @@
             .join("\n");
         }
         if (question.type === "matching") {
+          const rightMap = matchingRightMap(question);
           return (question.pairs || [])
-            .map(pair => `${pair.left}: ${pair.right}`)
+            .map(
+              pair =>
+                `${pair.left}: ${rightMap.get(matchingSolveId(pair)) || ""}`,
+            )
             .join("\n");
         }
         if (question.type === "ordering") {
@@ -2736,6 +2736,19 @@
           item => String(item.id) === String(id),
         );
         return choice ? choice.text : "";
+      }
+
+      function matchingSolveId(pair) {
+        return String(pair.solve ?? pair.rightId ?? "");
+      }
+
+      function matchingRightMap(question) {
+        return new Map(
+          (question.pairs || []).map(pair => [
+            String(pair.rightId),
+            pair.right,
+          ]),
+        );
       }
 
       function typeLabel(type) {

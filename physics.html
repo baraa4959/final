@@ -1259,10 +1259,10 @@
     <div id="print-area" aria-hidden="true"></div>
 
     <script>
-      const STORAGE_KEY = "electronic-quiz-attempts-v2";
-      const LEGACY_STORAGE_KEY = "electronic-quiz-attempts-v1";
-      const DRAFT_KEY = "electronic-quiz-draft-v1";
-      const THEME_KEY = "electronic-quiz-theme";
+      const STORAGE_KEY = "physics-electronic-quiz-attempts-v2";
+      const LEGACY_STORAGE_KEY = "physics-electronic-quiz-attempts-v1";
+      const DRAFT_KEY = "physics-electronic-quiz-draft-v1";
+      const THEME_KEY = "physics-electronic-quiz-theme";
 
       const els = {
         html: document.documentElement,
@@ -2852,7 +2852,10 @@
       function wrapInlineMath(match) {
         const leading = match.match(/^\s*/)?.[0] || "";
         const trailing = match.match(/\s*$/)?.[0] || "";
-        const body = match.slice(leading.length, match.length - trailing.length);
+        const body = match.slice(
+          leading.length,
+          match.length - trailing.length,
+        );
         return body ? `${leading}$${body}$${trailing}` : match;
       }
 

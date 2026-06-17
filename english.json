@@ -146,32 +146,37 @@
         {
           "leftId": "a",
           "left": "(no) big deal",
-          "rightId": "r-c",
-          "right": "exaggerate the importance of something"
+          "rightId": "r-a",
+          "right": "exaggerate the importance of something",
+          "solve": "r-c"
         },
         {
           "leftId": "b",
           "left": "slip (one’s) mind",
-          "rightId": "r-e",
-          "right": "Don’t worry about it"
+          "rightId": "r-b",
+          "right": "Don’t worry about it",
+          "solve": "r-e"
         },
         {
           "leftId": "c",
           "left": "make too much of (something)",
-          "rightId": "r-a",
-          "right": "(not) something of great importance"
+          "rightId": "r-c",
+          "right": "(not) something of great importance",
+          "solve": "r-a"
         },
         {
           "leftId": "d",
           "left": "Don’t sweat it",
-          "rightId": "r-b",
-          "right": "irresponsible person"
+          "rightId": "r-d",
+          "right": "irresponsible person",
+          "solve": "r-b"
         },
         {
           "leftId": "e",
           "left": "flake",
-          "rightId": "r-d",
-          "right": "forget about something"
+          "rightId": "r-e",
+          "right": "forget about something",
+          "solve": "r-d"
         }
       ]
     },
@@ -303,32 +308,37 @@
         {
           "leftId": "a",
           "left": "iffy",
-          "rightId": "r-c",
-          "right": "significant opportunity"
+          "rightId": "r-a",
+          "right": "significant opportunity",
+          "solve": "r-c"
         },
         {
           "leftId": "b",
           "left": "break",
-          "rightId": "r-a",
-          "right": "to shock or disorient someone"
+          "rightId": "r-b",
+          "right": "to shock or disorient someone",
+          "solve": "r-a"
         },
         {
           "leftId": "c",
           "left": "on cloud nine",
-          "rightId": "r-e",
-          "right": "uncertain"
+          "rightId": "r-c",
+          "right": "uncertain",
+          "solve": "r-e"
         },
         {
           "leftId": "d",
           "left": "freak (someone) out",
-          "rightId": "r-b",
-          "right": "confused"
+          "rightId": "r-d",
+          "right": "confused",
+          "solve": "r-b"
         },
         {
           "leftId": "e",
           "left": "disoriented",
-          "rightId": "r-d",
-          "right": "extremely happy"
+          "rightId": "r-e",
+          "right": "extremely happy",
+          "solve": "r-d"
         }
       ]
     },
@@ -461,32 +471,37 @@
         {
           "leftId": "a",
           "left": "beat around the bush",
-          "rightId": "r-c",
-          "right": "by very much; obviously"
+          "rightId": "r-a",
+          "right": "by very much; obviously",
+          "solve": "r-c"
         },
         {
           "leftId": "b",
           "left": "by far",
-          "rightId": "r-a",
-          "right": "very angry"
+          "rightId": "r-b",
+          "right": "very angry",
+          "solve": "r-a"
         },
         {
           "leftId": "c",
           "left": "fit to be tied",
-          "rightId": "r-b",
-          "right": "speak indirectly"
+          "rightId": "r-c",
+          "right": "speak indirectly",
+          "solve": "r-b"
         },
         {
           "leftId": "d",
           "left": "did a double take",
-          "rightId": "r-e",
-          "right": "really impress them"
+          "rightId": "r-d",
+          "right": "really impress them",
+          "solve": "r-e"
         },
         {
           "leftId": "e",
           "left": "blow them away",
-          "rightId": "r-d",
-          "right": "looked again in surprise at someone or something"
+          "rightId": "r-e",
+          "right": "looked again in surprise at someone or something",
+          "solve": "r-d"
         }
       ]
     },
@@ -618,32 +633,37 @@
         {
           "leftId": "a",
           "left": "split up",
-          "rightId": "r-d",
-          "right": "permanently"
+          "rightId": "r-a",
+          "right": "permanently",
+          "solve": "r-d"
         },
         {
           "leftId": "b",
           "left": "on again, off again",
-          "rightId": "r-c",
-          "right": "to criticize someone to other people"
+          "rightId": "r-b",
+          "right": "to criticize someone to other people",
+          "solve": "r-c"
         },
         {
           "leftId": "c",
           "left": "for good",
-          "rightId": "r-a",
-          "right": "something that is not stable"
+          "rightId": "r-c",
+          "right": "something that is not stable",
+          "solve": "r-a"
         },
         {
           "leftId": "d",
           "left": "behind (someone’s) back",
-          "rightId": "r-e",
-          "right": "stopped being friends"
+          "rightId": "r-d",
+          "right": "stopped being friends",
+          "solve": "r-e"
         },
         {
           "leftId": "e",
           "left": "bad-mouth",
-          "rightId": "r-b",
-          "right": "without (someone) knowing"
+          "rightId": "r-e",
+          "right": "without (someone) knowing",
+          "solve": "r-b"
         }
       ]
     },
@@ -775,32 +795,37 @@
         {
           "leftId": "a",
           "left": "jam packed",
-          "rightId": "r-e",
-          "right": "put up with"
+          "rightId": "r-a",
+          "right": "put up with",
+          "solve": "r-e"
         },
         {
           "leftId": "b",
           "left": "elbow (one’s) way",
-          "rightId": "r-c",
-          "right": "snack"
+          "rightId": "r-b",
+          "right": "snack",
+          "solve": "r-c"
         },
         {
           "leftId": "c",
           "left": "munchies",
-          "rightId": "r-d",
-          "right": "make one’s way through a crowd using some physical force"
+          "rightId": "r-c",
+          "right": "make one’s way through a crowd using some physical force",
+          "solve": "r-d"
         },
         {
           "leftId": "d",
           "left": "deal with",
-          "rightId": "r-a",
-          "right": "crunchy junk foods"
+          "rightId": "r-d",
+          "right": "crunchy junk foods",
+          "solve": "r-a"
         },
         {
           "leftId": "e",
           "left": "bite",
-          "rightId": "r-b",
-          "right": "very crowded"
+          "rightId": "r-e",
+          "right": "very crowded",
+          "solve": "r-b"
         }
       ]
     },
@@ -932,32 +957,37 @@
         {
           "leftId": "a",
           "left": "eating",
-          "rightId": "r-d",
-          "right": "be very angry"
+          "rightId": "r-a",
+          "right": "be very angry",
+          "solve": "r-d"
         },
         {
           "leftId": "b",
           "left": "down in the dumps",
-          "rightId": "r-e",
-          "right": "disappeared without a trace"
+          "rightId": "r-b",
+          "right": "disappeared without a trace",
+          "solve": "r-e"
         },
         {
           "leftId": "c",
           "left": "hit the roof",
-          "rightId": "r-a",
-          "right": "upset, agitated"
+          "rightId": "r-c",
+          "right": "upset, agitated",
+          "solve": "r-a"
         },
         {
           "leftId": "d",
           "left": "bent out of shape",
-          "rightId": "r-c",
-          "right": "bothering"
+          "rightId": "r-d",
+          "right": "bothering",
+          "solve": "r-c"
         },
         {
           "leftId": "e",
           "left": "vanished into thin air",
-          "rightId": "r-b",
-          "right": "feeling sad and disappointed"
+          "rightId": "r-e",
+          "right": "feeling sad and disappointed",
+          "solve": "r-b"
         }
       ]
     },
