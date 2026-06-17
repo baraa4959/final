@@ -9,12 +9,12 @@
     {
       "id": "reading-1",
       "title": "Reading 1",
-      "content": "Many language learners believe that having a native accent is important. However, English has many different regional varieties, even within the same country. Therefore, learners should first think about their main goal for learning the language.\n\nInstead of trying to imitate a specific native accent, it is much more useful to practice understanding different speakers. Today, English is used worldwide as a global medium of communication. Because of this, even native speakers now take courses to learn how to understand international varieties of English.\n\nUltimately, English no longer belongs only to native speaking countries; it belongs to the whole world. Being a good English user today means being an effective communicator who can understand different cultures, rather than just having a perfect native accent."
+      "content": "Many language learners believe that having a native accent is important. However, English has many different regional varieties, even within the same country. Therefore, learners should first think about their main goal for learning the language.\nInstead of trying to imitate a specific native accent, it is much more useful to practice understanding different speakers. Today, English is used worldwide as a global medium of communication. Because of this, even native speakers now take courses to learn how to understand international varieties of English.\nUltimately, English no longer belongs only to native speaking countries; it belongs to the whole world. Being a good English user today means being an effective communicator who can understand different cultures, rather than just having a perfect native accent."
     },
     {
       "id": "reading-2",
       "title": "Reading 2",
-      "content": "Many people claim that money is not everything, but wealth provides essential benefits that make life easier. People who are well off do not have to stress over daily expenses, bills, or medical costs.\n\nA family’s struggle shows how money creates a predicament. When a parent cannot afford education or medical treatment for their children, it causes constant worry and tension. Without sufficient funds, a happy family is forced to make difficult sacrifices and hard choices.\n\nUltimately, while money cannot buy happiness, it is crucial for sustaining well-being and health. It provides the means to cater for a family's needs and solve problems that would otherwise destroy their peace of mind."
+      "content": "Many people claim that money is not everything, but wealth provides essential benefits that make life easier. People who are well off do not have to stress over daily expenses, bills, or medical costs.\nA family’s struggle shows how money creates a predicament. When a parent cannot afford education or medical treatment for their children, it causes constant worry and tension. Without sufficient funds, a happy family is forced to make difficult sacrifices and hard choices.\nUltimately, while money cannot buy happiness, it is crucial for sustaining well-being and health. It provides the means to cater for a family's needs and solve problems that would otherwise destroy their peace of mind."
     }
   ],
   "questions": [
@@ -146,32 +146,32 @@
         {
           "leftId": "a",
           "left": "(no) big deal",
-          "rightId": "r-a",
-          "right": "(not) something of great importance"
-        },
-        {
-          "leftId": "b",
-          "left": "slip (one’s) mind",
-          "rightId": "r-b",
-          "right": "forget about something"
-        },
-        {
-          "leftId": "c",
-          "left": "make too much of (something)",
           "rightId": "r-c",
           "right": "exaggerate the importance of something"
         },
         {
+          "leftId": "b",
+          "left": "slip (one’s) mind",
+          "rightId": "r-e",
+          "right": "Don’t worry about it"
+        },
+        {
+          "leftId": "c",
+          "left": "make too much of (something)",
+          "rightId": "r-a",
+          "right": "(not) something of great importance"
+        },
+        {
           "leftId": "d",
           "left": "Don’t sweat it",
-          "rightId": "r-d",
-          "right": "Don’t worry about it"
+          "rightId": "r-b",
+          "right": "irresponsible person"
         },
         {
           "leftId": "e",
           "left": "flake",
-          "rightId": "r-e",
-          "right": "irresponsible person"
+          "rightId": "r-d",
+          "right": "forget about something"
         }
       ]
     },
@@ -302,32 +302,32 @@
       "pairs": [
         {
           "leftId": "a",
-          "left": "break",
-          "rightId": "r-a",
+          "left": "iffy",
+          "rightId": "r-c",
           "right": "significant opportunity"
         },
         {
           "leftId": "b",
-          "left": "freak (someone) out",
-          "rightId": "r-b",
+          "left": "break",
+          "rightId": "r-a",
           "right": "to shock or disorient someone"
         },
         {
           "leftId": "c",
-          "left": "iffy",
-          "rightId": "r-c",
+          "left": "on cloud nine",
+          "rightId": "r-e",
           "right": "uncertain"
         },
         {
           "leftId": "d",
-          "left": "disoriented",
-          "rightId": "r-d",
+          "left": "freak (someone) out",
+          "rightId": "r-b",
           "right": "confused"
         },
         {
           "leftId": "e",
-          "left": "on cloud nine",
-          "rightId": "r-e",
+          "left": "disoriented",
+          "rightId": "r-d",
           "right": "extremely happy"
         }
       ]
@@ -460,32 +460,32 @@
       "pairs": [
         {
           "leftId": "a",
-          "left": "by far",
-          "rightId": "r-a",
+          "left": "beat around the bush",
+          "rightId": "r-c",
           "right": "by very much; obviously"
         },
         {
           "leftId": "b",
-          "left": "fit to be tied",
-          "rightId": "r-b",
+          "left": "by far",
+          "rightId": "r-a",
           "right": "very angry"
         },
         {
           "leftId": "c",
-          "left": "beat around the bush",
-          "rightId": "r-c",
+          "left": "fit to be tied",
+          "rightId": "r-b",
           "right": "speak indirectly"
         },
         {
           "leftId": "d",
-          "left": "blow them away",
-          "rightId": "r-d",
+          "left": "did a double take",
+          "rightId": "r-e",
           "right": "really impress them"
         },
         {
           "leftId": "e",
-          "left": "did a double take",
-          "rightId": "r-e",
+          "left": "blow them away",
+          "rightId": "r-d",
           "right": "looked again in surprise at someone or something"
         }
       ]
@@ -572,7 +572,7 @@
         { "id": "c", "text": "should" },
         { "id": "d", "text": "must" }
       ],
-      "answer": "c"
+      "answer": "d"
     },
     {
       "id": "q41-8",
@@ -617,32 +617,32 @@
       "pairs": [
         {
           "leftId": "a",
-          "left": "for good",
-          "rightId": "r-a",
+          "left": "split up",
+          "rightId": "r-d",
           "right": "permanently"
         },
         {
           "leftId": "b",
-          "left": "bad-mouth",
-          "rightId": "r-b",
+          "left": "on again, off again",
+          "rightId": "r-c",
           "right": "to criticize someone to other people"
         },
         {
           "leftId": "c",
-          "left": "on again, off again",
-          "rightId": "r-c",
+          "left": "for good",
+          "rightId": "r-a",
           "right": "something that is not stable"
         },
         {
           "leftId": "d",
-          "left": "split up",
-          "rightId": "r-d",
+          "left": "behind (someone’s) back",
+          "rightId": "r-e",
           "right": "stopped being friends"
         },
         {
           "leftId": "e",
-          "left": "behind (someone’s) back",
-          "rightId": "r-e",
+          "left": "bad-mouth",
+          "rightId": "r-b",
           "right": "without (someone) knowing"
         }
       ]
@@ -669,7 +669,7 @@
         { "id": "c", "text": "that" },
         { "id": "d", "text": "who" }
       ],
-      "answer": "d"
+      "answer": "c"
     },
     {
       "id": "q47-3",
@@ -693,7 +693,7 @@
         { "id": "c", "text": "whom" },
         { "id": "d", "text": "who" }
       ],
-      "answer": "a"
+      "answer": "b"
     },
     {
       "id": "q49-5",
@@ -774,32 +774,32 @@
       "pairs": [
         {
           "leftId": "a",
-          "left": "put up with",
-          "rightId": "r-a",
-          "right": "deal with"
+          "left": "jam packed",
+          "rightId": "r-e",
+          "right": "put up with"
         },
         {
           "leftId": "b",
-          "left": "bite",
-          "rightId": "r-b",
+          "left": "elbow (one’s) way",
+          "rightId": "r-c",
           "right": "snack"
         },
         {
           "leftId": "c",
-          "left": "elbow (one’s) way",
-          "rightId": "r-c",
+          "left": "munchies",
+          "rightId": "r-d",
           "right": "make one’s way through a crowd using some physical force"
         },
         {
           "leftId": "d",
-          "left": "munchies",
-          "rightId": "r-d",
+          "left": "deal with",
+          "rightId": "r-a",
           "right": "crunchy junk foods"
         },
         {
           "leftId": "e",
-          "left": "jam packed",
-          "rightId": "r-e",
+          "left": "bite",
+          "rightId": "r-b",
           "right": "very crowded"
         }
       ]
@@ -931,35 +931,105 @@
       "pairs": [
         {
           "leftId": "a",
-          "left": "hit the roof",
-          "rightId": "r-a",
+          "left": "eating",
+          "rightId": "r-d",
           "right": "be very angry"
         },
         {
           "leftId": "b",
-          "left": "vanished into thin air",
-          "rightId": "r-b",
+          "left": "down in the dumps",
+          "rightId": "r-e",
           "right": "disappeared without a trace"
         },
         {
           "leftId": "c",
-          "left": "bent out of shape",
-          "rightId": "r-c",
+          "left": "hit the roof",
+          "rightId": "r-a",
           "right": "upset, agitated"
         },
         {
           "leftId": "d",
-          "left": "eating",
-          "rightId": "r-d",
+          "left": "bent out of shape",
+          "rightId": "r-c",
           "right": "bothering"
         },
         {
           "leftId": "e",
-          "left": "down in the dumps",
-          "rightId": "r-e",
+          "left": "vanished into thin air",
+          "rightId": "r-b",
           "right": "feeling sad and disappointed"
         }
       ]
+    },
+    {
+      "id": "q-reading-1-1",
+      "type": "true_false",
+      "passageId": "reading-1",
+      "prompt": "English has many different regional varieties.",
+      "answer": true
+    },
+    {
+      "id": "q-reading-1-2",
+      "type": "true_false",
+      "passageId": "reading-1",
+      "prompt": "It is important for a learner to imitate native varieties.",
+      "answer": false
+    },
+    {
+      "id": "q-reading-1-3",
+      "type": "true_false",
+      "passageId": "reading-1",
+      "prompt": "English belongs to the whole world.",
+      "answer": true
+    },
+    {
+      "id": "q-reading-1-4",
+      "type": "true_false",
+      "passageId": "reading-1",
+      "prompt": "Native speakers never have to attend courses.",
+      "answer": false
+    },
+    {
+      "id": "q-reading-1-5",
+      "type": "true_false",
+      "passageId": "reading-1",
+      "prompt": "English is only the property of the English-speaking countries.",
+      "answer": false
+    },
+    {
+      "id": "q-reading-2-1",
+      "type": "true_false",
+      "passageId": "reading-2",
+      "prompt": "Wealth provides essential benefits that make life easier.",
+      "answer": true
+    },
+    {
+      "id": "q-reading-2-2",
+      "type": "true_false",
+      "passageId": "reading-2",
+      "prompt": "Money is crucial for sustaining well-being and health.",
+      "answer": true
+    },
+    {
+      "id": "q-reading-2-3",
+      "type": "true_false",
+      "passageId": "reading-2",
+      "prompt": "Money can buy happiness.",
+      "answer": false
+    },
+    {
+      "id": "q-reading-2-4",
+      "type": "true_false",
+      "passageId": "reading-2",
+      "prompt": "Without sufficient funds, a happy family is forced to make difficult sacrifices.",
+      "answer": true
+    },
+    {
+      "id": "q-reading-2-5",
+      "type": "true_false",
+      "passageId": "reading-2",
+      "prompt": "People who are well off have to stress over daily expenses.",
+      "answer": false
     }
   ]
 }
