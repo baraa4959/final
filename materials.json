@@ -47,18 +47,18 @@
         },
         "reviewSolved": {
           "label": "ملف مراجعة محلول",
-          "status": "soon",
-          "url": ""
+          "status": "available",
+          "url": "https://drive.google.com/file/d/1afsWBAvIFqAWhbA6O7sVvPnV0emVifX8/view?usp=sharing"
         },
         "quiz": {
-          "label": "ملف الحل في فيديو الشرح (إلى سؤال ٣٥ | التكملة قريبًا بإذن الله)",
-          "status": "available",
-          "url": "https://drive.google.com/file/d/1M85l94h8Aljfn5jcv6sZEQY4r74UJ6JV/view?usp=share_link"
+          "label": "ملف الحل في فيديو الشرح)",
+          "status": "disabled",
+          "url": "https://drive.google.com/file/d/1afsWBAvIFqAWhbA6O7sVvPnV0emVifX8/view?usp=sharing"
         },
         "lesson": {
           "label": "شرح للملف (إلى سؤال ٣٥ | التكملة قريبًا بإذن الله)",
           "status": "available",
-          "url": "https://drive.google.com/file/d/1y5H8rb3QVwym1ouXXURoIEDF4NvoEf0t/view?usp=sharing"
+          "url": "https://vimeo.com/1202597853/e7bb0ebc98?share=copy&fl=sv&fe=ci"
         }
       }
     },
