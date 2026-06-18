@@ -49,13 +49,8 @@
           "label": "ملف مراجعة محلول",
           "status": "soon",
           "url": ""
-        },
+        }
         "quiz": {
-          "label": "اختبار إلكتروني للملف",
-          "status": "disabled",
-          "url": "math.html"
-        },
-        "lesson": {
           "label": "ملف الحل في فيديو الشرح (إلى سؤال ٣٥ | التكملة قريبًا بإذن الله)",
           "status": "available",
           "url": "https://drive.google.com/file/d/1M85l94h8Aljfn5jcv6sZEQY4r74UJ6JV/view?usp=share_link"
