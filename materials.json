@@ -56,9 +56,14 @@
           "url": "math.html"
         },
         "lesson": {
-          "label": "شرح للملف",
-          "status": "soon",
-          "url": ""
+          "label": "ملف الحل في فيديو الشرح (إلى سؤال ٣٥ | التكملة قريبًا بإذن الله)",
+          "status": "available",
+          "url": "https://drive.google.com/file/d/1M85l94h8Aljfn5jcv6sZEQY4r74UJ6JV/view?usp=share_link"
+        },
+        "lesson": {
+          "label": "شرح للملف (إلى سؤال ٣٥ | التكملة قريبًا بإذن الله)",
+          "status": "available",
+          "url": "https://drive.google.com/file/d/1y5H8rb3QVwym1ouXXURoIEDF4NvoEf0t/view?usp=sharing"
         }
       }
     },
