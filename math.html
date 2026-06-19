@@ -1221,7 +1221,7 @@
               <input id="shuffle-questions" type="checkbox" checked />
               <span>خلط الأسئلة</span>
             </label>
-            <label class="check d-none">
+            <label style="display: none">
               <input id="shuffle-choices" type="checkbox" checked />
               <span>خلط الخيارات</span>
             </label>
@@ -3116,10 +3116,7 @@
           const copy = [...original];
           for (let index = copy.length - 1; index > 0; index -= 1) {
             const randomIndex = randomInt(index + 1);
-            [copy[index], copy[randomIndex]] = [
-              copy[randomIndex],
-              copy[index],
-            ];
+            [copy[index], copy[randomIndex]] = [copy[randomIndex], copy[index]];
           }
           if (!sameOrder(copy, original)) return copy;
         }
