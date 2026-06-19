@@ -1738,22 +1738,21 @@
           : 1;
 
         if (prepared.type === "true_false") {
-          prepared._choices = [
+          const booleanChoices = [
             { id: "true", text: "صواب" },
             { id: "false", text: "خطأ" },
           ];
-        } else if (Array.isArray(prepared.choices)) {
           prepared._choices = settings.shuffleChoices
-            ? shuffle(
-                prepared.choices.map(choice => ({
-                  ...choice,
-                  id: String(choice.id),
-                })),
-              )
-            : prepared.choices.map(choice => ({
-                ...choice,
-                id: String(choice.id),
-              }));
+            ? shuffle(booleanChoices)
+            : booleanChoices;
+        } else if (Array.isArray(prepared.choices)) {
+          const choices = prepared.choices.map(choice => ({
+            ...choice,
+            id: String(choice.id),
+          }));
+          prepared._choices = settings.shuffleChoices
+            ? shuffle(choices)
+            : choices;
         }
 
         if (prepared.type === "matching" && Array.isArray(prepared.pairs)) {
@@ -3014,6 +3013,7 @@
           .replace(/\\langle([^\\$\n]*?)\\ket\b/g, "\\langle$1\\rangle")
           .replace(/\\ket\b/g, "\\rangle")
           .replace(/\\centerdot\b/g, "\\cdot")
+          .replace(/\\thinsp\b/g, "\\,")
           .replace(/\\lim\\below\{([^{}\n]+)\}/g, "\\lim_{$1}")
           .replace(/\\\s+/g, " ");
       }
@@ -3109,12 +3109,36 @@
       }
 
       function shuffle(items) {
-        const copy = [...items];
-        for (let index = copy.length - 1; index > 0; index -= 1) {
-          const randomIndex = Math.floor(Math.random() * (index + 1));
-          [copy[index], copy[randomIndex]] = [copy[randomIndex], copy[index]];
+        const original = [...items];
+        if (original.length <= 1) return original;
+
+        for (let attempt = 0; attempt < 8; attempt += 1) {
+          const copy = [...original];
+          for (let index = copy.length - 1; index > 0; index -= 1) {
+            const randomIndex = randomInt(index + 1);
+            [copy[index], copy[randomIndex]] = [
+              copy[randomIndex],
+              copy[index],
+            ];
+          }
+          if (!sameOrder(copy, original)) return copy;
         }
-        return copy;
+
+        return [...original.slice(1), original[0]];
+      }
+
+      function randomInt(maxExclusive) {
+        if (maxExclusive <= 1) return 0;
+        if (window.crypto?.getRandomValues) {
+          const values = new Uint32Array(1);
+          window.crypto.getRandomValues(values);
+          return values[0] % maxExclusive;
+        }
+        return Math.floor(Math.random() * maxExclusive);
+      }
+
+      function sameOrder(items, original) {
+        return items.every((item, index) => Object.is(item, original[index]));
       }
 
       function deepClone(value) {
