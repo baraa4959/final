@@ -3,7 +3,7 @@
   "description": "ينصح أولًا فهم ملف المراجعة عن طريق متابعة مقطع الشرح كاملًا",
   "settings": {
     "shuffleQuestions": false,
-    "shuffleChoices": false
+    "shuffleChoices": true
   },
   "passages": [],
   "questions": [
@@ -34,12 +34,12 @@
       "type": "single",
       "prompt": "هل الكمية التالية قياسية أم متجهة: يسير شخص على قدميه بسرعة 75m/min ؟",
       "choices": [
-        { "id": "a", "text": "غير متجهة" },
+        { "id": "a", "text": "غير اعتيادية" },
         { "id": "b", "text": "متجهة" },
         { "id": "c", "text": "مركبة" },
         { "id": "d", "text": "قياسية" }
       ],
-      "answer": "a"
+      "answer": "d"
     },
     {
       "id": "math-q-4",
