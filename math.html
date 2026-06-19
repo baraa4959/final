@@ -2978,9 +2978,9 @@
       }
 
       const LATEX_COMMAND_RE =
-        /\\(?:frac|sqrt|lambda|pi|times|gamma|alpha|beta|theta|mu|Delta|delta|omega|Omega|cdot|pm|leq?|geq?|neq|approx|sin|cos|tan|log|ln|sum|int|lim|vec|bar|hat|overline|underline)\b/;
+        /\\(?:frac|sqrt|lambda|pi|sigma|times|gamma|alpha|beta|theta|mu|Delta|delta|omega|Omega|cdot|centerdot|pm|leq?|geq?|neq|approx|sin|cos|tan|log|ln|sum|int|lim|left|right|langle|rangle|ket|operatorname|thinsp|below|rightarrow|to|infty|vec|bar|hat|overline|underline)(?![A-Za-z])/;
       const LATEX_FRAGMENT_RE =
-        /[A-Za-z0-9_{}^+\-*/=().,:\s]*\\(?:frac|sqrt|lambda|pi|times|gamma|alpha|beta|theta|mu|Delta|delta|omega|Omega|cdot|pm|leq?|geq?|neq|approx|sin|cos|tan|log|ln|sum|int|lim|vec|bar|hat|overline|underline)\b[A-Za-z0-9_{}^+\-*/=().,:\s\\]*/g;
+        /[A-Za-z0-9_{}^+\-*/=().,|<>\s]*\\(?:frac|sqrt|lambda|pi|sigma|times|gamma|alpha|beta|theta|mu|Delta|delta|omega|Omega|cdot|centerdot|pm|leq?|geq?|neq|approx|sin|cos|tan|log|ln|sum|int|lim|left|right|langle|rangle|ket|operatorname|thinsp|below|rightarrow|to|infty|vec|bar|hat|overline|underline)(?![A-Za-z])[A-Za-z0-9_{}^+\-*/=().,|<>\s\\]*/g;
       const NUCLEAR_FRAGMENT_RE =
         /\(\s*\{_[^{}\n]+?\^[^{}\n]+?\}\s*\\?[A-Za-z]+\s*\)|\{_[^{}\n]+?\^[^{}\n]+?\}\s*\\?[A-Za-z]+/g;
       const NUCLEAR_STANDALONE_RE =
@@ -2991,7 +2991,7 @@
         /\b(?:[A-Za-z](?:_[A-Za-z0-9]+)?\s*=\s*)?\d+(?:\.\d+)?\s*[xX]\s*\{?10\}?\^\{?-?\d+\}?\s*[A-Za-z/]*\b/;
       const EXISTING_MATH_RE = /(?:\$[^$]+\$|\\\(|\\\[)/;
       const ARABIC_RE = /[\u0600-\u06ff]/;
-      const MATH_ONLY_RE = /^[A-Za-z0-9_{}^+\-*/=().,:\s\\]+$/;
+      const MATH_ONLY_RE = /^[A-Za-z0-9_{}^+\-*/=().,|<>\s\\]+$/;
 
       function setAutoText(node, value) {
         node.dir = "auto";
@@ -3000,9 +3000,22 @@
       }
 
       function autoDelimitMath(value) {
-        const text = String(value ?? "");
+        const text = normalizeLatexText(value);
         if (!text || EXISTING_MATH_RE.test(text)) return text;
         return text.split("\n").map(delimitMathLine).join("\n");
+      }
+
+      function normalizeLatexText(value) {
+        return String(value ?? "")
+          .replace(
+            /\\left\\langle([^\\$\n]*?)\\ket\b/g,
+            "\\left\\langle$1\\right\\rangle",
+          )
+          .replace(/\\langle([^\\$\n]*?)\\ket\b/g, "\\langle$1\\rangle")
+          .replace(/\\ket\b/g, "\\rangle")
+          .replace(/\\centerdot\b/g, "\\cdot")
+          .replace(/\\lim\\below\{([^{}\n]+)\}/g, "\\lim_{$1}")
+          .replace(/\\\s+/g, " ");
       }
 
       function delimitMathLine(line) {

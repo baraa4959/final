@@ -468,7 +468,7 @@
     {
       "id": "math-q-41",
       "type": "single",
-      "prompt": "هل العبارة التالية صحيحة أم خاطئة: لأي عدد صحيح موجب n: \\lim\\below{x\\rightarrow\\infty}{x^n}=\\infty \\lim\\below{x\\rightarrow-\\infty}{x^n}=\\infty، إذا كان n عدداً زوجياً. \\lim\\below{x\\rightarrow-\\infty}{x^n}=-\\infty، إذا كان n عدداً فردياً.",
+      "prompt": "هل العبارة التالية صحيحة أم خاطئة: لأي عدد صحيح موجب n:\n \\lim\\below{x\\rightarrow\\infty}{x^n}=\\infty\n \\lim\\below{x\\rightarrow-\\infty}{x^n}=\\infty، إذا كان n عدداً زوجياً.\n \\lim\\below{x\\rightarrow-\\infty}{x^n}=-\\infty، إذا كان n عدداً فردياً.",
       "choices": [
         { "id": "a", "text": "صح" },
         { "id": "b", "text": "خطأ" }
