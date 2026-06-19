@@ -1,146 +1,659 @@
 {
-  "title": "اختبار تجريبي",
-  "description": "",
+  "title": "مراجعة الرياضيات",
+  "description": "ينصح أولًا فهم ملف المراجعة عن طريق متابعة مقطع الشرح كاملًا",
   "settings": {
-    "shuffleQuestions": true,
-    "shuffleChoices": true
+    "shuffleQuestions": false,
+    "shuffleChoices": false
   },
-  "passages": [
-    {
-      "id": "reading-motion",
-      "title": "قطعة قراءة: الحركة",
-      "content": "في الفيزياء نصف الحركة باستخدام كميات مثل الإزاحة والسرعة والتسارع. عندما تكون السرعة ثابتة يكون التسارع صفرًا، أما إذا تغيرت السرعة مقدارًا أو اتجاهًا فهناك تسارع. يساعد الرسم البياني للموقع والزمن على فهم نوع الحركة؛ فالميل يمثل السرعة المتجهة."
-    }
-  ],
+  "passages": [],
   "questions": [
-    {
-      "id": "q-single-1",
-      "type": "single",
-      "prompt": "ما وحدة قياس القوة في النظام الدولي؟",
-      "choices": [
-        { "id": "a", "text": "نيوتن" },
-        { "id": "b", "text": "جول" },
-        { "id": "c", "text": "واط" },
-        { "id": "d", "text": "باسكال" },
-        { "id": "e", "text": "كلفن" }
-      ],
-      "answer": "a"
-    },
-    {
-      "id": "q-multiple-1",
-      "type": "multiple",
-      "prompt": "اختر الكميات المتجهة من القائمة:",
-      "choices": [
-        { "id": "a", "text": "الكتلة" },
-        { "id": "b", "text": "الإزاحة" },
-        { "id": "c", "text": "القوة" },
-        { "id": "d", "text": "درجة الحرارة" },
-        { "id": "e", "text": "السرعة المتجهة" }
-      ],
-      "answer": ["b", "c", "e"]
-    },
-    {
-      "id": "q-true-false-1",
-      "type": "true_false",
-      "prompt": "إذا كانت السرعة ثابتة مقدارًا واتجاهًا فإن التسارع يساوي صفرًا.",
-      "answer": true
-    },
-    {
-      "id": "q-short-1",
-      "type": "short_answer",
-      "prompt": "اكتب اسم القانون الذي تمثله العلاقة \\(F = ma\\).",
-      "acceptedAnswers": ["قانون نيوتن الثاني", "نيوتن الثاني"]
-    },
-    {
-      "id": "q-numeric-1",
-      "type": "numeric",
-      "prompt": "إذا كانت الكتلة \\(m = 2\\,kg\\) والتسارع \\(a = 3\\,m/s^2\\)، احسب القوة \\(F\\).",
-      "answer": 6,
-      "tolerance": 0.1,
-      "unit": "N"
-    },
-    {
-      "id": "q-fill-1",
-      "type": "fill_blank",
-      "prompt": "أكمل العلاقة: السرعة المتوسطة = ______ ÷ ______.",
-      "blanks": [
-        {
-          "id": "b1",
-          "label": "البسط",
-          "acceptedAnswers": ["الإزاحة", "المسافة"]
-        },
-        {
-          "id": "b2",
-          "label": "المقام",
-          "acceptedAnswers": ["الزمن", "الوقت"]
-        }
-      ]
-    },
-    {
-      "id": "q-matching-1",
-      "type": "matching",
-      "prompt": "طابق الكمية الفيزيائية بوحدتها:",
-      "pairs": [
-        { "leftId": "force", "left": "القوة", "rightId": "newton", "right": "نيوتن" },
-        { "leftId": "energy", "left": "الطاقة", "rightId": "joule", "right": "جول" },
-        { "leftId": "power", "left": "القدرة", "rightId": "watt", "right": "واط" }
-      ]
-    },
-    {
-      "id": "q-ordering-1",
-      "type": "ordering",
-      "prompt": "رتب خطوات حل مسألة فيزيائية بسيطة:",
-      "items": [
-        { "id": "read", "text": "قراءة المعطيات والمطلوب" },
-        { "id": "law", "text": "اختيار القانون المناسب" },
-        { "id": "substitute", "text": "التعويض بالقيم" },
-        { "id": "unit", "text": "كتابة الناتج مع الوحدة" }
-      ],
-      "correctOrder": ["read", "law", "substitute", "unit"]
-    },
-    {
-      "id": "q-reading-1",
-      "type": "single",
-      "passageId": "reading-motion",
-      "prompt": "حسب القطعة: ماذا يمثل ميل منحنى الموقع والزمن؟",
-      "choices": [
-        { "id": "a", "text": "القوة" },
-        { "id": "b", "text": "السرعة المتجهة" },
-        { "id": "c", "text": "الكتلة" },
-        { "id": "d", "text": "الطاقة" }
-      ],
-      "answer": "b"
-    },
-    {
-      "id": "q-reading-2",
-      "type": "multiple",
-      "passageId": "reading-motion",
-      "prompt": "حسب القطعة: متى يوجد تسارع؟",
-      "choices": [
-        { "id": "a", "text": "عند تغير مقدار السرعة" },
-        { "id": "b", "text": "عند تغير اتجاه السرعة" },
-        { "id": "c", "text": "عند ثبات السرعة مقدارًا واتجاهًا" },
-        { "id": "d", "text": "عند غياب الحركة تمامًا" }
-      ],
-      "answer": ["a", "b"]
-    },
-    {
-      "id": "q-essay-1",
-      "type": "essay",
-      "prompt": "اشرح باختصار لماذا نهتم بكتابة الوحدة بعد الناتج النهائي.",
-      "points": 0
-    },
-    {
-      "id": "q-english-1",
-      "type": "single",
-      "prompt": "Which SI unit is used to measure electric current?",
-      "choices": [
-        { "id": "a", "text": "Ampere" },
-        { "id": "b", "text": "Volt" },
-        { "id": "c", "text": "Ohm" },
-        { "id": "d", "text": "Joule" }
-      ],
-      "answer": "a"
-    }
+    [
+      {
+        "id": "math-q-1",
+        "type": "single",
+        "prompt": "هل العبارة التالية صحيحة أم خاطئة: المُتجه هو كمية لها مقدار وليس لها اتجاه.",
+        "choices": [
+          { "id": "a", "text": "صح" },
+          { "id": "b", "text": "خطأ" }
+        ],
+        "answer": "b"
+      },
+      {
+        "id": "math-q-2",
+        "type": "single",
+        "prompt": "هل الكمية التالية قياسية أم متجهة: يسير قارب بسرعة 15mi/h في اتجاه الجنوب الغربي؟",
+        "choices": [
+          { "id": "a", "text": "متجهة" },
+          { "id": "b", "text": "قياسية" },
+          { "id": "c", "text": "مركبة" },
+          { "id": "d", "text": "متعددة" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-3",
+        "type": "single",
+        "prompt": "هل الكمية التالية قياسية أم متجهة: يسير شخص على قدميه بسرعة 75m/min ؟",
+        "choices": [
+          { "id": "a", "text": "غير متجهة" },
+          { "id": "b", "text": "متجهة" },
+          { "id": "c", "text": "مركبة" },
+          { "id": "d", "text": "قياسية" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-4",
+        "type": "single",
+        "prompt": "هل العبارة التالية صحيحة أم خاطئة: المتجهات المتوازية لها الاتجاه نفسه أو اتجاهان متعاكسان وليس بالضرورة أن يكون لهما الطول نفسه والرسم المجاور يعبر عنها.",
+        "choices": [
+          { "id": "a", "text": "صح" },
+          { "id": "b", "text": "خطأ" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-5",
+        "type": "single",
+        "prompt": "أوجد الصورة الإحداثية لـAB ، الذي نقطة بدايته (A(-4, 2 ، ونقطة نهايته (B(3, -5 .",
+        "choices": [
+          { "id": "a", "text": "7,-7" },
+          { "id": "b", "text": "-7,7" },
+          { "id": "c", "text": "1,-3" },
+          { "id": "d", "text": "7,7" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-6",
+        "type": "single",
+        "prompt": "أوجد طول AB الذي نقطة بدايته (A(-4, 2 ، ونقطة نهايته (B(3, -5.",
+        "choices": [
+          { "id": "a", "text": "9.89" },
+          { "id": "b", "text": "7" },
+          { "id": "c", "text": "49" },
+          { "id": "d", "text": "11" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-7",
+        "type": "single",
+        "prompt": "هل العبارة التالية صحيحة أم خاطئة: متجه الوحدة هو المتجه الذي طوله 1، ويرمز له بالرمز u.",
+        "choices": [
+          { "id": "a", "text": "صح" },
+          { "id": "b", "text": "خطأ" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-8",
+        "type": "single",
+        "prompt": "هل العبارة التالية صحيحة أم خاطئة: يُعرَّف الضرب الداخلي للمتجهين a=\\ \\left\\langle a_1,\\ a_2\\right\\rangle  b=\\langle b_1,b_2\\ket كالآتي: a\\centerdot b=a_1b_1+a_2b_2",
+        "choices": [
+          { "id": "a", "text": "صح" },
+          { "id": "b", "text": "خطأ" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-9",
+        "type": "single",
+        "prompt": "هل العبارة التالية صحيحة أم خاطئة: يكون المتجهان غير الصفريين a,b متعامدين، إذا وفقط إذا كان a · b = 0.",
+        "choices": [
+          { "id": "a", "text": "صح" },
+          { "id": "b", "text": "خطأ" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-10",
+        "type": "single",
+        "prompt": "أوجد الضرب الداخلي للمتجهين v,u ثم تحقق مما إذا كانا متعامدين: u=\\left\\langle3,\\ 6\\right\\rangle,v=\\left\\langle-4,2\\right\\rangle",
+        "choices": [
+          { "id": "a", "text": "0، متعامدين" },
+          { "id": "b", "text": "24، غير متعامدين" },
+          { "id": "c", "text": "-24، متعامدين" },
+          { "id": "d", "text": "0، غير متعامدين" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-11",
+        "type": "single",
+        "prompt": "أوجد الضرب الداخلي للمتجهين v,u ثم تحقق مما إذا كانا متعامدين: u=\\left\\langle2,\\ 5\\right\\rangle,v=\\left\\langle8,\\ 4\\right\\rangle",
+        "choices": [
+          { "id": "a", "text": "36، غير متعامدين" },
+          { "id": "b", "text": "16، متعامدين" },
+          { "id": "c", "text": "0، متعامدين" },
+          { "id": "d", "text": "40، غير متعامدين" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-12",
+        "type": "single",
+        "prompt": "هل العبارة التالية صحيحة أم خاطئة: قانون الزاوية بين متجهين هو cos\\theta=\\frac{a\\centerdot\\operatorname{b}}{\\left|a\\right|\\left|b\\right|}",
+        "choices": [
+          { "id": "a", "text": "صح" },
+          { "id": "b", "text": "خطأ" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-13",
+        "type": "single",
+        "prompt": "أوجد 4y+2z يأتي للمتجهات: \\ y\\ =\\ \\left\\langle3,-6,2\\right\\rangle,\\ w\\ =\\ \\left\\langle-1,4,-4\\right\\rangle,\\ z\\ =\\ \\langle-2,0,5\\ket",
+        "choices": [
+          { "id": "a", "text": "8,-24,18" },
+          { "id": "b", "text": "16,24,36" },
+          { "id": "c", "text": "8,24,18" },
+          { "id": "d", "text": "4,-12,9" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-14",
+        "type": "single",
+        "prompt": "أوجد 2w-z+3y يأتي للمتجهات: \\ y\\ =\\ \\left\\langle3,-6,2\\right\\rangle,\\ w\\ =\\ \\left\\langle-1,4,-4\\right\\rangle,\\ z\\ =\\ \\langle-2,0,5\\ket",
+        "choices": [
+          { "id": "a", "text": "2,-10,-7" },
+          { "id": "b", "text": "6,-2,4" },
+          { "id": "c", "text": "-2,10,7" },
+          { "id": "d", "text": "2,10,-7" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-15",
+        "type": "single",
+        "prompt": "هل العبارة التالية صحيحة أم خاطئة: ناتج الضرب الاتجاهي هو متجه وليس عددً.",
+        "choices": [
+          { "id": "a", "text": "صح" },
+          { "id": "b", "text": "خطأ" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-16",
+        "type": "single",
+        "prompt": "هل العبارة التالية صحيحة أم خاطئة: المحور القطبي هو نصف مستقيم يمتد أفقياً من القطب إلى اليمين.",
+        "choices": [
+          { "id": "a", "text": "صح" },
+          { "id": "b", "text": "خطأ" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-17",
+        "type": "single",
+        "prompt": "إذا كانت 360° ≥ θ ≥ 360°-، فأوجد أربعة أزواج مختلفة تمثل إحداثيين قطبيين للنقطة T في الشكل المجاور. (صيغة مشابهة)",
+        "choices": [
+          {
+            "id": "a",
+            "text": "(4, 135°), (4, -225°), (-4, 315°), (-4, -45°)"
+          },
+          {
+            "id": "b",
+            "text": "(4, 45°), (4, -315°), (-4, 225°), (-4, -135°)"
+          },
+          { "id": "c", "text": "(4, 135°), (4, 225°), (-4, 315°), (-4, 45°)" },
+          { "id": "d", "text": "(2, 135°), (2, -225°), (-2, 315°), (-2, -45°)" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-18",
+        "type": "single",
+        "prompt": "حوّل الإحداثيات القطبية إلى إحداثيات ديكارتية: \\ P(4,\\frac{\\pi}{6})",
+        "choices": [
+          { "id": "a", "text": "(2\\sqrt3, 2)" },
+          { "id": "b", "text": "(2, 2\\sqrt3)" },
+          { "id": "c", "text": "(4, 2)" },
+          { "id": "d", "text": "(-2, 2\\sqrt3)" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-19",
+        "type": "single",
+        "prompt": "حوّل الإحداثيات القطبية إلى إحداثيات ديكارتية:  Q(-2,135°)",
+        "choices": [
+          { "id": "a", "text": "(\\sqrt2, -\\sqrt2)" },
+          { "id": "b", "text": "(-\\sqrt2, \\sqrt2)" },
+          { "id": "c", "text": "(-\\sqrt2, -\\sqrt2)" },
+          { "id": "d", "text": "(\\sqrt2, \\sqrt2)" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-20",
+        "type": "single",
+        "prompt": "أوجد القيمة المطلقة لـz=4+3i",
+        "choices": [
+          { "id": "a", "text": "5" },
+          { "id": "b", "text": "7" },
+          { "id": "c", "text": "25" },
+          { "id": "d", "text": "4+3i" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-21",
+        "type": "single",
+        "prompt": "أوجد القيمة المطلقة لـz=-2-i",
+        "choices": [
+          { "id": "a", "text": "2.24" },
+          { "id": "b", "text": "3" },
+          { "id": "c", "text": "5" },
+          { "id": "d", "text": "-2-i" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-22",
+        "type": "single",
+        "prompt": "أوجد \\left(4+4\\sqrt3i\\right)^6 بالصورة القطبية، ثم عبّر عنه بالصورة الديكارتية.",
+        "choices": [
+          { "id": "a", "text": "262144" },
+          { "id": "b", "text": "4096" },
+          { "id": "c", "text": "-262144" },
+          { "id": "d", "text": "512" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-23",
+        "type": "single",
+        "prompt": "هل العينة التالية متحيزة أم لا: هل تفضل المادة التي خرجت من تصحيحها؟",
+        "choices": [
+          { "id": "a", "text": "متحيزة" },
+          { "id": "b", "text": "غير متحيزة" },
+          { "id": "c", "text": "عشوائية" },
+          { "id": "d", "text": "طبقية" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-24",
+        "type": "single",
+        "prompt": "بيّن إذا كانت العبارات الآتية تظهر ارتباطاً أو سببية: عندما ترى الشمس يكون النهار قد طلع.",
+        "choices": [
+          { "id": "a", "text": "سببية" },
+          { "id": "b", "text": "ارتباط" },
+          { "id": "c", "text": "عشوائية" },
+          { "id": "d", "text": "مصادفة" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-25",
+        "type": "single",
+        "prompt": "هل العبارة التالية صحيحة أم خاطئة: المتوسط الحسابي هو مجموع القيم مقسومًا على عددها.",
+        "choices": [
+          { "id": "a", "text": "صح" },
+          { "id": "b", "text": "خطأ" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-26",
+        "type": "single",
+        "prompt": "في دراسة مسحية عشوائية شملت 2148 شخصاً، أفاد 58% منهم أن كرة القدم هي لعبتهم المفضلة: ما هامش خطأ المعاينة؟",
+        "choices": [
+          { "id": "a", "text": "2.16%" },
+          { "id": "b", "text": "5%" },
+          { "id": "c", "text": "1.08%" },
+          { "id": "d", "text": "4.32%" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-27",
+        "type": "single",
+        "prompt": "في دراسة مسحية عشوائية شملت 2148 شخصاً، أفاد 58% منهم أن كرة القدم هي لعبتهم المفضلة: ما الفترة الممكنة التي تتضمن نسبة المجتمع الذين أفادوا أن كرة القدم هي لعبتهم المفضلة؟",
+        "choices": [
+          { "id": "a", "text": "55.84% -> 60.16%" },
+          { "id": "b", "text": "50% -> 66%" },
+          { "id": "c", "text": "52% -> 64%" },
+          { "id": "d", "text": "58% -> 60%" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-28",
+        "type": "single",
+        "prompt": "هل العبارة التالية صحيحة أم خاطئة: من أشهر مقاييس التشتت: الانحراف المعياري والتباين.",
+        "choices": [
+          { "id": "a", "text": "صح" },
+          { "id": "b", "text": "خطأ" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-29",
+        "type": "single",
+        "prompt": "هل العبارة التالية صحيحة أم خاطئة: الاحتمال المشروط هو احتمال وقوع الحادثة B بشرط وقوع الحادثة A.",
+        "choices": [
+          { "id": "a", "text": "صح" },
+          { "id": "b", "text": "خطأ" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-30",
+        "type": "single",
+        "prompt": "ألقت عبير مكعب أرقام مرة واحدة. ما احتمال ظهور العدد 3، علماً بأن العدد الظاهر فردي؟",
+        "choices": [
+          { "id": "a", "text": "\\frac{1}{3}" },
+          { "id": "b", "text": "\\frac{1}{6}" },
+          { "id": "c", "text": "\\frac{1}{2}" },
+          { "id": "d", "text": "\\frac{1}{4}" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-31",
+        "type": "single",
+        "prompt": "أوجد احتمال أن يكون شخص اختير عشوائياً معافى، علماً بأنه يمارس المشي.",
+        "choices": [
+          { "id": "a", "text": "\\frac{1}{3}" },
+          { "id": "b", "text": "\\frac{1}{2}" },
+          { "id": "c", "text": "\\frac{2}{3}" },
+          { "id": "d", "text": "\\frac{1}{4}" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-32",
+        "type": "single",
+        "prompt": "رشّحت مدرسة 12 طالباً من الصف الأول الثانوي، و16 طالباً من الصف الثاني الثانوي للتنافس على 6 جوائز؛ نظراً لتفوقهم الدراسي. إذا تمت مقابلة المرشحين، واختير 6 منهم بشكل عشوائي، فما احتمال أن يفوز بالجوائز 3 طلاب من الصف الأول الثانوي و3 طلاب من الصف الثاني الثانوي؟",
+        "choices": [
+          { "id": "a", "text": "0.327" },
+          { "id": "b", "text": "0.5" },
+          { "id": "c", "text": "0.1635" },
+          { "id": "d", "text": "0.123" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-33",
+        "type": "single",
+        "prompt": "هل العبارة التالية صحيحة أم خاطئة: يُسمى المتغير الذي يأخذ مجموعة قيم لها احتمالات معلومة متغيراً عشوائياً منفصلاً.",
+        "choices": [
+          { "id": "a", "text": "صح" },
+          { "id": "b", "text": "خطأ" }
+        ],
+        "answer": "b"
+      },
+      {
+        "id": "math-q-34",
+        "type": "single",
+        "prompt": "هل العبارة التالية صحيحة أم خاطئة: المتغير العشوائي الذي له عدد محدود من القيم يُسمى متغيراً عشوائياً.",
+        "choices": [
+          { "id": "a", "text": "صح" },
+          { "id": "b", "text": "خطأ" }
+        ],
+        "answer": "b"
+      },
+      {
+        "id": "math-q-35",
+        "type": "single",
+        "prompt": "هل العبارة التالية صحيحة أم خاطئة: التوزيع الطبيعي يتساوى فيه المتوسط والوسيط والمنوال.",
+        "choices": [
+          { "id": "a", "text": "صح" },
+          { "id": "b", "text": "خطأ" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-36",
+        "type": "single",
+        "prompt": "المتوسط لتوزيع طبيعي 34، وانحرافه المعياري 5. أوجد احتمال أن تزيد قيمة لـ X تم اختيارها عشوائياً في هذا التوزيع عن 24، أي أوجد (P(X > 24.",
+        "choices": [
+          { "id": "a", "text": "97.5%" },
+          { "id": "b", "text": "2.5%" },
+          { "id": "c", "text": "47.5%" },
+          { "id": "d", "text": "68%" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-37",
+        "type": "single",
+        "prompt": "هل العبارة التالية صحيحة أم خاطئة: تجربة ذات الحدين هي تجربة احتمالية يتحقق فيها فشل أو نجاح.",
+        "choices": [
+          { "id": "a", "text": "صح" },
+          { "id": "b", "text": "خطأ" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-38",
+        "type": "single",
+        "prompt": "قدّر \\lim\\below{x\\rightarrow3}{\\frac{x^2-9}{x-3}} باستعمال التمثيل البياني.",
+        "choices": [
+          { "id": "a", "text": "6" },
+          { "id": "b", "text": "0" },
+          { "id": "c", "text": "3" },
+          { "id": "d", "text": "غير معرف" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-39",
+        "type": "single",
+        "prompt": "استعمل خصائص النهايات لحساب: \\lim\\below{x\\rightarrow4}{\\left(x^2-6x+3\\right)}",
+        "choices": [
+          { "id": "a", "text": "-5" },
+          { "id": "b", "text": "5" },
+          { "id": "c", "text": "0" },
+          { "id": "d", "text": "19" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-40",
+        "type": "single",
+        "prompt": "هل العبارة التالية صحيحة أم خاطئة: يُسمى ناتج التعويض في النهايات على الصورة \\frac{0}{0} الصيغة غير المحددة.",
+        "choices": [
+          { "id": "a", "text": "صح" },
+          { "id": "b", "text": "خطأ" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-41",
+        "type": "single",
+        "prompt": "هل العبارة التالية صحيحة أم خاطئة: لأي عدد صحيح موجب n: \\lim\\below{x\\rightarrow\\infty}{x^n}=\\infty \\lim\\below{x\\rightarrow-\\infty}{x^n}=\\infty، إذا كان n عدداً زوجياً. \\lim\\below{x\\rightarrow-\\infty}{x^n}=-\\infty، إذا كان n عدداً فردياً.",
+        "choices": [
+          { "id": "a", "text": "صح" },
+          { "id": "b", "text": "خطأ" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-42",
+        "type": "single",
+        "prompt": "أوجد مشتقة f\\left(x\\right)=4x^2-5x+8 باستعمال النهايات، ثم احسب قيمة المشتقة عندما x=1 و x=5.",
+        "choices": [
+          { "id": "a", "text": "3, 35" },
+          { "id": "b", "text": "35, 3" },
+          { "id": "c", "text": "3, 5" },
+          { "id": "d", "text": "8, 20" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-43",
+        "type": "single",
+        "prompt": "اوجد الدالة الأصلية لـf\\left(x\\right)=3x^2",
+        "choices": [
+          { "id": "a", "text": "x^3+c" },
+          { "id": "b", "text": "6x+c" },
+          { "id": "c", "text": "x^3" },
+          { "id": "d", "text": "3x^3+c" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-44",
+        "type": "single",
+        "prompt": "أوجد الدالة الأصلية لـf\\left(x\\right)=-\\frac{8}{x^9}",
+        "choices": [
+          { "id": "a", "text": "\\frac{1}{x^8}+c" },
+          { "id": "b", "text": "\\frac{-8}{x^8}+c" },
+          { "id": "c", "text": "x^8+c" },
+          { "id": "d", "text": "\\frac{-1}{x^8}+c" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-45",
+        "type": "single",
+        "prompt": "هل العبارة التالية صحيحة أم خاطئة: يُعطى التكامل غير المحدد للدالة f بالصيغة \\int f\\left(x\\right)\\thinsp dx=F\\left(x\\right)+C، حيث F\\left(x\\right) دالة أصلية لـ f\\left(x\\right)، و C ثابت.",
+        "choices": [
+          { "id": "a", "text": "صح" },
+          { "id": "b", "text": "خطأ" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-46",
+        "type": "single",
+        "prompt": "هل العبارة التالية صحيحة أم خاطئة: تُسمَّى عملية إيجاد المشتقة معادلة تفاضلية، وتُسمَّى النتيجة الاشتقاق.",
+        "choices": [
+          { "id": "a", "text": "صح" },
+          { "id": "b", "text": "خطأ" }
+        ],
+        "answer": "b"
+      },
+      {
+        "id": "math-q-47",
+        "type": "single",
+        "prompt": "ماذا تساوي مشتقة الدالة الثابتة؟",
+        "choices": [
+          { "id": "a", "text": "تساوي صفر" },
+          { "id": "b", "text": "تساوي 1" },
+          { "id": "c", "text": "تساوي الدالة نفسها" },
+          { "id": "d", "text": "غير معرفة" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-48",
+        "type": "single",
+        "prompt": "ماذا يسمى هذا الرمز μ؟",
+        "choices": [
+          { "id": "a", "text": "المتوسط" },
+          { "id": "b", "text": "الانحراف المعياري" },
+          { "id": "c", "text": "التباين" },
+          { "id": "d", "text": "الوسيط" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-49",
+        "type": "single",
+        "prompt": "ماذا يسمى هذا الرمز \\sigma^2؟",
+        "choices": [
+          { "id": "a", "text": "التباين" },
+          { "id": "b", "text": "المتوسط" },
+          { "id": "c", "text": "الانحراف المعياري" },
+          { "id": "d", "text": "المنوال" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-50",
+        "type": "single",
+        "prompt": "أوجد الضرب الداخلي للمتجهين v,u ثم تحقق مما إذا كانا متعامدين: u=\\left\\langle-7,\\ 3,\\ -3\\right\\rangle,v=\\left\\langle5,\\ 17,\\ 5\\right\\rangle",
+        "choices": [
+          { "id": "a", "text": "1، غير متعامدين" },
+          { "id": "b", "text": "0، متعامدين" },
+          { "id": "c", "text": "-1، متعامدين" },
+          { "id": "d", "text": "15، غير متعامدين" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-51",
+        "type": "single",
+        "prompt": "هل العبارة التالية صحيحة أم خاطئة: تُسمى النقطة الثابتة O نقطة الأصل.",
+        "choices": [
+          { "id": "a", "text": "صح" },
+          { "id": "b", "text": "خطأ" }
+        ],
+        "answer": "b"
+      },
+      {
+        "id": "math-q-52",
+        "type": "single",
+        "prompt": "هل العبارة التالية صحيحة أم خاطئة: القيمة المطلقة لعدد مركب يساوي \\sqrt{a^2+b^2}.",
+        "choices": [
+          { "id": "a", "text": "صح" },
+          { "id": "b", "text": "خطأ" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-53",
+        "type": "single",
+        "prompt": "مثِّل بيانيًّا المتجه v=\\left\\langle3,4,-2\\right\\rangle في نظام الإحداثيات الثلاثي الأبعاد.",
+        "choices": [
+          { "id": "a", "text": "رسم" },
+          { "id": "b", "text": "معادلة" },
+          { "id": "c", "text": "جدول" },
+          { "id": "d", "text": "نقطة" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-54",
+        "type": "single",
+        "prompt": "احسب النهاية: \\lim\\below{x\\rightarrow-\\infty}{\\left(x^3-2x^2+5x-1\\right)}",
+        "choices": [
+          { "id": "a", "text": "-∞" },
+          { "id": "b", "text": "∞" },
+          { "id": "c", "text": "0" },
+          { "id": "d", "text": "1" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-55",
+        "type": "single",
+        "prompt": "أوجد ميل مماس منحنى الدالة y=x^2 الممثلة بالشكل أدناه عند النقطة 1,1.",
+        "choices": [
+          { "id": "a", "text": "2" },
+          { "id": "b", "text": "1" },
+          { "id": "c", "text": "0" },
+          { "id": "d", "text": "-2" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-56",
+        "type": "single",
+        "prompt": "أوجد الدالة الأصلية لـ f\\left(x\\right)=4x^7",
+        "choices": [
+          { "id": "a", "text": "\\frac{x^8}{2}+c" },
+          { "id": "b", "text": "\\frac{4x^8}{8}+c" },
+          { "id": "c", "text": "x^8+c" },
+          { "id": "d", "text": "\\frac{x^8}{8}+c" }
+        ],
+        "answer": "a"
+      },
+      {
+        "id": "math-q-57",
+        "type": "single",
+        "prompt": "هل العبارة التالية صحيحة أم خاطئة: النظرية الأساسية في التفاضل والتكامل تتمثل في: \\int_{a}^{b}f\\left(x\\right)\\thinsp dx=F\\left(b\\right)-F\\left(a\\right)",
+        "choices": [
+          { "id": "a", "text": "صح" },
+          { "id": "b", "text": "خطأ" }
+        ],
+        "answer": "a"
+      }
+    ]
   ]
 }
