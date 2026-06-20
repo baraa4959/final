@@ -646,6 +646,18 @@
         { "id": "b", "text": "خطأ" }
       ],
       "answer": "a"
+    },
+    {
+      "id": "math-q-58",
+      "type": "single",
+      "prompt": "تحويل الإحداثيات القطبية إلى الإحداثيات الديكارتية يكون بالمعادلات:",
+      "choices": [
+        { "id": "a", "text": "x=r\\cos\\theta, y=r\\sin\\theta" },
+        { "id": "b", "text": "x=r\\sin\\theta, y=r\\cos\\theta" },
+        { "id": "c", "text": "x=\\sec\\theta}, y=\\csc\\theta" },
+        { "id": "d", "text": "x=\\tan\\theta, y=\\cot\\theta" }
+      ],
+      "answer": "a"
     }
   ]
 }
