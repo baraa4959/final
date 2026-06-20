@@ -157,7 +157,7 @@
       "type": "single",
       "prompt": "أوجد 2w-z+3y يأتي للمتجهات: \\ y\\ =\\ \\left\\langle3,-6,2\\right\\rangle,\\ w\\ =\\ \\left\\langle-1,4,-4\\right\\rangle,\\ z\\ =\\ \\langle-2,0,5\\ket",
       "choices": [
-        { "id": "a", "text": "2,-10,-7" },
+        { "id": "a", "text": "9,-10,-7" },
         { "id": "b", "text": "6,-2,4" },
         { "id": "c", "text": "-2,10,7" },
         { "id": "d", "text": "2,10,-7" }
@@ -481,7 +481,7 @@
       "prompt": "أوجد مشتقة f\\left(x\\right)=4x^2-5x+8 باستعمال النهايات، ثم احسب قيمة المشتقة عندما x=1 و x=5.",
       "choices": [
         { "id": "a", "text": "3, 35" },
-        { "id": "b", "text": "35, 3" },
+        { "id": "b", "text": "3, 3" },
         { "id": "c", "text": "3, 5" },
         { "id": "d", "text": "8, 20" }
       ],
