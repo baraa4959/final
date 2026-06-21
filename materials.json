@@ -82,9 +82,9 @@
           "url": "english.html"
         },
         "lesson": {
-          "label": "شرح للملف",
-          "status": "disabled",
-          "url": ""
+          "label": "شرح للملف (من الطالب تركي القرشي)",
+          "status": "available",
+          "url": "https://youtu.be/G4VB18zuUC8?si=FG0aZfaW0rkYxkaX"
         }
       }
     },
